@@ -31,7 +31,7 @@ class ViewController: NSViewController {
     }
     
     @IBAction private func didSelectQuitButton(_: NSButton) {
-        
+        NSApplication.shared().terminate(self)
     }
 }
 
