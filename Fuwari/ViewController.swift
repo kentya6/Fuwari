@@ -22,6 +22,16 @@ class ViewController: NSViewController {
         }
     }
 
-
+    @IBAction private func didSelectCaptureButton(_: NSButton) {
+        
+    }
+    
+    @IBAction private func didSelectPreferencesButton(_: NSButton) {
+        
+    }
+    
+    @IBAction private func didSelectQuitButton(_: NSButton) {
+        
+    }
 }
 
