@@ -10,20 +10,33 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    private var windowControllers = [NSWindowController]()
+    private var fullScreenWindow = FullScreenWindow()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        fullScreenWindow.captureDelegate = self
+        let controller = NSWindowController(window: fullScreenWindow)
+        controller.showWindow(nil)
+        windowControllers.append(controller)
+        fullScreenWindow.orderOut(nil)
     }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
+    
+    fileprivate func createFloatWindow(rect: NSRect, image: NSImage) {
+        let floatWindow = NSWindow(contentRect: rect, styleMask: .borderless, backing: .buffered, defer: false)
+        floatWindow.level = Int(CGWindowLevelForKey(.maximumWindow))
+        floatWindow.isMovableByWindowBackground = true
+        floatWindow.backgroundColor = NSColor(patternImage: image)
+        floatWindow.hasShadow = true
+        let floatWindowController = NSWindowController(window: floatWindow)
+        floatWindowController.showWindow(nil)
+        windowControllers.append(floatWindowController)
     }
 
     @IBAction private func didSelectCaptureButton(_: NSButton) {
         
+        fullScreenWindow.startCapture()
     }
     
     @IBAction private func didSelectPreferencesButton(_: NSButton) {
@@ -35,3 +48,9 @@ class ViewController: NSViewController {
     }
 }
 
+extension ViewController: CaptureDelegate {
+    func didCaptured(rect: NSRect, image: NSImage) {
+        print(rect.width, rect.height, image.size.width, image.size.height)
+        createFloatWindow(rect: rect, image: image)
+    }
+}
