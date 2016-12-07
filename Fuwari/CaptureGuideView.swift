@@ -43,37 +43,23 @@ class CaptureGuideView: NSView {
         capture(rect: guideWindowRect)
     }
     
-    private func capture(rect: NSRect) {
-        guard let path = NSSearchPathForDirectoriesInDomains(.desktopDirectory, .userDomainMask, true).first else {
-            return
-        }
-        let filename = path + "/sample_shot.png"
-        
+    private func capture(rect: NSRect) {        
         let windowId = NSApplication.shared().windows[0].windowNumber
         
         let cgRect = CGRect(x: rect.origin.x, y: frame.height - rect.origin.y - rect.height, width: rect.width, height: rect.height)
         guard let cgImage = CGWindowListCreateImage(cgRect, .optionOnScreenBelowWindow, CGWindowID(windowId), .bestResolution) else {
             return
         }
-        
-        let nsImage = NSImage(cgImage: cgImage, size: convertFromBacking(NSSize(width: cgImage.width, height: cgImage.height)))
-        
-        let bitmapRep = NSBitmapImageRep(cgImage: cgImage)
-        let data = bitmapRep.representation(using: .PNG, properties: [:])
-        do {
-            try data?.write(to: URL(fileURLWithPath: filename), options: .atomicWrite)
-        } catch {
-            NSLog(error.localizedDescription)
-        }
+
         startPoint = .zero
         currentPoint = .zero
         guideWindowRect = .zero
         needsDisplay = true
         
-        delegate?.didCaptured(rect: rect, image: nsImage)
+        delegate?.didCaptured(rect: rect, image: cgImage)
     }
 }
 
 protocol CaptureDelegate {
-    func didCaptured(rect: NSRect, image: NSImage)
+    func didCaptured(rect: NSRect, image: CGImage)
 }

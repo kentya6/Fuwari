@@ -14,7 +14,7 @@ class FullScreenWindow: NSWindow {
     
     override init(contentRect: NSRect, styleMask style: NSWindowStyleMask, backing bufferingType: NSBackingStoreType, defer flag: Bool) {
         guard let frame = NSScreen.main()?.frame else {
-            super.init(contentRect: contentRect, styleMask: .borderless, backing: .buffered, defer: false)
+            super.init(contentRect: contentRect, styleMask: style, backing: bufferingType, defer: flag)
             return
         }
         super.init(contentRect: frame, styleMask: .borderless, backing: .buffered, defer: false)
@@ -34,12 +34,12 @@ class FullScreenWindow: NSWindow {
     }
     
     func startCapture() {
-        orderFront(nil)
+        orderBack(nil)
     }
 }
 
 extension FullScreenWindow: CaptureDelegate {
-    func didCaptured(rect: NSRect, image: NSImage) {
+    func didCaptured(rect: NSRect, image: CGImage) {
         orderOut(nil)
         captureDelegate?.didCaptured(rect: rect, image: image)
     }

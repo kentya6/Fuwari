@@ -10,7 +10,7 @@ import Cocoa
 
 class ViewController: NSViewController {
 
-    private var windowControllers = [NSWindowController]()
+    fileprivate var windowControllers = [NSWindowController]()
     private var fullScreenWindow = FullScreenWindow()
     
     override func viewDidLoad() {
@@ -23,12 +23,9 @@ class ViewController: NSViewController {
         fullScreenWindow.orderOut(nil)
     }
     
-    fileprivate func createFloatWindow(rect: NSRect, image: NSImage) {
-        let floatWindow = NSWindow(contentRect: rect, styleMask: .borderless, backing: .buffered, defer: false)
-        floatWindow.level = Int(CGWindowLevelForKey(.maximumWindow))
-        floatWindow.isMovableByWindowBackground = true
-        floatWindow.backgroundColor = NSColor(patternImage: image)
-        floatWindow.hasShadow = true
+    fileprivate func createFloatWindow(rect: NSRect, image: CGImage) {
+        let floatWindow = FloatWindow(contentRect: rect, image: image)
+        floatWindow.floatDelegate = self
         let floatWindowController = NSWindowController(window: floatWindow)
         floatWindowController.showWindow(nil)
         windowControllers.append(floatWindowController)
@@ -49,8 +46,39 @@ class ViewController: NSViewController {
 }
 
 extension ViewController: CaptureDelegate {
-    func didCaptured(rect: NSRect, image: NSImage) {
-        print(rect.width, rect.height, image.size.width, image.size.height)
+    func didCaptured(rect: NSRect, image: CGImage) {
+        print(rect.width, rect.height, image.width, image.height)
         createFloatWindow(rect: rect, image: image)
+    }
+}
+
+extension ViewController: FloatDelegate {
+    func close(floatWindow: FloatWindow) {
+        windowControllers.filter({ $0.window === floatWindow }).first?.close()
+    }
+
+    func save(floatWindow: FloatWindow, image: CGImage) {
+        let savePanel = NSSavePanel()
+        savePanel.canCreateDirectories = true
+        savePanel.showsTagField = false
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMddHHmmss"
+        savePanel.nameFieldStringValue = "screen_shot_\(formatter.string(from: Date())).png"
+        
+        floatWindow.level = Int(CGWindowLevelForKey(.minimumWindow))
+        
+        savePanel.begin { (result) in
+            if result == NSFileHandlingPanelOKButton {
+                guard let url = savePanel.url else { return }
+                
+                let bitmapRep = NSBitmapImageRep(cgImage: image)
+                let data = bitmapRep.representation(using: .PNG, properties: [:])
+                do {
+                    try data?.write(to: url, options: .atomicWrite)
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+        }
     }
 }
