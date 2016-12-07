@@ -32,6 +32,7 @@ class ViewController: NSViewController {
     }
 
     @IBAction private func didSelectCaptureButton(_: NSButton) {
+        NSCursor.hide()
         
         fullScreenWindow.startCapture()
     }
@@ -49,6 +50,7 @@ extension ViewController: CaptureDelegate {
     func didCaptured(rect: NSRect, image: CGImage) {
         print(rect.width, rect.height, image.width, image.height)
         createFloatWindow(rect: rect, image: image)
+        NSCursor.unhide()
     }
 }
 

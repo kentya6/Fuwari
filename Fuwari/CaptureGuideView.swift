@@ -10,11 +10,23 @@ import Cocoa
 
 class CaptureGuideView: NSView {
 
-    public var delegate: CaptureDelegate?
+    var startPoint = NSPoint.zero {
+        didSet {
+            needsDisplay = true
+        }
+    }
     
-    private var startPoint = NSPoint.zero
-    private var currentPoint = NSPoint.zero
-    private var guideWindowRect = NSRect.zero
+    var cursorPoint = NSPoint.zero {
+        didSet {
+            needsDisplay = true
+        }
+    }
+    
+    var guideWindowRect = NSRect.zero
+    
+    private let cursorFont = NSFont.systemFont(ofSize: 10.0)
+    private let cursorSize = CGFloat(25.0)
+    private let cursorGuideWidth = CGFloat(1.0)
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
@@ -22,44 +34,40 @@ class CaptureGuideView: NSView {
         NSColor.clear.set()
         NSRectFill(frame)
         
-        guideWindowRect = NSRect(x: fmin(startPoint.x, currentPoint.x), y: fmin(startPoint.y, currentPoint.y), width: fabs(currentPoint.x - startPoint.x), height: fabs(currentPoint.y - startPoint.y))
-        NSColor(red: 0, green: 0, blue: 0, alpha: 0.25).set()
-        NSRectFill(guideWindowRect)
-        
-        NSColor.white.set()
-        NSFrameRectWithWidth(guideWindowRect, 1.0)
+        drawCaptureArea()
+        drawCursor()
     }
     
-    override func mouseDown(with event: NSEvent) {
-        startPoint = event.locationInWindow
-    }
-    
-    override func mouseDragged(with event: NSEvent) {
-        currentPoint = event.locationInWindow
-        needsDisplay = true
-    }
-    
-    override func mouseUp(with event: NSEvent) {
-        capture(rect: guideWindowRect)
-    }
-    
-    private func capture(rect: NSRect) {        
-        let windowId = NSApplication.shared().windows[0].windowNumber
-        
-        let cgRect = CGRect(x: rect.origin.x, y: frame.height - rect.origin.y - rect.height, width: rect.width, height: rect.height)
-        guard let cgImage = CGWindowListCreateImage(cgRect, .optionOnScreenBelowWindow, CGWindowID(windowId), .bestResolution) else {
-            return
+    private func drawCaptureArea() {
+        if startPoint != .zero {
+            NSColor(red: 0, green: 0, blue: 0, alpha: 0.25).set()
+            guideWindowRect = NSRect(x: fmin(startPoint.x, cursorPoint.x), y: fmin(startPoint.y, cursorPoint.y), width: fabs(cursorPoint.x - startPoint.x), height: fabs(cursorPoint.y - startPoint.y))
+            NSRectFill(guideWindowRect)
+            
+            NSColor.white.set()
+            NSFrameRectWithWidth(guideWindowRect, cursorGuideWidth)
         }
-
-        startPoint = .zero
-        currentPoint = .zero
-        guideWindowRect = .zero
-        needsDisplay = true
-        
-        delegate?.didCaptured(rect: rect, image: cgImage)
     }
-}
-
-protocol CaptureDelegate {
-    func didCaptured(rect: NSRect, image: CGImage)
+    
+    private func drawCursor() {
+        NSColor.darkGray.set()
+        let cursorRectWidth = NSRect(x: cursorPoint.x - cursorSize / 2, y: cursorPoint.y, width: cursorSize, height: 1)
+        NSRectFill(cursorRectWidth)
+        let cursorRectHeight = NSRect(x: cursorPoint.x, y: cursorPoint.y - cursorSize / 2, width: 1, height: cursorSize)
+        NSRectFill(cursorRectHeight)
+        
+        NSColor(red: 0, green: 0, blue: 0, alpha: 0.25).set()
+        let cursorCenter = NSRect(x: cursorPoint.x - cursorSize / 4 + cursorGuideWidth / 2, y: cursorPoint.y - cursorSize / 4 + cursorGuideWidth / 2, width: cursorSize / 2, height: cursorSize / 2)
+        let path = NSBezierPath(ovalIn: cursorCenter)
+        path.fill()
+        
+        (Int(cursorPoint.x).description as NSString).draw(at: NSPoint(x: cursorPoint.x + cursorSize / 2, y: cursorPoint.y - cursorSize / 2), withAttributes: [NSFontAttributeName : cursorFont])
+        (Int(cursorPoint.y).description as NSString).draw(at: NSPoint(x: cursorPoint.x + cursorSize / 2, y: cursorPoint.y - cursorSize), withAttributes: [NSFontAttributeName : cursorFont])
+    }
+    
+    func reset() {
+        startPoint = .zero
+        cursorPoint = .zero
+        guideWindowRect = .zero
+    }
 }
