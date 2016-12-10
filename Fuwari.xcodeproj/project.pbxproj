@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BE23E42F1DFA1623004DA6B7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE23E42E1DFA1623004DA6B7 /* Constants.swift */; };
+		BE23E4321DFB8BF4004DA6B7 /* Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE23E4311DFB8BF4004DA6B7 /* Magnet.framework */; };
 		BE7E82591DF72E7A00F3F2F8 /* FullScreenWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E82581DF72E7A00F3F2F8 /* FullScreenWindow.swift */; };
 		BE7E825B1DF74A2D00F3F2F8 /* FloatWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */; };
 		BEC844F71DED859300A4A57A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC844F61DED859300A4A57A /* AppDelegate.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		BE23E42E1DFA1623004DA6B7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BE23E4311DFB8BF4004DA6B7 /* Magnet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Magnet.framework; path = Carthage/Build/Mac/Magnet.framework; sourceTree = "<group>"; };
 		BE7E82581DF72E7A00F3F2F8 /* FullScreenWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenWindow.swift; sourceTree = "<group>"; };
 		BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatWindow.swift; sourceTree = "<group>"; };
 		BEC844F31DED859300A4A57A /* Fuwari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fuwari.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,17 +37,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE23E4321DFB8BF4004DA6B7 /* Magnet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE23E4301DFB8BF4004DA6B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE23E4311DFB8BF4004DA6B7 /* Magnet.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BEC844EA1DED859300A4A57A = {
 			isa = PBXGroup;
 			children = (
 				BEC844F51DED859300A4A57A /* Fuwari */,
 				BEC844F41DED859300A4A57A /* Products */,
+				BE23E4301DFB8BF4004DA6B7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +95,7 @@
 				BEC844EF1DED859300A4A57A /* Sources */,
 				BEC844F01DED859300A4A57A /* Frameworks */,
 				BEC844F11DED859300A4A57A /* Resources */,
+				BE23E4331DFB8C08004DA6B7 /* Catthage */,
 			);
 			buildRules = (
 			);
@@ -139,6 +152,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BE23E4331DFB8C08004DA6B7 /* Catthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/Mac/Magnet.framework",
+			);
+			name = Catthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BEC844EF1DED859300A4A57A /* Sources */ = {
@@ -264,6 +295,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = QZJ74E9669;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = Fuwari/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appknop.Fuwari;
@@ -278,6 +313,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = QZJ74E9669;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = Fuwari/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appknop.Fuwari;
