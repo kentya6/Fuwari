@@ -36,6 +36,8 @@ class FullScreenWindow: NSWindow {
         makeKeyAndOrderFront(self)
         
         contentView = captureGuideView
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(mouseMoved(with:)), name: Notification.Name(rawValue: Constants.NotificationType.MouseMoved.rawValue), object: nil)
     }
     
     func startCapture() {
@@ -44,16 +46,16 @@ class FullScreenWindow: NSWindow {
     }
     
     override func mouseMoved(with event: NSEvent) {
-        captureGuideView.cursorPoint = event.locationInWindow
+        captureGuideView.cursorPoint = NSEvent.mouseLocation()
     }
     
     override func mouseDown(with event: NSEvent) {
-        captureGuideView.startPoint = event.locationInWindow
-        captureGuideView.cursorPoint = event.locationInWindow
+        captureGuideView.startPoint = NSEvent.mouseLocation()
+        captureGuideView.cursorPoint = NSEvent.mouseLocation()
     }
     
     override func mouseDragged(with event: NSEvent) {
-        captureGuideView.cursorPoint = event.locationInWindow
+        captureGuideView.cursorPoint = NSEvent.mouseLocation()
     }
     
     override func mouseUp(with event: NSEvent) {

@@ -13,5 +13,6 @@ class Constants: NSObject {
     enum NotificationType: String {
         case Capture = "Capture"
         case Preferences = "Preferences"
+        case MouseMoved = "MouseMoved"
     }
 }

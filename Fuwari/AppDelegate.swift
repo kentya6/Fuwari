@@ -7,14 +7,21 @@
 //
 
 import Cocoa
+import Carbon
+import Magnet
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     let statusItem = NSStatusBar.system().statusItem(withLength: -2)
+    var eventMonitor: Any?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         configureMenu()
+        
+        if let keyCombo = KeyCombo(keyCode: kVK_ANSI_5, cocoaModifiers: [.shift, .command]) {
+            HotKey(identifier: "Capture", keyCombo: keyCombo, target: self, action: #selector(capture)).register()
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -28,7 +35,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let menu = NSMenu()
         
-        menu.addItem(NSMenuItem(title: "Capture", action: #selector(capture), keyEquivalent: "5"))
+        let captureItem = NSMenuItem(title: "Capture", action: #selector(capture), keyEquivalent: "5")
+        captureItem.keyEquivalentModifierMask = [.command, .shift]
+        menu.addItem(captureItem)
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Preferences", action: #selector(openPreferences), keyEquivalent: "P"))
         menu.addItem(NSMenuItem.separator())
@@ -37,16 +46,29 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.menu = menu
     }
     
-    @objc private func openPreferences(sender: Any) {
+    @objc private func openPreferences() {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.NotificationType.Preferences.rawValue), object: nil)
     }
     
-    @objc private func capture(sender: Any) {
+    @objc private func capture() {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.NotificationType.Capture.rawValue), object: nil)
+        eventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.mouseMoved, .leftMouseUp], handler: {
+            (event: NSEvent) in
+            switch event.type {
+            case .mouseMoved:
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.NotificationType.MouseMoved.rawValue), object: nil)
+            case .leftMouseUp:
+                if let eventMonitor = self.eventMonitor {
+                    NSEvent.removeMonitor(eventMonitor)
+                    self.eventMonitor = nil
+                }
+            default:
+                break
+            }
+        })
     }
     
-    @objc private func quit(sender: Any) {
+    @objc private func quit() {
         NSApp.terminate(nil)
     }
 }
-
