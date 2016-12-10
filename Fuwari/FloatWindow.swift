@@ -28,6 +28,8 @@ class FloatWindow: NSWindow {
         backgroundColor = NSColor(patternImage: nsImage)
         
         self.image = image
+        
+        fade(isIn: true, completion: nil)
     }
     
     override func keyDown(with event: NSEvent) {
@@ -40,7 +42,9 @@ class FloatWindow: NSWindow {
                     floatDelegate?.save(floatWindow: self, image: image)
                 }
             case UInt16(kVK_ANSI_W):
-                floatDelegate?.close(floatWindow: self)
+                fade(isIn: false) {
+                    self.floatDelegate?.close(floatWindow: self)
+                }
             default:
                 break
             }
@@ -53,6 +57,16 @@ class FloatWindow: NSWindow {
     
     override func mouseUp(with event: NSEvent) {
         alphaValue = 1.0
+    }
+    
+    private func fade(isIn: Bool, completion: (() -> Void)?) {
+        alphaValue = isIn ? 0.0 : 1.0
+        makeKeyAndOrderFront(self)
+        NSAnimationContext.beginGrouping()
+        NSAnimationContext.current().completionHandler = completion
+        NSAnimationContext.current().duration = 0.2
+        animator().alphaValue = isIn ? 1.0 : 0.0
+        NSAnimationContext.endGrouping()
     }
 }
 
