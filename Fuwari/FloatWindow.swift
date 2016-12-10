@@ -46,6 +46,14 @@ class FloatWindow: NSWindow {
             }
         }
     }
+    
+    override func mouseDown(with event: NSEvent) {
+        alphaValue = 0.4
+    }
+    
+    override func mouseUp(with event: NSEvent) {
+        alphaValue = 1.0
+    }
 }
 
 protocol FloatDelegate {
