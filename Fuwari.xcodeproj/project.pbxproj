@@ -14,6 +14,8 @@
 		BE5896A11DFCED26007CE7AC /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5896A01DFCED26007CE7AC /* LocalizedString.swift */; };
 		BE5896A51DFD0E8C007CE7AC /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896A31DFD0E8C007CE7AC /* Fabric.framework */; };
 		BE5896A81DFD0EF0007CE7AC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896A71DFD0EF0007CE7AC /* Crashlytics.framework */; };
+		BE5896AA1DFD1076007CE7AC /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896A91DFD1076007CE7AC /* Sparkle.framework */; };
+		BE5896AC1DFD11D7007CE7AC /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = BE5896AB1DFD11D7007CE7AC /* dsa_pub.pem */; };
 		BE7E82591DF72E7A00F3F2F8 /* FullScreenWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E82581DF72E7A00F3F2F8 /* FullScreenWindow.swift */; };
 		BE7E825B1DF74A2D00F3F2F8 /* FloatWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */; };
 		BEC844F71DED859300A4A57A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC844F61DED859300A4A57A /* AppDelegate.swift */; };
@@ -38,6 +40,8 @@
 		BE5896A01DFCED26007CE7AC /* LocalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
 		BE5896A31DFD0E8C007CE7AC /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		BE5896A71DFD0EF0007CE7AC /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
+		BE5896A91DFD1076007CE7AC /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Carthage/Build/Mac/Sparkle.framework; sourceTree = "<group>"; };
+		BE5896AB1DFD11D7007CE7AC /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dsa_pub.pem; path = "../../../../../Downloads/Sparkle-master/bin/dsa_pub.pem"; sourceTree = "<group>"; };
 		BE7E82581DF72E7A00F3F2F8 /* FullScreenWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenWindow.swift; sourceTree = "<group>"; };
 		BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatWindow.swift; sourceTree = "<group>"; };
 		BEC844F31DED859300A4A57A /* Fuwari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fuwari.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE5896AA1DFD1076007CE7AC /* Sparkle.framework in Frameworks */,
 				BE5896971DFCE965007CE7AC /* LoginServiceKit.framework in Frameworks */,
 				BE23E4321DFB8BF4004DA6B7 /* Magnet.framework in Frameworks */,
 				BE5896A81DFD0EF0007CE7AC /* Crashlytics.framework in Frameworks */,
@@ -77,6 +82,7 @@
 		BE23E4301DFB8BF4004DA6B7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE5896A91DFD1076007CE7AC /* Sparkle.framework */,
 				BE5896A71DFD0EF0007CE7AC /* Crashlytics.framework */,
 				BE5896A31DFD0E8C007CE7AC /* Fabric.framework */,
 				BE5896961DFCE965007CE7AC /* LoginServiceKit.framework */,
@@ -106,24 +112,57 @@
 			isa = PBXGroup;
 			children = (
 				BEC844F61DED859300A4A57A /* AppDelegate.swift */,
-				BE58969C1DFCEB07007CE7AC /* Localizable.strings */,
 				BEC844F81DED859300A4A57A /* ViewController.swift */,
 				BEC8450B1DF59ECB00A4A57A /* CaptureGuideView.swift */,
 				BE7E82581DF72E7A00F3F2F8 /* FullScreenWindow.swift */,
 				BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */,
+				BEF580021DFD9464006595B6 /* Preferences */,
+				BEF580011DFD945A006595B6 /* Utility */,
+				BEF57FEE1DFD58D4006595B6 /* NSColor+Fuwari.swift */,
+				BEC844FC1DED859300A4A57A /* Main.storyboard */,
+				BEF580031DFD9480006595B6 /* Resources */,
+				BEF580041DFD9491006595B6 /* Supprting Files */,
+			);
+			path = Fuwari;
+			sourceTree = "<group>";
+		};
+		BEF580011DFD945A006595B6 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
 				BE23E42E1DFA1623004DA6B7 /* Constants.swift */,
 				BE5896A01DFCED26007CE7AC /* LocalizedString.swift */,
-				BEF57FEE1DFD58D4006595B6 /* NSColor+Fuwari.swift */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		BEF580021DFD9464006595B6 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
 				BEF57FE41DFD46AE006595B6 /* PreferencesWindowController.swift */,
 				BEF57FEC1DFD53D3006595B6 /* UpdatePreferenceViewController.swift */,
 				BEF57FF41DFD5CB6006595B6 /* PreferencesWindowController.xib */,
 				BEF57FF91DFD5CD1006595B6 /* GeneralPreferenceViewController.xib */,
 				BEF57FFE1DFD5D03006595B6 /* UpdatePreferenceViewController.xib */,
-				BEC844FA1DED859300A4A57A /* Assets.xcassets */,
-				BEC844FC1DED859300A4A57A /* Main.storyboard */,
-				BEC844FF1DED859300A4A57A /* Info.plist */,
 			);
-			path = Fuwari;
+			name = Preferences;
+			sourceTree = "<group>";
+		};
+		BEF580031DFD9480006595B6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BE58969C1DFCEB07007CE7AC /* Localizable.strings */,
+				BEC844FA1DED859300A4A57A /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		BEF580041DFD9491006595B6 /* Supprting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BEC844FF1DED859300A4A57A /* Info.plist */,
+				BE5896AB1DFD11D7007CE7AC /* dsa_pub.pem */,
+			);
+			name = "Supprting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEC844FB1DED859300A4A57A /* Assets.xcassets in Resources */,
+				BE5896AC1DFD11D7007CE7AC /* dsa_pub.pem in Resources */,
 				BE58969A1DFCEB07007CE7AC /* Localizable.strings in Resources */,
 				BEF57FF21DFD5CB6006595B6 /* PreferencesWindowController.xib in Resources */,
 				BEC844FE1DED859300A4A57A /* Main.storyboard in Resources */,
@@ -209,6 +249,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/Mac/Magnet.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/LoginServiceKit.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/Sparkle.framework",
 			);
 			name = Carthage;
 			outputPaths = (
