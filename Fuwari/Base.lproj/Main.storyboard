@@ -23,11 +23,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
-                                            <connections>
-                                                <segue destination="nSD-Sa-ZG5" kind="show" id="7Xk-Mc-nxx"/>
-                                            </connections>
-                                        </menuItem>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -668,7 +664,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Fuwari" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -786,7 +782,7 @@
         <!--Tab View Controller-->
         <scene sceneID="I59-7V-4PY">
             <objects>
-                <tabViewController selectedTabViewItemIndex="0" id="nSD-Sa-ZG5" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="0" tabStyle="toolbar" id="nSD-Sa-ZG5" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem identifier="" id="DDU-WK-4st"/>
                         <tabViewItem identifier="" id="a0x-3c-y6o"/>
@@ -836,7 +832,4 @@
     <resources>
         <image name="AppIcon" width="128" height="128"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="7Xk-Mc-nxx"/>
-    </inferredMetricsTieBreakers>
 </document>

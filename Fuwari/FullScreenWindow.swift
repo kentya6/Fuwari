@@ -37,7 +37,7 @@ class FullScreenWindow: NSWindow {
         
         contentView = captureGuideView
         
-        NotificationCenter.default.addObserver(self, selector: #selector(mouseMoved(with:)), name: Notification.Name(rawValue: Constants.NotificationType.MouseMoved.rawValue), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(mouseMoved(with:)), name: Notification.Name(rawValue: Constants.Notification.mouseMoved), object: nil)
     }
     
     func startCapture() {

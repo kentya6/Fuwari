@@ -8,11 +8,16 @@
 
 import Cocoa
 
-class Constants: NSObject {
+struct Constants {
 
-    enum NotificationType: String {
-        case Capture = "Capture"
-        case Preferences = "Preferences"
-        case MouseMoved = "MouseMoved"
+    struct Notification {
+        static let capture     = "capture"
+        static let preferences = "preferences"
+        static let mouseMoved  = "mouseMoved"
+    }
+    
+    struct UserDefaults {
+        static let loginItem                 = "loginItem"
+        static let suppressAlertForLoginItem = "suppressAlertForLoginItem"
     }
 }

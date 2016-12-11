@@ -9,12 +9,14 @@
 import Cocoa
 import Carbon
 import Magnet
+import LoginServiceKit
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    let statusItem = NSStatusBar.system().statusItem(withLength: -2)
+    let statusItem = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
     var eventMonitor: Any?
+    let defaults = UserDefaults.standard
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         configureMenu()
@@ -22,10 +24,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let keyCombo = KeyCombo(keyCode: kVK_ANSI_5, cocoaModifiers: [.shift, .command]) {
             HotKey(identifier: "Capture", keyCombo: keyCombo, target: self, action: #selector(capture)).register()
         }
+        
+        // Show Login Item
+        if !defaults.bool(forKey: Constants.UserDefaults.loginItem) && !defaults.bool(forKey: Constants.UserDefaults.suppressAlertForLoginItem) {
+            promptToAddLoginItems()
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
+        HotKeyCenter.shared.unregisterAll()
     }
     
     private func configureMenu() {
@@ -47,16 +54,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc private func openPreferences() {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.NotificationType.Preferences.rawValue), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.Notification.preferences), object: nil)
     }
     
     @objc private func capture() {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.NotificationType.Capture.rawValue), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.Notification.capture), object: nil)
         eventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.mouseMoved, .leftMouseUp], handler: {
             (event: NSEvent) in
             switch event.type {
             case .mouseMoved:
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.NotificationType.MouseMoved.rawValue), object: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.Notification.mouseMoved), object: nil)
             case .leftMouseUp:
                 if let eventMonitor = self.eventMonitor {
                     NSEvent.removeMonitor(eventMonitor)
@@ -70,5 +77,39 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @objc private func quit() {
         NSApp.terminate(nil)
+    }
+    
+    fileprivate func promptToAddLoginItems() {
+        let alert = NSAlert()
+        alert.messageText = LocalizedString.LaunchClipy.value
+        alert.informativeText = LocalizedString.LaunchSettingInfo.value
+        alert.addButton(withTitle: LocalizedString.LaunchOnStartup.value)
+        alert.addButton(withTitle: LocalizedString.DontLaunch.value)
+        alert.showsSuppressionButton = true
+        NSApp.activate(ignoringOtherApps: true)
+        
+        //  Launch on system startup
+        if alert.runModal() == NSAlertFirstButtonReturn {
+            defaults.set(true, forKey: Constants.UserDefaults.loginItem)
+            toggleLoginItemState()
+        }
+        // Do not show this message again
+        if alert.suppressionButton?.state == NSOnState {
+            defaults.set(true, forKey: Constants.UserDefaults.suppressAlertForLoginItem)
+        }
+        defaults.synchronize()
+    }
+    
+    fileprivate func toggleAddingToLoginItems(_ enable: Bool) {
+        let appPath = Bundle.main.bundlePath
+        LoginServiceKit.removeLoginItems(at: appPath)
+        if enable {
+            LoginServiceKit.addLoginItems(at: appPath)
+        }
+    }
+    
+    fileprivate func toggleLoginItemState() {
+        let isInLoginItems = defaults.bool(forKey: Constants.UserDefaults.loginItem)
+        toggleAddingToLoginItems(isInLoginItems)
     }
 }

@@ -22,8 +22,8 @@ class ViewController: NSViewController {
         windowControllers.append(controller)
         fullScreenWindow.orderOut(nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(didSelectCaptureButton(_:)), name: Notification.Name(rawValue: Constants.NotificationType.Capture.rawValue), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(didSelectPreferencesButton(_:)), name: Notification.Name(rawValue: Constants.NotificationType.Preferences.rawValue), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didSelectCaptureButton(_:)), name: Notification.Name(rawValue: Constants.Notification.capture), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didSelectPreferencesButton(_:)), name: Notification.Name(rawValue: Constants.Notification.preferences), object: nil)
     }
     
     fileprivate func createFloatWindow(rect: NSRect, image: CGImage) {
