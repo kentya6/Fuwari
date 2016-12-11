@@ -20,4 +20,11 @@ struct Constants {
         static let loginItem                 = "loginItem"
         static let suppressAlertForLoginItem = "suppressAlertForLoginItem"
     }
+    
+    struct ImageName {
+        static let generalOff = "General"
+        static let generalOn  = "GeneralOn"
+        static let updatesOff = "Update"
+        static let updatesOn  = "UpdateOn"
+    }
 }
