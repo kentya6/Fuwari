@@ -12,6 +12,8 @@
 		BE5896971DFCE965007CE7AC /* LoginServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896961DFCE965007CE7AC /* LoginServiceKit.framework */; };
 		BE58969A1DFCEB07007CE7AC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE58969C1DFCEB07007CE7AC /* Localizable.strings */; };
 		BE5896A11DFCED26007CE7AC /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5896A01DFCED26007CE7AC /* LocalizedString.swift */; };
+		BE5896A51DFD0E8C007CE7AC /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896A31DFD0E8C007CE7AC /* Fabric.framework */; };
+		BE5896A81DFD0EF0007CE7AC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896A71DFD0EF0007CE7AC /* Crashlytics.framework */; };
 		BE7E82591DF72E7A00F3F2F8 /* FullScreenWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E82581DF72E7A00F3F2F8 /* FullScreenWindow.swift */; };
 		BE7E825B1DF74A2D00F3F2F8 /* FloatWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */; };
 		BEC844F71DED859300A4A57A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC844F61DED859300A4A57A /* AppDelegate.swift */; };
@@ -29,6 +31,8 @@
 		BE58969E1DFCEB84007CE7AC /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE58969F1DFCEB95007CE7AC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BE5896A01DFCED26007CE7AC /* LocalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
+		BE5896A31DFD0E8C007CE7AC /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
+		BE5896A71DFD0EF0007CE7AC /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		BE7E82581DF72E7A00F3F2F8 /* FullScreenWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenWindow.swift; sourceTree = "<group>"; };
 		BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatWindow.swift; sourceTree = "<group>"; };
 		BEC844F31DED859300A4A57A /* Fuwari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fuwari.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +51,8 @@
 			files = (
 				BE5896971DFCE965007CE7AC /* LoginServiceKit.framework in Frameworks */,
 				BE23E4321DFB8BF4004DA6B7 /* Magnet.framework in Frameworks */,
+				BE5896A81DFD0EF0007CE7AC /* Crashlytics.framework in Frameworks */,
+				BE5896A51DFD0E8C007CE7AC /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +62,8 @@
 		BE23E4301DFB8BF4004DA6B7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE5896A71DFD0EF0007CE7AC /* Crashlytics.framework */,
+				BE5896A31DFD0E8C007CE7AC /* Fabric.framework */,
 				BE5896961DFCE965007CE7AC /* LoginServiceKit.framework */,
 				BE23E4311DFB8BF4004DA6B7 /* Magnet.framework */,
 			);
@@ -108,6 +116,7 @@
 				BEC844F01DED859300A4A57A /* Frameworks */,
 				BEC844F11DED859300A4A57A /* Resources */,
 				BE23E4331DFB8C08004DA6B7 /* Catthage */,
+				BE5896A21DFD0E71007CE7AC /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -183,6 +192,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		BE5896A21DFD0E71007CE7AC /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 91c94b457e53915af7482ee33e544c1b3f3718d2 680759de191c29b40db6dc3dce98ceb8e438ca32232ac5dec8bbf8d94f7c21df";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -326,6 +349,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Fuwari/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -344,6 +368,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Fuwari/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";

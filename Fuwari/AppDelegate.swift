@@ -10,6 +10,8 @@ import Cocoa
 import Carbon
 import Magnet
 import LoginServiceKit
+import Fabric
+import Crashlytics
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -19,6 +21,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let defaults = UserDefaults.standard
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        Fabric.with([Answers.self, Crashlytics.self])
+
         configureMenu()
         
         if let keyCombo = KeyCombo(keyCode: kVK_ANSI_5, cocoaModifiers: [.shift, .command]) {
