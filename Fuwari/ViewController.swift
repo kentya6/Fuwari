@@ -10,6 +10,8 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    @IBOutlet private weak var versionTextField: NSTextField!
+    
     fileprivate var windowControllers = [NSWindowController]()
     private var fullScreenWindow = FullScreenWindow()
     
@@ -24,6 +26,10 @@ class ViewController: NSViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(didSelectCaptureButton(_:)), name: Notification.Name(rawValue: Constants.Notification.capture), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didSelectPreferencesButton(_:)), name: Notification.Name(rawValue: Constants.Notification.preferences), object: nil)
+        
+        if let versionString = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
+            versionTextField.stringValue = "Fuwari, v\(versionString)"
+        }
     }
     
     fileprivate func createFloatWindow(rect: NSRect, image: CGImage) {

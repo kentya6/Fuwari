@@ -773,6 +773,9 @@
                             <constraint firstItem="FhO-k5-FsE" firstAttribute="leading" secondItem="f1q-Bf-c99" secondAttribute="trailing" constant="24" id="y2h-QY-bBi"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="versionTextField" destination="U4Y-ad-vii" id="OUC-6e-O5B"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
