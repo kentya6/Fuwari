@@ -49,13 +49,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let menu = NSMenu()
         
-        let captureItem = NSMenuItem(title: "Capture", action: #selector(capture), keyEquivalent: "5")
+        let captureItem = NSMenuItem(title: LocalizedString.Capture.value, action: #selector(capture), keyEquivalent: "5")
         captureItem.keyEquivalentModifierMask = [.command, .shift]
         menu.addItem(captureItem)
         menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title: "Preferences", action: #selector(openPreferences), keyEquivalent: ","))
+        menu.addItem(NSMenuItem(title: LocalizedString.Preference.value, action: #selector(openPreferences), keyEquivalent: ","))
         menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title: "Quit Fuwari", action: #selector(quit), keyEquivalent: "q"))
+        menu.addItem(NSMenuItem(title: LocalizedString.QuitFuwari.value, action: #selector(quit), keyEquivalent: "q"))
         
         statusItem.menu = menu
     }
@@ -88,7 +88,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     fileprivate func promptToAddLoginItems() {
         let alert = NSAlert()
-        alert.messageText = LocalizedString.LaunchClipy.value
+        alert.messageText = LocalizedString.LaunchFuwari.value
         alert.informativeText = LocalizedString.LaunchSettingInfo.value
         alert.addButton(withTitle: LocalizedString.LaunchOnStartup.value)
         alert.addButton(withTitle: LocalizedString.DontLaunch.value)

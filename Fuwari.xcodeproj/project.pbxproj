@@ -54,13 +54,13 @@
 		BEF57FE41DFD46AE006595B6 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		BEF57FEC1DFD53D3006595B6 /* UpdatePreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePreferenceViewController.swift; sourceTree = "<group>"; };
 		BEF57FEE1DFD58D4006595B6 /* NSColor+Fuwari.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+Fuwari.swift"; sourceTree = "<group>"; };
-		BEF57FF11DFD5CAD006595B6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		BEF57FF51DFD5CBA006595B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreferencesWindowController.xib; sourceTree = "<group>"; };
 		BEF57FF61DFD5CC5006595B6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/PreferencesWindowController.strings; sourceTree = "<group>"; };
 		BEF57FFA1DFD5CD3006595B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GeneralPreferenceViewController.xib; sourceTree = "<group>"; };
 		BEF57FFB1DFD5CD6006595B6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/GeneralPreferenceViewController.strings; sourceTree = "<group>"; };
 		BEF57FFF1DFD5D05006595B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/UpdatePreferenceViewController.xib; sourceTree = "<group>"; };
 		BEF580001DFD5D08006595B6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/UpdatePreferenceViewController.strings; sourceTree = "<group>"; };
+		BEF580081DFD9786006595B6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,7 +308,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				BEC844FD1DED859300A4A57A /* Base */,
-				BEF57FF11DFD5CAD006595B6 /* ja */,
+				BEF580081DFD9786006595B6 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
