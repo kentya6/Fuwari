@@ -1,0 +1,29 @@
+/* 
+  Localizable.strings
+  Fuwari
+
+  Created by Kengo Yokoyama on 2016/12/11.
+  Copyright © 2016年 AppKnop. All rights reserved.
+*/
+
+"Launch Fuwari on system startup?" = "システム起動時にFuwariを起動しますか?";
+
+"You can change this setting in the Preferences if you want." = "この設定はいつでも変更できます";
+
+"Launch on system startup" = "起動する";
+
+"Don't Launch" = "起動しない";
+
+"Cancel" = "キャンセル";
+
+"Preferences..." = "環境設定...";
+
+"Quit Fuwari" = "Fuwariを終了";
+
+"General" = "一般";
+
+"Menu" = "メニュー";
+
+"Shortcuts" = "ショートカット";
+
+"Updates" = "アップデート";
