@@ -28,7 +28,6 @@
 		BE23E4311DFB8BF4004DA6B7 /* Magnet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Magnet.framework; path = Carthage/Build/Mac/Magnet.framework; sourceTree = "<group>"; };
 		BE5896961DFCE965007CE7AC /* LoginServiceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LoginServiceKit.framework; path = Carthage/Build/Mac/LoginServiceKit.framework; sourceTree = "<group>"; };
 		BE58969B1DFCEB07007CE7AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		BE58969E1DFCEB84007CE7AC /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE58969F1DFCEB95007CE7AC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BE5896A01DFCED26007CE7AC /* LocalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
 		BE5896A31DFD0E8C007CE7AC /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
