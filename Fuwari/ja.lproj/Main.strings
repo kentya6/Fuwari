@@ -122,6 +122,9 @@
 /* Class = "NSMenuItem"; title = "Show Spelling and Grammar"; ObjectID = "HFo-cy-zxI"; */
 "HFo-cy-zxI.title" = "Show Spelling and Grammar";
 
+/* Class = "NSTextFieldCell"; title = "Behavior"; ObjectID = "Hdf-Si-kK1"; */
+"Hdf-Si-kK1.title" = "動作";
+
 /* Class = "NSMenu"; title = "View"; ObjectID = "HyV-fh-RgO"; */
 "HyV-fh-RgO.title" = "View";
 
@@ -257,6 +260,9 @@
 /* Class = "NSMenuItem"; title = "Paragraph"; ObjectID = "ZvO-Gk-QUH"; */
 "ZvO-Gk-QUH.title" = "Paragraph";
 
+/* Class = "NSButtonCell"; title = "Launch on Login"; ObjectID = "aI2-fi-b4l"; */
+"aI2-fi-b4l.title" = "ログイン時に起動";
+
 /* Class = "NSMenuItem"; title = "Print…"; ObjectID = "aTl-1u-JFS"; */
 "aTl-1u-JFS.title" = "Print…";
 
@@ -277,6 +283,9 @@
 
 /* Class = "NSMenuItem"; title = "Use Selection for Find"; ObjectID = "buJ-ug-pKt"; */
 "buJ-ug-pKt.title" = "Use Selection for Find";
+
+/* Class = "NSViewController"; title = "General"; ObjectID = "bwU-yz-A1i"; */
+"bwU-yz-A1i.title" = "一般";
 
 /* Class = "NSMenu"; title = "Transformations"; ObjectID = "c8a-y6-VQd"; */
 "c8a-y6-VQd.title" = "Transformations";
