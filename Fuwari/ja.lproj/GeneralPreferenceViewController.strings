@@ -1,0 +1,6 @@
+
+/* Class = "NSButtonCell"; title = "Launch on Login"; ObjectID = "7nO-qE-sdg"; */
+"7nO-qE-sdg.title" = "ログイン時に起動";
+
+/* Class = "NSTextFieldCell"; title = "Behavior"; ObjectID = "r4j-9y-Hik"; */
+"r4j-9y-Hik.title" = "動作";

@@ -21,6 +21,12 @@
 		BEC844FB1DED859300A4A57A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEC844FA1DED859300A4A57A /* Assets.xcassets */; };
 		BEC844FE1DED859300A4A57A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEC844FC1DED859300A4A57A /* Main.storyboard */; };
 		BEC8450C1DF59ECB00A4A57A /* CaptureGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC8450B1DF59ECB00A4A57A /* CaptureGuideView.swift */; };
+		BEF57FE51DFD46AE006595B6 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF57FE41DFD46AE006595B6 /* PreferencesWindowController.swift */; };
+		BEF57FED1DFD53D3006595B6 /* UpdatePreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF57FEC1DFD53D3006595B6 /* UpdatePreferenceViewController.swift */; };
+		BEF57FEF1DFD58D4006595B6 /* NSColor+Fuwari.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF57FEE1DFD58D4006595B6 /* NSColor+Fuwari.swift */; };
+		BEF57FF21DFD5CB6006595B6 /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEF57FF41DFD5CB6006595B6 /* PreferencesWindowController.xib */; };
+		BEF57FF71DFD5CD1006595B6 /* GeneralPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEF57FF91DFD5CD1006595B6 /* GeneralPreferenceViewController.xib */; };
+		BEF57FFC1DFD5D03006595B6 /* UpdatePreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEF57FFE1DFD5D03006595B6 /* UpdatePreferenceViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +47,16 @@
 		BEC844FD1DED859300A4A57A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BEC844FF1DED859300A4A57A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEC8450B1DF59ECB00A4A57A /* CaptureGuideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureGuideView.swift; sourceTree = "<group>"; };
+		BEF57FE41DFD46AE006595B6 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
+		BEF57FEC1DFD53D3006595B6 /* UpdatePreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePreferenceViewController.swift; sourceTree = "<group>"; };
+		BEF57FEE1DFD58D4006595B6 /* NSColor+Fuwari.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+Fuwari.swift"; sourceTree = "<group>"; };
+		BEF57FF11DFD5CAD006595B6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		BEF57FF51DFD5CBA006595B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreferencesWindowController.xib; sourceTree = "<group>"; };
+		BEF57FF61DFD5CC5006595B6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/PreferencesWindowController.strings; sourceTree = "<group>"; };
+		BEF57FFA1DFD5CD3006595B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GeneralPreferenceViewController.xib; sourceTree = "<group>"; };
+		BEF57FFB1DFD5CD6006595B6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/GeneralPreferenceViewController.strings; sourceTree = "<group>"; };
+		BEF57FFF1DFD5D05006595B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/UpdatePreferenceViewController.xib; sourceTree = "<group>"; };
+		BEF580001DFD5D08006595B6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/UpdatePreferenceViewController.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +113,12 @@
 				BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */,
 				BE23E42E1DFA1623004DA6B7 /* Constants.swift */,
 				BE5896A01DFCED26007CE7AC /* LocalizedString.swift */,
+				BEF57FEE1DFD58D4006595B6 /* NSColor+Fuwari.swift */,
+				BEF57FE41DFD46AE006595B6 /* PreferencesWindowController.swift */,
+				BEF57FEC1DFD53D3006595B6 /* UpdatePreferenceViewController.swift */,
+				BEF57FF41DFD5CB6006595B6 /* PreferencesWindowController.xib */,
+				BEF57FF91DFD5CD1006595B6 /* GeneralPreferenceViewController.xib */,
+				BEF57FFE1DFD5D03006595B6 /* UpdatePreferenceViewController.xib */,
 				BEC844FA1DED859300A4A57A /* Assets.xcassets */,
 				BEC844FC1DED859300A4A57A /* Main.storyboard */,
 				BEC844FF1DED859300A4A57A /* Info.plist */,
@@ -114,7 +136,7 @@
 				BEC844EF1DED859300A4A57A /* Sources */,
 				BEC844F01DED859300A4A57A /* Frameworks */,
 				BEC844F11DED859300A4A57A /* Resources */,
-				BE23E4331DFB8C08004DA6B7 /* Catthage */,
+				BE23E4331DFB8C08004DA6B7 /* Carthage */,
 				BE5896A21DFD0E71007CE7AC /* Fabric */,
 			);
 			buildRules = (
@@ -169,14 +191,17 @@
 			files = (
 				BEC844FB1DED859300A4A57A /* Assets.xcassets in Resources */,
 				BE58969A1DFCEB07007CE7AC /* Localizable.strings in Resources */,
+				BEF57FF21DFD5CB6006595B6 /* PreferencesWindowController.xib in Resources */,
 				BEC844FE1DED859300A4A57A /* Main.storyboard in Resources */,
+				BEF57FF71DFD5CD1006595B6 /* GeneralPreferenceViewController.xib in Resources */,
+				BEF57FFC1DFD5D03006595B6 /* UpdatePreferenceViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		BE23E4331DFB8C08004DA6B7 /* Catthage */ = {
+		BE23E4331DFB8C08004DA6B7 /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -185,7 +210,7 @@
 				"$(SRCROOT)/Carthage/Build/Mac/Magnet.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/LoginServiceKit.framework",
 			);
-			name = Catthage;
+			name = Carthage;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,11 +239,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE7E825B1DF74A2D00F3F2F8 /* FloatWindow.swift in Sources */,
+				BEF57FE51DFD46AE006595B6 /* PreferencesWindowController.swift in Sources */,
 				BE7E82591DF72E7A00F3F2F8 /* FullScreenWindow.swift in Sources */,
+				BEF57FEF1DFD58D4006595B6 /* NSColor+Fuwari.swift in Sources */,
 				BEC844F91DED859300A4A57A /* ViewController.swift in Sources */,
 				BE5896A11DFCED26007CE7AC /* LocalizedString.swift in Sources */,
 				BEC8450C1DF59ECB00A4A57A /* CaptureGuideView.swift in Sources */,
 				BEC844F71DED859300A4A57A /* AppDelegate.swift in Sources */,
+				BEF57FED1DFD53D3006595B6 /* UpdatePreferenceViewController.swift in Sources */,
 				BE23E42F1DFA1623004DA6B7 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,9 +267,36 @@
 			isa = PBXVariantGroup;
 			children = (
 				BEC844FD1DED859300A4A57A /* Base */,
-				BE58969E1DFCEB84007CE7AC /* ja */,
+				BEF57FF11DFD5CAD006595B6 /* ja */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BEF57FF41DFD5CB6006595B6 /* PreferencesWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BEF57FF51DFD5CBA006595B6 /* Base */,
+				BEF57FF61DFD5CC5006595B6 /* ja */,
+			);
+			name = PreferencesWindowController.xib;
+			sourceTree = "<group>";
+		};
+		BEF57FF91DFD5CD1006595B6 /* GeneralPreferenceViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BEF57FFA1DFD5CD3006595B6 /* Base */,
+				BEF57FFB1DFD5CD6006595B6 /* ja */,
+			);
+			name = GeneralPreferenceViewController.xib;
+			sourceTree = "<group>";
+		};
+		BEF57FFE1DFD5D03006595B6 /* UpdatePreferenceViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BEF57FFF1DFD5D05006595B6 /* Base */,
+				BEF580001DFD5D08006595B6 /* ja */,
+			);
+			name = UpdatePreferenceViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

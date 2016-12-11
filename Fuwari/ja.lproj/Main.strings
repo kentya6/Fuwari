@@ -8,9 +8,6 @@
 /* Class = "NSMenu"; title = "Find"; ObjectID = "1b7-l0-nxx"; */
 "1b7-l0-nxx.title" = "Find";
 
-/* Class = "NSViewController"; title = "Update"; ObjectID = "1di-MU-LGq"; */
-"1di-MU-LGq.title" = "アップデート";
-
 /* Class = "NSMenuItem"; title = "Lower"; ObjectID = "1tx-W0-xDw"; */
 "1tx-W0-xDw.title" = "Lower";
 
@@ -122,9 +119,6 @@
 /* Class = "NSMenuItem"; title = "Show Spelling and Grammar"; ObjectID = "HFo-cy-zxI"; */
 "HFo-cy-zxI.title" = "Show Spelling and Grammar";
 
-/* Class = "NSTextFieldCell"; title = "Behavior"; ObjectID = "Hdf-Si-kK1"; */
-"Hdf-Si-kK1.title" = "動作";
-
 /* Class = "NSMenu"; title = "View"; ObjectID = "HyV-fh-RgO"; */
 "HyV-fh-RgO.title" = "View";
 
@@ -142,9 +136,6 @@
 
 /* Class = "NSMenuItem"; title = "Use None"; ObjectID = "J7y-lM-qPV"; */
 "J7y-lM-qPV.title" = "Use None";
-
-/* Class = "NSMenuItem"; title = "Daily"; ObjectID = "JDt-cG-blZ"; */
-"JDt-cG-blZ.title" = "毎日";
 
 /* Class = "NSMenuItem"; title = "Revert to Saved"; ObjectID = "KaW-ft-85H"; */
 "KaW-ft-85H.title" = "Revert to Saved";
@@ -224,9 +215,6 @@
 /* Class = "NSMenuItem"; title = "Italic"; ObjectID = "Vjx-xi-njq"; */
 "Vjx-xi-njq.title" = "Italic";
 
-/* Class = "NSTextFieldCell"; title = "date"; ObjectID = "VpQ-HE-lyj"; */
-"VpQ-HE-lyj.title" = "date";
-
 /* Class = "NSMenu"; title = "Edit"; ObjectID = "W48-6f-4Dl"; */
 "W48-6f-4Dl.title" = "Edit";
 
@@ -260,9 +248,6 @@
 /* Class = "NSMenuItem"; title = "Paragraph"; ObjectID = "ZvO-Gk-QUH"; */
 "ZvO-Gk-QUH.title" = "Paragraph";
 
-/* Class = "NSButtonCell"; title = "Launch on Login"; ObjectID = "aI2-fi-b4l"; */
-"aI2-fi-b4l.title" = "ログイン時に起動";
-
 /* Class = "NSMenuItem"; title = "Print…"; ObjectID = "aTl-1u-JFS"; */
 "aTl-1u-JFS.title" = "Print…";
 
@@ -283,9 +268,6 @@
 
 /* Class = "NSMenuItem"; title = "Use Selection for Find"; ObjectID = "buJ-ug-pKt"; */
 "buJ-ug-pKt.title" = "Use Selection for Find";
-
-/* Class = "NSViewController"; title = "General"; ObjectID = "bwU-yz-A1i"; */
-"bwU-yz-A1i.title" = "一般";
 
 /* Class = "NSMenu"; title = "Transformations"; ObjectID = "c8a-y6-VQd"; */
 "c8a-y6-VQd.title" = "Transformations";
@@ -310,12 +292,6 @@
 
 /* Class = "NSMenuItem"; title = "Undo"; ObjectID = "dRJ-4n-Yzg"; */
 "dRJ-4n-Yzg.title" = "Undo";
-
-/* Class = "NSMenuItem"; title = "Monthly"; ObjectID = "elM-fZ-mw3"; */
-"elM-fZ-mw3.title" = "毎月";
-
-/* Class = "NSButtonCell"; title = "Check Now"; ObjectID = "feU-aL-iyb"; */
-"feU-aL-iyb.title" = "今すぐチェック";
 
 /* Class = "NSMenuItem"; title = "Paste"; ObjectID = "gVA-U4-sdL"; */
 "gVA-U4-sdL.title" = "Paste";
@@ -353,9 +329,6 @@
 /* Class = "NSMenuItem"; title = "Check Grammar With Spelling"; ObjectID = "mK6-2p-4JG"; */
 "mK6-2p-4JG.title" = "Check Grammar With Spelling";
 
-/* Class = "NSButtonCell"; title = "Automatically check for updates:"; ObjectID = "mgE-Is-DQC"; */
-"mgE-Is-DQC.title" = "アップデートを自動的にチェック:";
-
 /* Class = "NSMenuItem"; title = "Ligatures"; ObjectID = "o6e-r0-MWq"; */
 "o6e-r0-MWq.title" = "Ligatures";
 
@@ -379,9 +352,6 @@
 
 /* Class = "NSMenuItem"; title = "Page Setup…"; ObjectID = "qIS-W8-SiK"; */
 "qIS-W8-SiK.title" = "Page Setup…";
-
-/* Class = "NSTextFieldCell"; title = "v1.0.0"; ObjectID = "qiV-17-6pS"; */
-"qiV-17-6pS.title" = "v1.0.0";
 
 /* Class = "NSMenuItem"; title = "Check Spelling While Typing"; ObjectID = "rbD-Rh-wIN"; */
 "rbD-Rh-wIN.title" = "Check Spelling While Typing";
@@ -433,9 +403,6 @@
 
 /* Class = "NSMenuItem"; title = "Use All"; ObjectID = "xQD-1f-W4t"; */
 "xQD-1f-W4t.title" = "Use All";
-
-/* Class = "NSMenuItem"; title = "Weekly"; ObjectID = "xS2-wy-AwD"; */
-"xS2-wy-AwD.title" = "毎週";
 
 /* Class = "NSMenuItem"; title = "Speech"; ObjectID = "xrE-MZ-jX0"; */
 "xrE-MZ-jX0.title" = "Speech";

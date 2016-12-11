@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="UpdatePreferenceViewController" customModule="Fuwari" customModuleProvider="target">
+            <connections>
+                <outlet property="versionTextField" destination="foC-Fv-Wom" id="xj3-m1-Ln8"/>
+                <outlet property="view" destination="aXC-qC-Wqi" id="gbj-3U-Q0b"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <view wantsLayer="YES" id="aXC-qC-Wqi">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="150"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5RR-x5-1mT">
+                    <rect key="frame" x="60" y="48" width="361" height="14"/>
+                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="date" id="4Co-d4-IPv">
+                        <dateFormatter key="formatter" dateStyle="full" timeStyle="medium" id="c9E-md-5oX"/>
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="tSa-OG-21Q" name="value" keyPath="lastUpdateCheckDate" id="xLM-Rw-70H"/>
+                    </connections>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7gc-ml-gvK">
+                    <rect key="frame" x="174" y="70" width="132" height="32"/>
+                    <buttonCell key="cell" type="push" title="Check Now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qFZ-Qa-gex">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="checkForUpdates:" target="tSa-OG-21Q" id="61g-yH-wKH"/>
+                    </connections>
+                </button>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="qNf-SN-4b4">
+                    <rect key="frame" x="61" y="111" width="241" height="18"/>
+                    <buttonCell key="cell" type="check" title="Automatically check for updates:" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="uJs-zA-1oi">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="JRl-Fq-DXa" name="value" keyPath="values.kEnableAutomaticCheckKey" id="7Mw-bM-74B"/>
+                    </connections>
+                </button>
+                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PQT-9V-r00">
+                    <rect key="frame" x="305" y="106" width="116" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="111" id="Fmx-Xo-4GF"/>
+                    </constraints>
+                    <popUpButtonCell key="cell" type="push" title="Monthly" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="2592000" imageScaling="proportionallyDown" inset="2" selectedItem="K4q-Pl-Ocj" id="hgc-kP-6FI">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="EVV-n7-sec">
+                            <items>
+                                <menuItem title="Daily" tag="86400" id="hej-nR-daw"/>
+                                <menuItem title="Weekly" tag="604800" id="lMC-bJ-XHc"/>
+                                <menuItem title="Monthly" state="on" tag="2592000" id="K4q-Pl-Ocj"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <binding destination="JRl-Fq-DXa" name="enabled" keyPath="values.kEnableAutomaticCheckKey" id="pGL-j4-t4R"/>
+                        <binding destination="JRl-Fq-DXa" name="selectedTag" keyPath="values.kUpdateCheckIntervalKey" id="j31-vE-Tkd"/>
+                    </connections>
+                </popUpButton>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="foC-Fv-Wom">
+                    <rect key="frame" x="171" y="20" width="140" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="8S6-DX-Fsa"/>
+                        <constraint firstAttribute="width" constant="136" id="CNc-Kc-mjN"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="v1.0.0" id="cep-b7-IVv">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="7gc-ml-gvK" firstAttribute="top" secondItem="qNf-SN-4b4" secondAttribute="bottom" constant="15" id="2aQ-Pc-E6O"/>
+                <constraint firstItem="foC-Fv-Wom" firstAttribute="top" secondItem="5RR-x5-1mT" secondAttribute="bottom" constant="11" id="5No-VG-mZ7"/>
+                <constraint firstItem="5RR-x5-1mT" firstAttribute="top" secondItem="7gc-ml-gvK" secondAttribute="bottom" constant="15" id="9uX-rY-OIo"/>
+                <constraint firstItem="5RR-x5-1mT" firstAttribute="leading" secondItem="aXC-qC-Wqi" secondAttribute="leading" constant="62" id="CbN-0e-7js"/>
+                <constraint firstItem="qNf-SN-4b4" firstAttribute="baseline" secondItem="PQT-9V-r00" secondAttribute="baseline" id="Euw-ST-C85"/>
+                <constraint firstItem="7gc-ml-gvK" firstAttribute="centerX" secondItem="5RR-x5-1mT" secondAttribute="centerX" id="NgB-bQ-ZRG"/>
+                <constraint firstItem="qNf-SN-4b4" firstAttribute="trailing" secondItem="7gc-ml-gvK" secondAttribute="trailing" id="PKe-Sr-gDJ"/>
+                <constraint firstItem="qNf-SN-4b4" firstAttribute="leading" secondItem="aXC-qC-Wqi" secondAttribute="leading" constant="63" id="PM6-lF-ju2"/>
+                <constraint firstItem="5RR-x5-1mT" firstAttribute="centerX" secondItem="foC-Fv-Wom" secondAttribute="centerX" id="bYA-va-NL9"/>
+                <constraint firstItem="7gc-ml-gvK" firstAttribute="centerX" secondItem="aXC-qC-Wqi" secondAttribute="centerX" id="kV5-Vm-MEl"/>
+                <constraint firstItem="PQT-9V-r00" firstAttribute="leading" secondItem="qNf-SN-4b4" secondAttribute="trailing" constant="7" id="kXI-bo-LlF"/>
+                <constraint firstAttribute="trailing" secondItem="PQT-9V-r00" secondAttribute="trailing" constant="62" id="sre-9J-vJ6"/>
+                <constraint firstItem="PQT-9V-r00" firstAttribute="top" secondItem="aXC-qC-Wqi" secondAttribute="top" constant="20" symbolic="YES" id="xjF-xn-3od"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="108"/>
+        </view>
+        <userDefaultsController representsSharedInstance="YES" id="JRl-Fq-DXa"/>
+        <customObject id="tSa-OG-21Q" customClass="SUUpdater"/>
+    </objects>
+</document>
