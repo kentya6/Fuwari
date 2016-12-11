@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BE23E42F1DFA1623004DA6B7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE23E42E1DFA1623004DA6B7 /* Constants.swift */; };
 		BE23E4321DFB8BF4004DA6B7 /* Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE23E4311DFB8BF4004DA6B7 /* Magnet.framework */; };
+		BE5896971DFCE965007CE7AC /* LoginServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896961DFCE965007CE7AC /* LoginServiceKit.framework */; };
 		BE7E82591DF72E7A00F3F2F8 /* FullScreenWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E82581DF72E7A00F3F2F8 /* FullScreenWindow.swift */; };
 		BE7E825B1DF74A2D00F3F2F8 /* FloatWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */; };
 		BEC844F71DED859300A4A57A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC844F61DED859300A4A57A /* AppDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		BE23E42E1DFA1623004DA6B7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BE23E4311DFB8BF4004DA6B7 /* Magnet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Magnet.framework; path = Carthage/Build/Mac/Magnet.framework; sourceTree = "<group>"; };
+		BE5896961DFCE965007CE7AC /* LoginServiceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LoginServiceKit.framework; path = Carthage/Build/Mac/LoginServiceKit.framework; sourceTree = "<group>"; };
 		BE7E82581DF72E7A00F3F2F8 /* FullScreenWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenWindow.swift; sourceTree = "<group>"; };
 		BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatWindow.swift; sourceTree = "<group>"; };
 		BEC844F31DED859300A4A57A /* Fuwari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fuwari.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE5896971DFCE965007CE7AC /* LoginServiceKit.framework in Frameworks */,
 				BE23E4321DFB8BF4004DA6B7 /* Magnet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -47,6 +50,7 @@
 		BE23E4301DFB8BF4004DA6B7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE5896961DFCE965007CE7AC /* LoginServiceKit.framework */,
 				BE23E4311DFB8BF4004DA6B7 /* Magnet.framework */,
 			);
 			name = Frameworks;
@@ -161,6 +165,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/Mac/Magnet.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/LoginServiceKit.framework",
 			);
 			name = Catthage;
 			outputPaths = (
