@@ -67,8 +67,8 @@ extension ViewController: FloatDelegate {
         savePanel.canCreateDirectories = true
         savePanel.showsTagField = false
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMddHHmmss"
-        savePanel.nameFieldStringValue = "screen_shot_\(formatter.string(from: Date())).png"
+        formatter.dateFormat = "yyyy-MM-dd-HHmmss"
+        savePanel.nameFieldStringValue = "screenshot-\(formatter.string(from: Date())).png"
         
         floatWindow.level = Int(CGWindowLevelForKey(.minimumWindow))
         
