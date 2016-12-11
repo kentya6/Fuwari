@@ -719,7 +719,7 @@
                                     <constraint firstAttribute="height" constant="65" id="74x-28-Tlu"/>
                                     <constraint firstAttribute="width" constant="178" id="efE-Zl-xQM"/>
                                 </constraints>
-                                <buttonCell key="cell" type="square" title="Preferences: ⌘⇧P" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9PC-uR-BEG">
+                                <buttonCell key="cell" type="square" title="Preferences: ⌘," bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9PC-uR-BEG">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>

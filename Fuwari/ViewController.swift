@@ -25,7 +25,6 @@ class ViewController: NSViewController {
         fullScreenWindow.orderOut(nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(didSelectCaptureButton(_:)), name: Notification.Name(rawValue: Constants.Notification.capture), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(didSelectPreferencesButton(_:)), name: Notification.Name(rawValue: Constants.Notification.preferences), object: nil)
         
         if let versionString = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
             versionTextField.stringValue = "Fuwari, v\(versionString)"
@@ -47,7 +46,7 @@ class ViewController: NSViewController {
     }
     
     @IBAction private func didSelectPreferencesButton(_: NSButton) {
-        
+        PreferencesWindowController.shared.showWindow(self)
     }
     
     @IBAction private func didSelectQuitButton(_: NSButton) {

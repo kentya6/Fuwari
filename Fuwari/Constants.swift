@@ -12,7 +12,6 @@ struct Constants {
 
     struct Notification {
         static let capture     = "capture"
-        static let preferences = "preferences"
         static let mouseMoved  = "mouseMoved"
     }
     

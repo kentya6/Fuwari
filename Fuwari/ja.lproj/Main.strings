@@ -56,8 +56,8 @@
 /* Class = "NSMenu"; title = "Writing Direction"; ObjectID = "8mr-sm-Yjd"; */
 "8mr-sm-Yjd.title" = "Writing Direction";
 
-/* Class = "NSButtonCell"; title = "Preferences: ⌘⇧P"; ObjectID = "9PC-uR-BEG"; */
-"9PC-uR-BEG.title" = "Preferences: ⌘⇧P";
+/* Class = "NSButtonCell"; title = "Preferences: ⌘,"; ObjectID = "9PC-uR-BEG"; */
+"9PC-uR-BEG.title" = "Preferences: ⌘,";
 
 /* Class = "NSMenuItem"; title = "Substitutions"; ObjectID = "9ic-FL-obx"; */
 "9ic-FL-obx.title" = "Substitutions";
