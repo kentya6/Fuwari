@@ -88,6 +88,8 @@ extension ViewController: FloatDelegate {
                 } catch {
                     print(error.localizedDescription)
                 }
+            } else {
+                floatWindow.level = Int(CGWindowLevelForKey(.maximumWindow))
             }
         }
     }
