@@ -65,6 +65,10 @@ class FloatWindow: NSWindow {
             default:
                 break
             }
+        } else if event.keyCode == UInt16(kVK_Escape) {
+            fade(isIn: false) {
+                self.floatDelegate?.close(floatWindow: self)
+            }
         }
     }
     
