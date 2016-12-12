@@ -38,8 +38,25 @@ class FloatWindow: NSWindow {
         if event.modifierFlags.rawValue & NSEventModifierFlags.command.rawValue != 0 {
             switch event.keyCode {
             case UInt16(kVK_ANSI_S):
-                if let image = image {
-                    floatDelegate?.save(floatWindow: self, image: image)
+                let saveLabel = NSTextField(frame: NSRect(x: 10, y: 10, width: 80, height: 26))
+                saveLabel.stringValue = "Save"
+                saveLabel.textColor = .white
+                saveLabel.font = NSFont.boldSystemFont(ofSize: 20)
+                saveLabel.alignment = .center
+                saveLabel.drawsBackground = true
+                saveLabel.backgroundColor = NSColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.4)
+                saveLabel.wantsLayer = true
+                saveLabel.layer?.cornerRadius = 10.0
+                saveLabel.isBordered = false
+                saveLabel.isEditable = false
+                saveLabel.isSelectable = false
+                contentView?.addSubview(saveLabel)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now()) {
+                    if let image = self.image {
+                        saveLabel.removeFromSuperview()
+                        self.floatDelegate?.save(floatWindow: self, image: image)
+                    }
                 }
             case UInt16(kVK_ANSI_W):
                 fade(isIn: false) {
