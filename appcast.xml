@@ -1,0 +1,24 @@
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Fuwari changelog</title>
+    <link>https://fuwari-app.com/appcast.xml</link>
+    <description>Fuwari update changelog.</description>
+    <item>
+      <title>Fuwari 0.2</title>
+      <description>
+        <![CDATA[
+          <ul> <li>Support multi screen capture</li> </ul>
+          <ul> <li>Add Cancel capture when Esc key pressed</li> </ul>
+          <ul> <li>Remove global preference hotkey</li> </ul>
+          <ul> <li>Change default capture shortcut key from Cmd+Shift+5 to Cmd+Shift+6</li> </ul>
+          <ul> <li>Add cursor coordinate shadow</li> </ul>
+          <ul> <li>Fix y-coordinate position</li> </ul>
+          <ul> <li>Fix cursor hide bug</li> </ul>
+        ]]>
+      </description>
+      <pubDate>Sun, 18 Dec 2016 08:30:00 +0900</pubDate>
+      <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/kentya6/Fuwari/releases/download/v0.2/Fuwari_0.2.dmg" sparkle:version="0.2" length="20161218" type="application/octet-stream" sparkle:dsaSignature="MC0CFBMfDPkLY33YbuNo3R9YwNGcbdFHAhUAloD5mwxkfwhRECAustPsJ9jyA6g="/>
+    </item>
+  </channel>
+</rss>
