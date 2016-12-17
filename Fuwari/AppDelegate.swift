@@ -25,7 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         configureMenu()
         
-        if let keyCombo = KeyCombo(keyCode: kVK_ANSI_5, cocoaModifiers: [.shift, .command]) {
+        if let keyCombo = KeyCombo(keyCode: kVK_ANSI_6, cocoaModifiers: [.shift, .command]) {
             HotKey(identifier: "Capture", keyCombo: keyCombo, target: self, action: #selector(capture)).register()
         }
         
