@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7E08825A1DFE246400CF0F37 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 7E0882591DFE246400CF0F37 /* dsa_pub.pem */; };
 		BE23E42F1DFA1623004DA6B7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE23E42E1DFA1623004DA6B7 /* Constants.swift */; };
 		BE23E4321DFB8BF4004DA6B7 /* Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE23E4311DFB8BF4004DA6B7 /* Magnet.framework */; };
 		BE5896971DFCE965007CE7AC /* LoginServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896961DFCE965007CE7AC /* LoginServiceKit.framework */; };
@@ -16,6 +15,7 @@
 		BE5896A51DFD0E8C007CE7AC /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896A31DFD0E8C007CE7AC /* Fabric.framework */; };
 		BE5896A81DFD0EF0007CE7AC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896A71DFD0EF0007CE7AC /* Crashlytics.framework */; };
 		BE5896AA1DFD1076007CE7AC /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896A91DFD1076007CE7AC /* Sparkle.framework */; };
+		BE6473101E05FD91005E0AB0 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = BE64730F1E05FD91005E0AB0 /* dsa_pub.pem */; };
 		BE7E82591DF72E7A00F3F2F8 /* FullScreenWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E82581DF72E7A00F3F2F8 /* FullScreenWindow.swift */; };
 		BE7E825B1DF74A2D00F3F2F8 /* FloatWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */; };
 		BEC844F71DED859300A4A57A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC844F61DED859300A4A57A /* AppDelegate.swift */; };
@@ -32,7 +32,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7E0882591DFE246400CF0F37 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		BE23E42E1DFA1623004DA6B7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BE23E4311DFB8BF4004DA6B7 /* Magnet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Magnet.framework; path = Carthage/Build/Mac/Magnet.framework; sourceTree = "<group>"; };
 		BE5896961DFCE965007CE7AC /* LoginServiceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LoginServiceKit.framework; path = Carthage/Build/Mac/LoginServiceKit.framework; sourceTree = "<group>"; };
@@ -42,6 +41,7 @@
 		BE5896A31DFD0E8C007CE7AC /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		BE5896A71DFD0EF0007CE7AC /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		BE5896A91DFD1076007CE7AC /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Carthage/Build/Mac/Sparkle.framework; sourceTree = "<group>"; };
+		BE64730F1E05FD91005E0AB0 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		BE7E82581DF72E7A00F3F2F8 /* FullScreenWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenWindow.swift; sourceTree = "<group>"; };
 		BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatWindow.swift; sourceTree = "<group>"; };
 		BEC844F31DED859300A4A57A /* Fuwari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fuwari.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,7 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				BEC844FF1DED859300A4A57A /* Info.plist */,
-				7E0882591DFE246400CF0F37 /* dsa_pub.pem */,
+				BE64730F1E05FD91005E0AB0 /* dsa_pub.pem */,
 			);
 			name = "Supprting Files";
 			sourceTree = "<group>";
@@ -228,8 +228,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE6473101E05FD91005E0AB0 /* dsa_pub.pem in Resources */,
 				BEC844FB1DED859300A4A57A /* Assets.xcassets in Resources */,
-				7E08825A1DFE246400CF0F37 /* dsa_pub.pem in Resources */,
 				BE58969A1DFCEB07007CE7AC /* Localizable.strings in Resources */,
 				BEF57FF21DFD5CB6006595B6 /* PreferencesWindowController.xib in Resources */,
 				BEC844FE1DED859300A4A57A /* Main.storyboard in Resources */,
