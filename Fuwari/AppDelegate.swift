@@ -28,9 +28,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let keyCombo = KeyCombo(keyCode: kVK_ANSI_5, cocoaModifiers: [.shift, .command]) {
             HotKey(identifier: "Capture", keyCombo: keyCombo, target: self, action: #selector(capture)).register()
         }
-        if let keyCombo = KeyCombo(keyCode: kVK_ANSI_Comma, cocoaModifiers: [.command]) {
-            HotKey(identifier: "Preferences", keyCombo: keyCombo, target: self, action: #selector(openPreferences)).register()
-        }
         
         // Show Login Item
         if !defaults.bool(forKey: Constants.UserDefaults.loginItem) && !defaults.bool(forKey: Constants.UserDefaults.suppressAlertForLoginItem) {
