@@ -13,17 +13,12 @@ class FullScreenWindow: NSWindow {
     var captureDelegate: CaptureDelegate?
     
     private lazy var captureGuideView: CaptureGuideView = {
-        guard let frame = NSScreen.main()?.frame else { return CaptureGuideView() }
-        let captureGuideView = CaptureGuideView(frame: frame)
+        let captureGuideView = CaptureGuideView(frame: self.frame)
         return captureGuideView
     }()
     
     override init(contentRect: NSRect, styleMask style: NSWindowStyleMask, backing bufferingType: NSBackingStoreType, defer flag: Bool) {
-        guard let frame = NSScreen.main()?.frame else {
-            super.init(contentRect: contentRect, styleMask: style, backing: bufferingType, defer: flag)
-            return
-        }
-        super.init(contentRect: frame, styleMask: .borderless, backing: .buffered, defer: false)
+        super.init(contentRect: contentRect, styleMask: .borderless, backing: .buffered, defer: false)
         
         isReleasedWhenClosed = true
         displaysWhenScreenProfileChanges = true
@@ -42,20 +37,20 @@ class FullScreenWindow: NSWindow {
     
     func startCapture() {
         orderBack(nil)
-        captureGuideView.cursorPoint = NSEvent.mouseLocation()
+        captureGuideView.cursorPoint = NSPoint(x: NSEvent.mouseLocation().x - frame.origin.x, y: NSEvent.mouseLocation().y)
     }
     
     override func mouseMoved(with event: NSEvent) {
-        captureGuideView.cursorPoint = NSEvent.mouseLocation()
+        captureGuideView.cursorPoint = NSPoint(x: NSEvent.mouseLocation().x - frame.origin.x, y: NSEvent.mouseLocation().y - frame.origin.y)
     }
     
     override func mouseDown(with event: NSEvent) {
-        captureGuideView.startPoint = NSEvent.mouseLocation()
-        captureGuideView.cursorPoint = NSEvent.mouseLocation()
+        captureGuideView.startPoint = NSPoint(x: NSEvent.mouseLocation().x - frame.origin.x, y: NSEvent.mouseLocation().y - frame.origin.y)
+        captureGuideView.cursorPoint = NSPoint(x: NSEvent.mouseLocation().x - frame.origin.x, y: NSEvent.mouseLocation().y - frame.origin.y)
     }
     
     override func mouseDragged(with event: NSEvent) {
-        captureGuideView.cursorPoint = NSEvent.mouseLocation()
+        captureGuideView.cursorPoint = NSPoint(x: NSEvent.mouseLocation().x - frame.origin.x, y: NSEvent.mouseLocation().y - frame.origin.y)
     }
     
     override func mouseUp(with event: NSEvent) {
@@ -63,17 +58,34 @@ class FullScreenWindow: NSWindow {
     }
     
     private func capture(rect: NSRect) {
-        let windowId = NSApplication.shared().windows[0].windowNumber
+        var upRightPoint = NSPoint.zero
         
-        let cgRect = CGRect(x: rect.origin.x, y: frame.height - rect.origin.y - rect.height, width: rect.width, height: rect.height)
-        guard let cgImage = CGWindowListCreateImage(cgRect, .optionOnScreenBelowWindow, CGWindowID(windowId), .bestResolution) else {
+        NSScreen.screens()?.forEach {
+            upRightPoint = NSPoint(x: max(upRightPoint.x, $0.frame.origin.x + $0.frame.width), y: max(upRightPoint.y, $0.frame.origin.y + $0.frame.height))
+        }
+        
+        var originY = CGFloat(0)
+        if frame.origin.y > 0 {
+            originY = upRightPoint.y - frame.origin.y - frame.height - (rect.height + rect.origin.y)
+        } else {
+            originY = NSScreen.main()!.frame.height - frame.origin.y - (rect.origin.y + rect.height)
+        }
+        
+        let cgRect = CGRect(x: rect.origin.x + frame.origin.x, y: originY, width: rect.width, height: rect.height)
+        guard let cgImage = CGWindowListCreateImage(cgRect, .optionOnScreenBelowWindow, CGWindowID(windowNumber), .bestResolution) else {
             return
         }
         
         captureGuideView.reset()
-        
         orderOut(nil)
-        captureDelegate?.didCaptured(rect: rect, image: cgImage)
+        
+        var captureOffsetY = CGFloat(0)
+        if frame.origin.y > 0 {
+            captureOffsetY = frame.origin.y - (cgRect.origin.y + cgRect.height)
+        } else {
+            captureOffsetY = -(cgRect.origin.y - upRightPoint.y + rect.height)
+        }
+        captureDelegate?.didCaptured(rect: CGRect(x: cgRect.origin.x, y: captureOffsetY, width: cgRect.width, height: cgRect.height), image: cgImage)
     }
 }
 

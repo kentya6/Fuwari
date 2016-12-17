@@ -13,16 +13,23 @@ class ViewController: NSViewController {
     @IBOutlet private weak var versionTextField: NSTextField!
     
     fileprivate var windowControllers = [NSWindowController]()
-    private var fullScreenWindow = FullScreenWindow()
+    fileprivate var fullScreenWindows = [FullScreenWindow]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fullScreenWindow.captureDelegate = self
-        let controller = NSWindowController(window: fullScreenWindow)
-        controller.showWindow(nil)
-        windowControllers.append(controller)
-        fullScreenWindow.orderOut(nil)
+        for (i, screen) in NSScreen.screens()!.enumerated() {
+            fullScreenWindows.append(FullScreenWindow())
+            fullScreenWindows[i] = FullScreenWindow(contentRect: NSRect(x: screen.frame.origin.x, y: screen.frame.origin.y, width: screen.frame.width, height: screen.frame.height), styleMask: .borderless, backing: .buffered, defer: false)
+            fullScreenWindows[i].captureDelegate = self
+            
+            print(screen.frame, fullScreenWindows[i].frame)
+            fullScreenWindows.append(fullScreenWindows[i])
+            let controller = NSWindowController(window: fullScreenWindows[i])
+            controller.showWindow(nil)
+            windowControllers.append(controller)
+            fullScreenWindows[i].orderOut(nil)
+        }
         
         NotificationCenter.default.addObserver(self, selector: #selector(didSelectCaptureButton(_:)), name: Notification.Name(rawValue: Constants.Notification.capture), object: nil)
         
@@ -42,7 +49,9 @@ class ViewController: NSViewController {
     @IBAction private func didSelectCaptureButton(_: NSButton) {
         NSCursor.hide()
         
-        fullScreenWindow.startCapture()
+        fullScreenWindows.forEach { fullScreenWindow in
+            fullScreenWindow.startCapture()
+        }
     }
     
     @IBAction private func didSelectPreferencesButton(_: NSButton) {
@@ -56,9 +65,11 @@ class ViewController: NSViewController {
 
 extension ViewController: CaptureDelegate {
     func didCaptured(rect: NSRect, image: CGImage) {
-        print(rect.width, rect.height, image.width, image.height)
         createFloatWindow(rect: rect, image: image)
         NSCursor.unhide()
+        fullScreenWindows.forEach { fullScreenWindow in
+            fullScreenWindow.orderOut(nil)
+        }
     }
 }
 
