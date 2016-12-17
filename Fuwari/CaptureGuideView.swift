@@ -27,6 +27,12 @@ class CaptureGuideView: NSView {
     private let cursorFont = NSFont.systemFont(ofSize: 10.0)
     private let cursorSize = CGFloat(25.0)
     private let cursorGuideWidth = CGFloat(1.0)
+    private lazy var coordinateLabelShadow: NSShadow = {
+        let shadow = NSShadow()
+        shadow.shadowColor = NSColor(red: 1, green: 1, blue: 1, alpha: 0.5)
+        shadow.shadowOffset = NSSize(width: 1, height: -1)
+        return shadow
+    }()
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
@@ -61,8 +67,8 @@ class CaptureGuideView: NSView {
         let path = NSBezierPath(ovalIn: cursorCenter)
         path.fill()
         
-        (Int(cursorPoint.x).description as NSString).draw(at: NSPoint(x: cursorPoint.x + cursorSize / 2, y: cursorPoint.y - cursorSize / 2), withAttributes: [NSFontAttributeName : cursorFont])
-        (Int(frame.height - cursorPoint.y).description as NSString).draw(at: NSPoint(x: cursorPoint.x + cursorSize / 2, y: cursorPoint.y - cursorSize), withAttributes: [NSFontAttributeName : cursorFont])
+        (Int(cursorPoint.x).description as NSString).draw(at: NSPoint(x: cursorPoint.x + cursorSize / 2, y: cursorPoint.y - cursorSize / 2), withAttributes: [NSFontAttributeName : cursorFont, NSShadowAttributeName : coordinateLabelShadow])
+        (Int(frame.height - cursorPoint.y).description as NSString).draw(at: NSPoint(x: cursorPoint.x + cursorSize / 2, y: cursorPoint.y - cursorSize), withAttributes: [NSFontAttributeName : cursorFont, NSShadowAttributeName : coordinateLabelShadow])
     }
     
     func reset() {
