@@ -63,6 +63,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc private func capture() {
+        NSApp.activate(ignoringOtherApps: true)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.Notification.capture), object: nil)
         eventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.mouseMoved, .leftMouseUp], handler: {
             (event: NSEvent) in
