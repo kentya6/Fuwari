@@ -25,11 +25,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         configureMenu()
         
-        if let keyCombo = KeyCombo(keyCode: kVK_ANSI_5, cocoaModifiers: [.shift, .command]) {
+        if let keyCombo = KeyCombo(keyCode: kVK_ANSI_6, cocoaModifiers: [.shift, .command]) {
             HotKey(identifier: "Capture", keyCombo: keyCombo, target: self, action: #selector(capture)).register()
-        }
-        if let keyCombo = KeyCombo(keyCode: kVK_ANSI_Comma, cocoaModifiers: [.command]) {
-            HotKey(identifier: "Preferences", keyCombo: keyCombo, target: self, action: #selector(openPreferences)).register()
         }
         
         // Show Login Item
@@ -61,10 +58,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc private func openPreferences() {
+        NSApp.activate(ignoringOtherApps: true)
         PreferencesWindowController.shared.showWindow(self)
     }
     
     @objc private func capture() {
+        NSApp.activate(ignoringOtherApps: true)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.Notification.capture), object: nil)
         eventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.mouseMoved, .leftMouseUp], handler: {
             (event: NSEvent) in
