@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Carbon
 
 class FullScreenWindow: NSWindow {
     
@@ -33,6 +34,14 @@ class FullScreenWindow: NSWindow {
         contentView = captureGuideView
         
         NotificationCenter.default.addObserver(self, selector: #selector(mouseMoved(with:)), name: Notification.Name(rawValue: Constants.Notification.mouseMoved), object: nil)
+        
+        NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
+            (event: NSEvent) -> NSEvent? in
+            if event.keyCode == UInt16(kVK_Escape) {
+                self.captureDelegate?.didCanceled()
+            }
+            return event
+        }
     }
     
     func startCapture() {
@@ -90,5 +99,6 @@ class FullScreenWindow: NSWindow {
 }
 
 protocol CaptureDelegate {
+    func didCanceled()
     func didCaptured(rect: NSRect, image: CGImage)
 }

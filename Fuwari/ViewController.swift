@@ -67,8 +67,15 @@ extension ViewController: CaptureDelegate {
     func didCaptured(rect: NSRect, image: CGImage) {
         createFloatWindow(rect: rect, image: image)
         NSCursor.unhide()
-        fullScreenWindows.forEach { fullScreenWindow in
-            fullScreenWindow.orderOut(nil)
+        fullScreenWindows.forEach {
+            $0.orderOut(nil)
+        }
+    }
+    
+    func didCanceled() {
+        NSCursor.unhide()
+        fullScreenWindows.forEach {
+            $0.orderOut(nil)
         }
     }
 }
