@@ -62,7 +62,7 @@ class CaptureGuideView: NSView {
         path.fill()
         
         (Int(cursorPoint.x).description as NSString).draw(at: NSPoint(x: cursorPoint.x + cursorSize / 2, y: cursorPoint.y - cursorSize / 2), withAttributes: [NSFontAttributeName : cursorFont])
-        (Int(cursorPoint.y).description as NSString).draw(at: NSPoint(x: cursorPoint.x + cursorSize / 2, y: cursorPoint.y - cursorSize), withAttributes: [NSFontAttributeName : cursorFont])
+        (Int(frame.height - cursorPoint.y).description as NSString).draw(at: NSPoint(x: cursorPoint.x + cursorSize / 2, y: cursorPoint.y - cursorSize), withAttributes: [NSFontAttributeName : cursorFont])
     }
     
     func reset() {
