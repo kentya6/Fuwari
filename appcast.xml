@@ -17,7 +17,7 @@
         ]]>
       </description>
       <pubDate>Sun, 18 Dec 2016 08:30:00 +0900</pubDate>
-      <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>
+      <sparkle:minimumSystemVersion>10.11</sparkle:minimumSystemVersion>
       <enclosure url="https://github.com/kentya6/Fuwari/releases/download/v0.2/Fuwari_0.2.dmg" sparkle:version="0.2" length="20161218" type="application/octet-stream" sparkle:dsaSignature="MC0CFBMfDPkLY33YbuNo3R9YwNGcbdFHAhUAloD5mwxkfwhRECAustPsJ9jyA6g="/>
     </item>
   </channel>
