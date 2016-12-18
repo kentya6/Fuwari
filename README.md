@@ -1,4 +1,4 @@
-[![Release version](https://img.shields.io/github/release/Fuwari/Fuwari.svg)](https://github.com/kentya6/Fuwari/releases/latest)
+[![Release version](https://img.shields.io/github/release/kentya6/Fuwari.svg)](https://github.com/kentya6/Fuwari/releases/latest)
 [![License: MIT](https://img.shields.io/github/license/kentya6/Fuwari.svg)](https://github.com/kentya6/Fuwari/blob/master/LICENSE)
 
 # Fuwari
