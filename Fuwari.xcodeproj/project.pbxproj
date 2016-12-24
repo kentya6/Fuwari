@@ -68,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE9777EF1E0EB4D900E5934F /* KeyHolder.framework in Frameworks */,
 				BE5896AA1DFD1076007CE7AC /* Sparkle.framework in Frameworks */,
 				BE5896971DFCE965007CE7AC /* LoginServiceKit.framework in Frameworks */,
 				BE23E4321DFB8BF4004DA6B7 /* Magnet.framework in Frameworks */,
@@ -82,6 +83,7 @@
 		BE23E4301DFB8BF4004DA6B7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE9777EE1E0EB4D900E5934F /* KeyHolder.framework */,
 				BE5896A91DFD1076007CE7AC /* Sparkle.framework */,
 				BE5896A71DFD0EF0007CE7AC /* Crashlytics.framework */,
 				BE5896A31DFD0E8C007CE7AC /* Fabric.framework */,
@@ -250,6 +252,7 @@
 				"$(SRCROOT)/Carthage/Build/Mac/Magnet.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/LoginServiceKit.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/Sparkle.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/KeyHolder.framework",
 			);
 			name = Carthage;
 			outputPaths = (
