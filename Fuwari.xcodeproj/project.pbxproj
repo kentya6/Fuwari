@@ -18,6 +18,7 @@
 		BE6473101E05FD91005E0AB0 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = BE64730F1E05FD91005E0AB0 /* dsa_pub.pem */; };
 		BE7E82591DF72E7A00F3F2F8 /* FullScreenWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E82581DF72E7A00F3F2F8 /* FullScreenWindow.swift */; };
 		BE7E825B1DF74A2D00F3F2F8 /* FloatWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */; };
+		BE9777ED1E0E613700E5934F /* UserDefaults+ArchiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9777EC1E0E613700E5934F /* UserDefaults+ArchiveData.swift */; };
 		BEC844F71DED859300A4A57A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC844F61DED859300A4A57A /* AppDelegate.swift */; };
 		BEC844F91DED859300A4A57A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC844F81DED859300A4A57A /* ViewController.swift */; };
 		BEC844FB1DED859300A4A57A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEC844FA1DED859300A4A57A /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		BE64730F1E05FD91005E0AB0 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		BE7E82581DF72E7A00F3F2F8 /* FullScreenWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenWindow.swift; sourceTree = "<group>"; };
 		BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatWindow.swift; sourceTree = "<group>"; };
+		BE9777EC1E0E613700E5934F /* UserDefaults+ArchiveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+ArchiveData.swift"; sourceTree = "<group>"; };
 		BEC844F31DED859300A4A57A /* Fuwari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fuwari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC844F61DED859300A4A57A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEC844F81DED859300A4A57A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				BEF580021DFD9464006595B6 /* Preferences */,
 				BEF580011DFD945A006595B6 /* Utility */,
 				BEF57FEE1DFD58D4006595B6 /* NSColor+Fuwari.swift */,
+				BE9777EC1E0E613700E5934F /* UserDefaults+ArchiveData.swift */,
 				BEC844FC1DED859300A4A57A /* Main.storyboard */,
 				BEF580031DFD9480006595B6 /* Resources */,
 				BEF580041DFD9491006595B6 /* Supprting Files */,
