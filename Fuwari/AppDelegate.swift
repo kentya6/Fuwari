@@ -16,53 +16,30 @@ import Crashlytics
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    let statusItem = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
     var eventMonitor: Any?
     let defaults = UserDefaults.standard
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         Fabric.with([Answers.self, Crashlytics.self])
-
-        configureMenu()
-        
-        if let keyCombo = KeyCombo(keyCode: kVK_ANSI_5, cocoaModifiers: [.shift, .command]) {
-            HotKey(identifier: "Capture", keyCombo: keyCombo, target: self, action: #selector(capture)).register()
-        }
         
         // Show Login Item
         if !defaults.bool(forKey: Constants.UserDefaults.loginItem) && !defaults.bool(forKey: Constants.UserDefaults.suppressAlertForLoginItem) {
             promptToAddLoginItems()
         }
+
+        MenuManager.shared.configure()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         HotKeyCenter.shared.unregisterAll()
     }
-    
-    private func configureMenu() {
-        if let button = statusItem.button {
-            button.image = NSImage(named: "MenuIcon")
-        }
-        
-        let menu = NSMenu()
-        
-        let captureItem = NSMenuItem(title: LocalizedString.Capture.value, action: #selector(capture), keyEquivalent: "5")
-        captureItem.keyEquivalentModifierMask = [.command, .shift]
-        menu.addItem(captureItem)
-        menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title: LocalizedString.Preference.value, action: #selector(openPreferences), keyEquivalent: ","))
-        menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title: LocalizedString.QuitFuwari.value, action: #selector(quit), keyEquivalent: "q"))
-        
-        statusItem.menu = menu
-    }
-    
-    @objc private func openPreferences() {
+
+    @objc func openPreferences() {
         NSApp.activate(ignoringOtherApps: true)
         PreferencesWindowController.shared.showWindow(self)
     }
     
-    @objc private func capture() {
+    @objc func capture() {
         NSApp.activate(ignoringOtherApps: true)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.Notification.capture), object: nil)
         eventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.mouseMoved, .leftMouseUp], handler: {
@@ -81,7 +58,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         })
     }
     
-    @objc private func quit() {
+    @objc func quit() {
         NSApp.terminate(nil)
     }
     

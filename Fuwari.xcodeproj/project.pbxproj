@@ -15,10 +15,14 @@
 		BE5896A51DFD0E8C007CE7AC /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896A31DFD0E8C007CE7AC /* Fabric.framework */; };
 		BE5896A81DFD0EF0007CE7AC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896A71DFD0EF0007CE7AC /* Crashlytics.framework */; };
 		BE5896AA1DFD1076007CE7AC /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896A91DFD1076007CE7AC /* Sparkle.framework */; };
+		BE5BE7A11E065C7700820201 /* ShortcutsPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5BE79F1E065C7700820201 /* ShortcutsPreferenceViewController.swift */; };
+		BE5BE7A41E065D7800820201 /* HotKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5BE7A31E065D7800820201 /* HotKeyManager.swift */; };
 		BE6473101E05FD91005E0AB0 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = BE64730F1E05FD91005E0AB0 /* dsa_pub.pem */; };
 		BE7E82591DF72E7A00F3F2F8 /* FullScreenWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E82581DF72E7A00F3F2F8 /* FullScreenWindow.swift */; };
 		BE7E825B1DF74A2D00F3F2F8 /* FloatWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */; };
 		BE9777ED1E0E613700E5934F /* UserDefaults+ArchiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9777EC1E0E613700E5934F /* UserDefaults+ArchiveData.swift */; };
+		BE9777EF1E0EB4D900E5934F /* KeyHolder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9777EE1E0EB4D900E5934F /* KeyHolder.framework */; };
+		BE9777F01E0EC24F00E5934F /* ShortcutsPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE9777F21E0EC24F00E5934F /* ShortcutsPreferenceViewController.xib */; };
 		BE9777F81E100D1F00E5934F /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9777F71E100D1F00E5934F /* MenuManager.swift */; };
 		BEC844F71DED859300A4A57A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC844F61DED859300A4A57A /* AppDelegate.swift */; };
 		BEC844F91DED859300A4A57A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC844F81DED859300A4A57A /* ViewController.swift */; };
@@ -43,10 +47,16 @@
 		BE5896A31DFD0E8C007CE7AC /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		BE5896A71DFD0EF0007CE7AC /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		BE5896A91DFD1076007CE7AC /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Carthage/Build/Mac/Sparkle.framework; sourceTree = "<group>"; };
+		BE5BE79F1E065C7700820201 /* ShortcutsPreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutsPreferenceViewController.swift; sourceTree = "<group>"; };
+		BE5BE7A31E065D7800820201 /* HotKeyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyManager.swift; sourceTree = "<group>"; };
 		BE64730F1E05FD91005E0AB0 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		BE7E82581DF72E7A00F3F2F8 /* FullScreenWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenWindow.swift; sourceTree = "<group>"; };
 		BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatWindow.swift; sourceTree = "<group>"; };
 		BE9777EC1E0E613700E5934F /* UserDefaults+ArchiveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+ArchiveData.swift"; sourceTree = "<group>"; };
+		BE9777EE1E0EB4D900E5934F /* KeyHolder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeyHolder.framework; path = Carthage/Build/Mac/KeyHolder.framework; sourceTree = "<group>"; };
+		BE9777F31E0EC25500E5934F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ShortcutsPreferenceViewController.xib; sourceTree = "<group>"; };
+		BE9777F41E0EC25900E5934F /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/ShortcutsPreferenceViewController.strings; sourceTree = "<group>"; };
+		BE9777F61E0EC26F00E5934F /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/PreferencesWindowController.strings; sourceTree = "<group>"; };
 		BE9777F71E100D1F00E5934F /* MenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
 		BEC844F31DED859300A4A57A /* Fuwari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fuwari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC844F61DED859300A4A57A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,7 +69,6 @@
 		BEF57FEC1DFD53D3006595B6 /* UpdatePreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePreferenceViewController.swift; sourceTree = "<group>"; };
 		BEF57FEE1DFD58D4006595B6 /* NSColor+Fuwari.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+Fuwari.swift"; sourceTree = "<group>"; };
 		BEF57FF51DFD5CBA006595B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreferencesWindowController.xib; sourceTree = "<group>"; };
-		BEF57FF61DFD5CC5006595B6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/PreferencesWindowController.strings; sourceTree = "<group>"; };
 		BEF57FFA1DFD5CD3006595B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GeneralPreferenceViewController.xib; sourceTree = "<group>"; };
 		BEF57FFB1DFD5CD6006595B6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/GeneralPreferenceViewController.strings; sourceTree = "<group>"; };
 		BEF57FFF1DFD5D05006595B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/UpdatePreferenceViewController.xib; sourceTree = "<group>"; };
@@ -122,6 +131,7 @@
 				BEC8450B1DF59ECB00A4A57A /* CaptureGuideView.swift */,
 				BE7E82581DF72E7A00F3F2F8 /* FullScreenWindow.swift */,
 				BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */,
+				BE5BE7A31E065D7800820201 /* HotKeyManager.swift */,
 				BE9777F71E100D1F00E5934F /* MenuManager.swift */,
 				BEF580021DFD9464006595B6 /* Preferences */,
 				BEF580011DFD945A006595B6 /* Utility */,
@@ -148,6 +158,8 @@
 			children = (
 				BEF57FE41DFD46AE006595B6 /* PreferencesWindowController.swift */,
 				BEF57FEC1DFD53D3006595B6 /* UpdatePreferenceViewController.swift */,
+				BE5BE79F1E065C7700820201 /* ShortcutsPreferenceViewController.swift */,
+				BE9777F21E0EC24F00E5934F /* ShortcutsPreferenceViewController.xib */,
 				BEF57FF41DFD5CB6006595B6 /* PreferencesWindowController.xib */,
 				BEF57FF91DFD5CD1006595B6 /* GeneralPreferenceViewController.xib */,
 				BEF57FFE1DFD5D03006595B6 /* UpdatePreferenceViewController.xib */,
@@ -239,6 +251,7 @@
 				BE6473101E05FD91005E0AB0 /* dsa_pub.pem in Resources */,
 				BEC844FB1DED859300A4A57A /* Assets.xcassets in Resources */,
 				BE58969A1DFCEB07007CE7AC /* Localizable.strings in Resources */,
+				BE9777F01E0EC24F00E5934F /* ShortcutsPreferenceViewController.xib in Resources */,
 				BEF57FF21DFD5CB6006595B6 /* PreferencesWindowController.xib in Resources */,
 				BEC844FE1DED859300A4A57A /* Main.storyboard in Resources */,
 				BEF57FF71DFD5CD1006595B6 /* GeneralPreferenceViewController.xib in Resources */,
@@ -294,11 +307,14 @@
 				BE7E82591DF72E7A00F3F2F8 /* FullScreenWindow.swift in Sources */,
 				BEF57FEF1DFD58D4006595B6 /* NSColor+Fuwari.swift in Sources */,
 				BEC844F91DED859300A4A57A /* ViewController.swift in Sources */,
+				BE5BE7A41E065D7800820201 /* HotKeyManager.swift in Sources */,
 				BE5896A11DFCED26007CE7AC /* LocalizedString.swift in Sources */,
 				BEC8450C1DF59ECB00A4A57A /* CaptureGuideView.swift in Sources */,
 				BEC844F71DED859300A4A57A /* AppDelegate.swift in Sources */,
+				BE9777ED1E0E613700E5934F /* UserDefaults+ArchiveData.swift in Sources */,
 				BEF57FED1DFD53D3006595B6 /* UpdatePreferenceViewController.swift in Sources */,
 				BE23E42F1DFA1623004DA6B7 /* Constants.swift in Sources */,
+				BE5BE7A11E065C7700820201 /* ShortcutsPreferenceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +330,15 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
+		BE9777F21E0EC24F00E5934F /* ShortcutsPreferenceViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE9777F31E0EC25500E5934F /* Base */,
+				BE9777F41E0EC25900E5934F /* ja */,
+			);
+			name = ShortcutsPreferenceViewController.xib;
+			sourceTree = "<group>";
+		};
 		BEC844FC1DED859300A4A57A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -327,7 +352,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				BEF57FF51DFD5CBA006595B6 /* Base */,
-				BEF57FF61DFD5CC5006595B6 /* ja */,
+				BE9777F61E0EC26F00E5934F /* ja */,
 			);
 			name = PreferencesWindowController.xib;
 			sourceTree = "<group>";

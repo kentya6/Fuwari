@@ -18,6 +18,7 @@ struct Constants {
     struct UserDefaults {
         static let loginItem                 = "loginItem"
         static let suppressAlertForLoginItem = "suppressAlertForLoginItem"
+        static let captureKeyCombo           = "captureKeyCombo"
     }
     
     struct ImageName {
@@ -25,5 +26,11 @@ struct Constants {
         static let generalOn  = "GeneralOn"
         static let updatesOff = "Update"
         static let updatesOn  = "UpdateOn"
+        static let shortcutOff = "Shortcut"
+        static let shortcutOn  = "ShortcutOn"
+    }
+    
+    struct HotKey {
+        static let capture = "capture"
     }
 }
