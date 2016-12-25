@@ -7,11 +7,14 @@
 //
 
 import Cocoa
+import Magnet
 
 class MenuManager: NSObject {
 
     static let shared = MenuManager()
     let statusItem = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
+    
+    private var captureItem = NSMenuItem()
 
     func configure() {
         if let button = statusItem.button {
@@ -19,8 +22,9 @@ class MenuManager: NSObject {
         }
         
         let menu = NSMenu()
-        let captureItem = NSMenuItem(title: LocalizedString.Capture.value, action: #selector(AppDelegate.capture), keyEquivalent: HotKeyManager.shared.captureKeyCombo.characters)
-        captureItem.keyEquivalentModifierMask = NSEventModifierFlags(rawValue: UInt(HotKeyManager.shared.captureKeyCombo.modifiers))
+        captureItem = NSMenuItem(title: LocalizedString.Capture.value, action: #selector(AppDelegate.capture), keyEquivalent: HotKeyManager.shared.captureKeyCombo.characters.lowercased())
+        captureItem.keyEquivalentModifierMask = KeyTransformer.cocoaFlags(from: HotKeyManager.shared.captureKeyCombo.modifiers)
+
         menu.addItem(captureItem)
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: LocalizedString.Preference.value, action: #selector(AppDelegate.openPreferences), keyEquivalent: ","))
@@ -28,5 +32,10 @@ class MenuManager: NSObject {
         menu.addItem(NSMenuItem(title: LocalizedString.QuitFuwari.value, action: #selector(AppDelegate.quit), keyEquivalent: "q"))
         
         statusItem.menu = menu
+    }
+    
+    func udpateCpatureMenuItem() {
+        statusItem.menu?.items[0].keyEquivalent = HotKeyManager.shared.captureKeyCombo.characters.lowercased()
+        statusItem.menu?.items[0].keyEquivalentModifierMask = KeyTransformer.cocoaFlags(from: HotKeyManager.shared.captureKeyCombo.modifiers)
     }
 }

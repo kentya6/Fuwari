@@ -40,10 +40,13 @@ extension HotKeyManager {
         
         HotKeyCenter.shared.unregisterHotKey(with: Constants.HotKey.capture)
         guard let keyCombo = keyCombo else { return }
+        captureKeyCombo = keyCombo
         
         let hotKey = HotKey(identifier: Constants.HotKey.capture, keyCombo: keyCombo, target: AppDelegate(), action: #selector(AppDelegate.capture))
         hotKey.register()
         captureHotKey = hotKey
+        
+        MenuManager.shared.udpateCpatureMenuItem()
     }
     
     fileprivate func saveKeyCombo(keyCombo: KeyCombo?) {
