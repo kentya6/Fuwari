@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -174,7 +174,7 @@
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                     </window>
                     <connections>
-                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
+                        <segue destination="AtN-RK-YuF" kind="relationship" relationship="window.shadowedContentViewController" id="oGa-5a-yFW"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -182,110 +182,16 @@
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="hIz-AP-VOD">
+        <scene sceneID="8DX-4z-Gfe">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Fuwari" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="336" height="195"/>
+                <viewController id="AtN-RK-YuF" customClass="ViewController" customModule="Fuwari" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="dRb-60-vNj">
                         <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tL5-KS-Pvi">
-                                <rect key="frame" x="158" y="130" width="178" height="65"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="178" id="1Rj-wh-DxU"/>
-                                    <constraint firstAttribute="height" constant="65" id="oKw-aZ-sbE"/>
-                                </constraints>
-                                <buttonCell key="cell" type="square" title="Capture: ⇧⌘5" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" inset="2" id="oq4-n1-gBR">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="didSelectCaptureButton:" target="XfG-lQ-9wD" id="mZW-Hs-CuA"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FhO-k5-FsE">
-                                <rect key="frame" x="158" y="0.0" width="178" height="65"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="178" id="uno-eV-pEP"/>
-                                </constraints>
-                                <buttonCell key="cell" type="square" title="Quit: ⌘Q" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="h1R-ST-NW0">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="didSelectQuitButton:" target="XfG-lQ-9wD" id="FgK-7r-ePw"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ba2-Ip-vbh">
-                                <rect key="frame" x="158" y="65" width="178" height="65"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="74x-28-Tlu"/>
-                                    <constraint firstAttribute="width" constant="178" id="efE-Zl-xQM"/>
-                                </constraints>
-                                <buttonCell key="cell" type="square" title="Preferences... : ⌘," bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9PC-uR-BEG">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="didSelectPreferencesButton:" target="XfG-lQ-9wD" id="6Ng-DW-qHv"/>
-                                </connections>
-                            </button>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8OT-JM-5kW">
-                                <rect key="frame" x="0.0" y="45" width="150" height="150"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="ILZ-ow-hhX"/>
-                                </constraints>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="AppIcon" id="pJL-1g-99u"/>
-                            </imageView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f1q-Bf-c99">
-                                <rect key="frame" x="14" y="10" width="122" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="© Kengo Yokoyama" id="W4W-Sj-OAL">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="U4Y-ad-vii">
-                                <rect key="frame" x="38" y="28" width="75" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Fuwari, v0.1" id="PwA-Df-ElQ">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="tL5-KS-Pvi" firstAttribute="leading" secondItem="ba2-Ip-vbh" secondAttribute="leading" id="1ES-mv-lOQ"/>
-                            <constraint firstItem="8OT-JM-5kW" firstAttribute="top" secondItem="tL5-KS-Pvi" secondAttribute="top" id="3Ii-q9-GGc"/>
-                            <constraint firstItem="ba2-Ip-vbh" firstAttribute="top" secondItem="tL5-KS-Pvi" secondAttribute="bottom" id="5bt-L2-IKd"/>
-                            <constraint firstItem="8OT-JM-5kW" firstAttribute="centerX" secondItem="U4Y-ad-vii" secondAttribute="centerX" id="9Eo-R3-EWM"/>
-                            <constraint firstItem="8OT-JM-5kW" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="BG1-Ht-M8k"/>
-                            <constraint firstItem="f1q-Bf-c99" firstAttribute="top" secondItem="U4Y-ad-vii" secondAttribute="bottom" constant="1" id="FYi-Pd-9Ag"/>
-                            <constraint firstItem="tL5-KS-Pvi" firstAttribute="trailing" secondItem="ba2-Ip-vbh" secondAttribute="trailing" id="LrY-uO-Cfm"/>
-                            <constraint firstItem="ba2-Ip-vbh" firstAttribute="trailing" secondItem="FhO-k5-FsE" secondAttribute="trailing" id="MRJ-QG-1Aq"/>
-                            <constraint firstItem="U4Y-ad-vii" firstAttribute="centerX" secondItem="f1q-Bf-c99" secondAttribute="centerX" id="Me4-EA-zdB"/>
-                            <constraint firstItem="FhO-k5-FsE" firstAttribute="top" secondItem="ba2-Ip-vbh" secondAttribute="bottom" id="Nlz-t3-WR1"/>
-                            <constraint firstItem="tL5-KS-Pvi" firstAttribute="leading" secondItem="8OT-JM-5kW" secondAttribute="trailing" constant="8" symbolic="YES" id="OkV-hw-EmQ"/>
-                            <constraint firstItem="f1q-Bf-c99" firstAttribute="baseline" secondItem="FhO-k5-FsE" secondAttribute="baseline" constant="-6" id="ZC0-TM-6uh"/>
-                            <constraint firstItem="ba2-Ip-vbh" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="hNE-z2-Ce1"/>
-                            <constraint firstAttribute="trailing" secondItem="tL5-KS-Pvi" secondAttribute="trailing" id="jNd-6h-mZj"/>
-                            <constraint firstItem="ba2-Ip-vbh" firstAttribute="leading" secondItem="FhO-k5-FsE" secondAttribute="leading" id="lDv-ft-Hu0"/>
-                            <constraint firstAttribute="bottom" secondItem="FhO-k5-FsE" secondAttribute="bottom" id="lQj-Pc-jbj"/>
-                            <constraint firstItem="U4Y-ad-vii" firstAttribute="top" secondItem="8OT-JM-5kW" secondAttribute="bottom" id="mcd-gV-Xq1"/>
-                            <constraint firstItem="8OT-JM-5kW" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="vNl-6G-8Qv"/>
-                            <constraint firstItem="FhO-k5-FsE" firstAttribute="leading" secondItem="f1q-Bf-c99" secondAttribute="trailing" constant="24" id="y2h-QY-bBi"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="versionTextField" destination="U4Y-ad-vii" id="OUC-6e-O5B"/>
-                    </connections>
                 </viewController>
-                <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="f9g-ga-ta0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="630"/>
+            <point key="canvasLocation" x="75" y="646"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="AppIcon" width="128" height="128"/>
-    </resources>
 </document>

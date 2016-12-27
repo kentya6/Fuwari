@@ -10,8 +10,6 @@ import Cocoa
 
 class ViewController: NSViewController {
 
-    @IBOutlet private weak var versionTextField: NSTextField!
-    
     fileprivate var windowControllers = [NSWindowController]()
     fileprivate var fullScreenWindows = [FullScreenWindow]()
     
@@ -28,11 +26,7 @@ class ViewController: NSViewController {
             fullScreenWindow.orderOut(nil)
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(didSelectCaptureButton(_:)), name: Notification.Name(rawValue: Constants.Notification.capture), object: nil)
-        
-        if let versionString = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
-            versionTextField.stringValue = "Fuwari, v\(versionString)"
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(startCapture), name: Notification.Name(rawValue: Constants.Notification.capture), object: nil)
     }
     
     fileprivate func createFloatWindow(rect: NSRect, image: CGImage) {
@@ -42,21 +36,11 @@ class ViewController: NSViewController {
         floatWindowController.showWindow(nil)
         windowControllers.append(floatWindowController)
     }
-
-    @IBAction private func didSelectCaptureButton(_: NSButton) {
+    
+    @objc private func startCapture() {
         NSCursor.hide()
         
-        fullScreenWindows.forEach { fullScreenWindow in
-            fullScreenWindow.startCapture()
-        }
-    }
-    
-    @IBAction private func didSelectPreferencesButton(_: NSButton) {
-        PreferencesWindowController.shared.showWindow(self)
-    }
-    
-    @IBAction private func didSelectQuitButton(_: NSButton) {
-        NSApplication.shared().terminate(self)
+        fullScreenWindows.forEach { $0.startCapture() }
     }
 }
 
@@ -64,16 +48,12 @@ extension ViewController: CaptureDelegate {
     func didCaptured(rect: NSRect, image: CGImage) {
         createFloatWindow(rect: rect, image: image)
         NSCursor.unhide()
-        fullScreenWindows.forEach {
-            $0.orderOut(nil)
-        }
+        fullScreenWindows.forEach { $0.orderOut(nil) }
     }
     
     func didCanceled() {
         NSCursor.unhide()
-        fullScreenWindows.forEach {
-            $0.orderOut(nil)
-        }
+        fullScreenWindows.forEach { $0.orderOut(nil) }
     }
 }
 
