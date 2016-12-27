@@ -41,6 +41,16 @@ class CaptureGuideView: NSView {
         drawCursor()
     }
     
+    override func viewDidMoveToWindow() {
+        addTrackingRect(bounds, owner: self, userData: nil, assumeInside: false)
+    }
+    
+    override func mouseExited(with event: NSEvent) {
+        if startPoint == .zero {
+            reset()
+        }
+    }
+    
     private func drawCaptureArea() {
         if startPoint != .zero {
             NSColor(red: 0, green: 0, blue: 0, alpha: 0.25).set()
