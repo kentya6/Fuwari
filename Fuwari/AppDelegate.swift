@@ -39,6 +39,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         PreferencesWindowController.shared.showWindow(self)
     }
     
+    @objc func openAbout() {
+        NSApp.activate(ignoringOtherApps: true)
+        AboutWindowController.shared.showWindow(self)
+    }
+    
     @objc func capture() {
         NSApp.activate(ignoringOtherApps: true)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.Notification.capture), object: nil)

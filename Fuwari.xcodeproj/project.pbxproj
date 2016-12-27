@@ -18,6 +18,8 @@
 		BE5BE7A11E065C7700820201 /* ShortcutsPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5BE79F1E065C7700820201 /* ShortcutsPreferenceViewController.swift */; };
 		BE5BE7A41E065D7800820201 /* HotKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5BE7A31E065D7800820201 /* HotKeyManager.swift */; };
 		BE6473101E05FD91005E0AB0 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = BE64730F1E05FD91005E0AB0 /* dsa_pub.pem */; };
+		BE6D5E761E12CF5E005492B2 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6D5E741E12CF5E005492B2 /* AboutWindowController.swift */; };
+		BE6D5E771E12CF5E005492B2 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE6D5E751E12CF5E005492B2 /* AboutWindowController.xib */; };
 		BE7E82591DF72E7A00F3F2F8 /* FullScreenWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E82581DF72E7A00F3F2F8 /* FullScreenWindow.swift */; };
 		BE7E825B1DF74A2D00F3F2F8 /* FloatWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */; };
 		BE9777ED1E0E613700E5934F /* UserDefaults+ArchiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9777EC1E0E613700E5934F /* UserDefaults+ArchiveData.swift */; };
@@ -50,6 +52,8 @@
 		BE5BE79F1E065C7700820201 /* ShortcutsPreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutsPreferenceViewController.swift; sourceTree = "<group>"; };
 		BE5BE7A31E065D7800820201 /* HotKeyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyManager.swift; sourceTree = "<group>"; };
 		BE64730F1E05FD91005E0AB0 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		BE6D5E741E12CF5E005492B2 /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
+		BE6D5E751E12CF5E005492B2 /* AboutWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindowController.xib; sourceTree = "<group>"; };
 		BE7E82581DF72E7A00F3F2F8 /* FullScreenWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenWindow.swift; sourceTree = "<group>"; };
 		BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatWindow.swift; sourceTree = "<group>"; };
 		BE9777EC1E0E613700E5934F /* UserDefaults+ArchiveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+ArchiveData.swift"; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 				BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */,
 				BE5BE7A31E065D7800820201 /* HotKeyManager.swift */,
 				BE9777F71E100D1F00E5934F /* MenuManager.swift */,
+				BE6D5E741E12CF5E005492B2 /* AboutWindowController.swift */,
+				BE6D5E751E12CF5E005492B2 /* AboutWindowController.xib */,
 				BEF580021DFD9464006595B6 /* Preferences */,
 				BEF580011DFD945A006595B6 /* Utility */,
 				BEF57FEE1DFD58D4006595B6 /* NSColor+Fuwari.swift */,
@@ -254,6 +260,7 @@
 				BE9777F01E0EC24F00E5934F /* ShortcutsPreferenceViewController.xib in Resources */,
 				BEF57FF21DFD5CB6006595B6 /* PreferencesWindowController.xib in Resources */,
 				BEC844FE1DED859300A4A57A /* Main.storyboard in Resources */,
+				BE6D5E771E12CF5E005492B2 /* AboutWindowController.xib in Resources */,
 				BEF57FF71DFD5CD1006595B6 /* GeneralPreferenceViewController.xib in Resources */,
 				BEF57FFC1DFD5D03006595B6 /* UpdatePreferenceViewController.xib in Resources */,
 			);
@@ -307,6 +314,7 @@
 				BE7E82591DF72E7A00F3F2F8 /* FullScreenWindow.swift in Sources */,
 				BEF57FEF1DFD58D4006595B6 /* NSColor+Fuwari.swift in Sources */,
 				BEC844F91DED859300A4A57A /* ViewController.swift in Sources */,
+				BE6D5E761E12CF5E005492B2 /* AboutWindowController.swift in Sources */,
 				BE5BE7A41E065D7800820201 /* HotKeyManager.swift in Sources */,
 				BE5896A11DFCED26007CE7AC /* LocalizedString.swift in Sources */,
 				BEC8450C1DF59ECB00A4A57A /* CaptureGuideView.swift in Sources */,

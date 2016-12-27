@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="AboutWindowController" customModule="Fuwari" customModuleProvider="target">
+            <connections>
+                <outlet property="versionTextField" destination="r7D-eN-oFU" id="sRz-9r-wqC"/>
+                <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Fuwari" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="150" height="190"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <view key="contentView" wantsLayer="YES" id="se5-gp-TjO">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="190"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bAX-Ug-bBe">
+                        <rect key="frame" x="25" y="70" width="101" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="V77-6A-UZG"/>
+                        </constraints>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="AppIcon" id="y3K-cf-Hqc"/>
+                    </imageView>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="r7D-eN-oFU">
+                        <rect key="frame" x="38" y="45" width="75" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="71" id="RWp-Re-AIi"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="v0.1" id="xje-cB-SSP">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ajp-L3-yku">
+                        <rect key="frame" x="15" y="20" width="122" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="© Kengo Yokoyama" id="vNk-SA-UPB">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="r7D-eN-oFU" firstAttribute="top" secondItem="bAX-Ug-bBe" secondAttribute="bottom" constant="8" symbolic="YES" id="4qJ-kc-ezh"/>
+                    <constraint firstItem="bAX-Ug-bBe" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="25" id="Df9-c8-TrE"/>
+                    <constraint firstItem="bAX-Ug-bBe" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="20" symbolic="YES" id="MFm-Zb-rfQ"/>
+                    <constraint firstItem="bAX-Ug-bBe" firstAttribute="centerX" secondItem="r7D-eN-oFU" secondAttribute="centerX" id="WjG-bz-a2i"/>
+                    <constraint firstItem="r7D-eN-oFU" firstAttribute="centerX" secondItem="ajp-L3-yku" secondAttribute="centerX" id="YMC-fN-3Gn"/>
+                    <constraint firstItem="r7D-eN-oFU" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="40" id="gWp-FF-SkW"/>
+                    <constraint firstItem="ajp-L3-yku" firstAttribute="top" secondItem="r7D-eN-oFU" secondAttribute="bottom" constant="8" symbolic="YES" id="x4h-tL-aBK"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
+            </connections>
+            <point key="canvasLocation" x="-26" y="122"/>
+        </window>
+    </objects>
+    <resources>
+        <image name="AppIcon" width="128" height="128"/>
+    </resources>
+</document>
