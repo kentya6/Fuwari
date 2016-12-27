@@ -18,6 +18,10 @@ class FullScreenWindow: NSWindow {
         return captureGuideView
     }()
     
+    private var mouseLocation: NSPoint {
+        return NSPoint(x: NSEvent.mouseLocation().x - frame.origin.x, y: NSEvent.mouseLocation().y - frame.origin.y)
+    }
+    
     override init(contentRect: NSRect, styleMask style: NSWindowStyleMask, backing bufferingType: NSBackingStoreType, defer flag: Bool) {
         super.init(contentRect: contentRect, styleMask: .borderless, backing: .buffered, defer: false)
         
@@ -46,20 +50,20 @@ class FullScreenWindow: NSWindow {
     
     func startCapture() {
         orderBack(nil)
-        captureGuideView.cursorPoint = NSPoint(x: NSEvent.mouseLocation().x - frame.origin.x, y: NSEvent.mouseLocation().y)
+        captureGuideView.cursorPoint = mouseLocation
     }
     
     override func mouseMoved(with event: NSEvent) {
-        captureGuideView.cursorPoint = NSPoint(x: NSEvent.mouseLocation().x - frame.origin.x, y: NSEvent.mouseLocation().y - frame.origin.y)
+        captureGuideView.cursorPoint = mouseLocation
     }
     
     override func mouseDown(with event: NSEvent) {
-        captureGuideView.startPoint = NSPoint(x: NSEvent.mouseLocation().x - frame.origin.x, y: NSEvent.mouseLocation().y - frame.origin.y)
-        captureGuideView.cursorPoint = NSPoint(x: NSEvent.mouseLocation().x - frame.origin.x, y: NSEvent.mouseLocation().y - frame.origin.y)
+        captureGuideView.startPoint = mouseLocation
+        captureGuideView.cursorPoint = mouseLocation
     }
     
     override func mouseDragged(with event: NSEvent) {
-        captureGuideView.cursorPoint = NSPoint(x: NSEvent.mouseLocation().x - frame.origin.x, y: NSEvent.mouseLocation().y - frame.origin.y)
+        captureGuideView.cursorPoint = mouseLocation
     }
     
     override func mouseUp(with event: NSEvent) {
@@ -67,34 +71,18 @@ class FullScreenWindow: NSWindow {
     }
     
     private func capture(rect: NSRect) {
-        var upRightPoint = NSPoint.zero
+        let mainDisplayBounds = CGDisplayBounds(CGMainDisplayID())
+        var captureRect = NSRectToCGRect(convertToScreen(rect))
+        captureRect.origin.y = mainDisplayBounds.height - captureRect.origin.y - captureRect.height
         
-        NSScreen.screens()?.forEach {
-            upRightPoint = NSPoint(x: max(upRightPoint.x, $0.frame.origin.x + $0.frame.width), y: max(upRightPoint.y, $0.frame.origin.y + $0.frame.height))
-        }
-        
-        var originY = CGFloat(0)
-        if frame.origin.y > 0 {
-            originY = upRightPoint.y - frame.origin.y - frame.height - (rect.height + rect.origin.y)
-        } else {
-            originY = NSScreen.main()!.frame.height - frame.origin.y - (rect.origin.y + rect.height)
-        }
-        
-        let cgRect = CGRect(x: rect.origin.x + frame.origin.x, y: originY, width: rect.width, height: rect.height)
-        guard let cgImage = CGWindowListCreateImage(cgRect, .optionOnScreenBelowWindow, CGWindowID(windowNumber), .bestResolution) else {
+        guard let cgImage = CGWindowListCreateImage(captureRect, .optionOnScreenBelowWindow, CGWindowID(windowNumber), .bestResolution) else {
             return
         }
         
         captureGuideView.reset()
         orderOut(nil)
-        
-        var captureOffsetY = CGFloat(0)
-        if frame.origin.y > 0 {
-            captureOffsetY = frame.origin.y - (cgRect.origin.y + cgRect.height)
-        } else {
-            captureOffsetY = -(cgRect.origin.y - upRightPoint.y + rect.height)
-        }
-        captureDelegate?.didCaptured(rect: CGRect(x: cgRect.origin.x, y: captureOffsetY, width: cgRect.width, height: cgRect.height), image: cgImage)
+
+        captureDelegate?.didCaptured(rect: rect.offsetBy(dx: frame.origin.x, dy: frame.origin.y), image: cgImage)
     }
 }
 
