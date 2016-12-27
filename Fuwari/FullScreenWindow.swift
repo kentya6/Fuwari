@@ -32,7 +32,7 @@ class FullScreenWindow: NSWindow {
         hasShadow = false
         ignoresMouseEvents = false
         acceptsMouseMovedEvents = true
-        level = Int(CGWindowLevelForKey(.maximumWindow))
+        level = Int(CGWindowLevelForKey(.assistiveTechHighWindow))
         makeKeyAndOrderFront(self)
         
         contentView = captureGuideView
