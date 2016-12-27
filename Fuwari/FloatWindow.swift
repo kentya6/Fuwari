@@ -15,7 +15,6 @@ class FloatWindow: NSWindow {
     override var canBecomeMain: Bool { return true }
 
     var floatDelegate: FloatDelegate?
-    private var image: CGImage?
     
     init(contentRect: NSRect, styleMask style: NSWindowStyleMask = .borderless, backing bufferingType: NSBackingStoreType = .buffered, defer flag: Bool = false, image: CGImage) {
         super.init(contentRect: contentRect, styleMask: style, backing: bufferingType, defer: flag)
@@ -23,11 +22,8 @@ class FloatWindow: NSWindow {
         level = Int(CGWindowLevelForKey(.maximumWindow))
         isMovableByWindowBackground = true
         hasShadow = true
-        
         contentView?.wantsLayer = true
         contentView?.layer?.contents = image
-        
-        self.image = image
         
         fade(isIn: true, completion: nil)
     }
@@ -53,9 +49,9 @@ class FloatWindow: NSWindow {
                 contentView?.addSubview(saveLabel)
                 
                 DispatchQueue.main.asyncAfter(deadline: .now()) {
-                    if let image = self.image {
+                    if let image = self.contentView?.layer?.contents {
                         saveLabel.removeFromSuperview()
-                        self.floatDelegate?.save(floatWindow: self, image: image)
+                        self.floatDelegate?.save(floatWindow: self, image: image as! CGImage)
                     }
                 }
             case UInt16(kVK_ANSI_W):
