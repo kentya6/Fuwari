@@ -44,7 +44,7 @@ class CaptureGuideView: NSView {
     private func drawCaptureArea() {
         if startPoint != .zero {
             NSColor(red: 0, green: 0, blue: 0, alpha: 0.25).set()
-            guideWindowRect = NSRect(x: fmin(startPoint.x, cursorPoint.x), y: fmin(startPoint.y, cursorPoint.y), width: fabs(cursorPoint.x - startPoint.x), height: fabs(cursorPoint.y - startPoint.y))
+            guideWindowRect = NSRect(x: floor(fmin(startPoint.x, cursorPoint.x)), y: floor(fmin(startPoint.y, cursorPoint.y)), width: floor(fabs(cursorPoint.x - startPoint.x)), height: floor(fabs(cursorPoint.y - startPoint.y)))
             NSRectFill(guideWindowRect)
             
             NSColor.white.set()

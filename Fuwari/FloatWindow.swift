@@ -24,8 +24,8 @@ class FloatWindow: NSWindow {
         isMovableByWindowBackground = true
         hasShadow = true
         
-        let nsImage = NSImage(cgImage: image, size: contentRect.size)
-        backgroundColor = NSColor(patternImage: nsImage)
+        contentView?.wantsLayer = true
+        contentView?.layer?.contents = image
         
         self.image = image
         
