@@ -18,17 +18,14 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for (i, screen) in NSScreen.screens()!.enumerated() {
-            fullScreenWindows.append(FullScreenWindow())
-            fullScreenWindows[i] = FullScreenWindow(contentRect: NSRect(x: screen.frame.origin.x, y: screen.frame.origin.y, width: screen.frame.width, height: screen.frame.height), styleMask: .borderless, backing: .buffered, defer: false)
-            fullScreenWindows[i].captureDelegate = self
-            
-            print(screen.frame, fullScreenWindows[i].frame)
-            fullScreenWindows.append(fullScreenWindows[i])
-            let controller = NSWindowController(window: fullScreenWindows[i])
+        NSScreen.screens()!.forEach {
+            let fullScreenWindow = FullScreenWindow(contentRect: $0.frame, styleMask: .borderless, backing: .buffered, defer: false)
+            fullScreenWindow.captureDelegate = self
+            fullScreenWindows.append(fullScreenWindow)
+            let controller = NSWindowController(window: fullScreenWindow)
             controller.showWindow(nil)
             windowControllers.append(controller)
-            fullScreenWindows[i].orderOut(nil)
+            fullScreenWindow.orderOut(nil)
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(didSelectCaptureButton(_:)), name: Notification.Name(rawValue: Constants.Notification.capture), object: nil)
