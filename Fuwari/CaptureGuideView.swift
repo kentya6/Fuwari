@@ -36,9 +36,6 @@ class CaptureGuideView: NSView {
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
-
-        NSColor.clear.set()
-        NSRectFill(frame)
         
         drawCaptureArea()
         drawCursor()
