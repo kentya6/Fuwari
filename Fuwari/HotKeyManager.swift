@@ -27,9 +27,7 @@ final class HotKeyManager: NSObject {
     }()
     fileprivate(set) var captureHotKey: HotKey?
     
-    override init() {
-        super.init()
-        
+    func configure() {
         registerHotKey(keyCombo: captureKeyCombo)
     }
 }

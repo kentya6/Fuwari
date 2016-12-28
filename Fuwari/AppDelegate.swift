@@ -27,6 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             promptToAddLoginItems()
         }
 
+        HotKeyManager.shared.configure()
         MenuManager.shared.configure()
     }
 
