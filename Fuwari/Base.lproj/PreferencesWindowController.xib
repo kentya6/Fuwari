@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -11,6 +11,9 @@
                 <outlet property="generalButton" destination="do0-06-LmR" id="NtZ-EI-MhW"/>
                 <outlet property="generalImageView" destination="3OC-hb-1v0" id="fqP-dM-08R"/>
                 <outlet property="generalTextField" destination="k7I-Ot-Zeg" id="ijd-Oq-KEX"/>
+                <outlet property="shortcutButton" destination="r4G-OV-wKw" id="tvj-L1-dhc"/>
+                <outlet property="shortcutImageView" destination="xM8-ra-x3Q" id="VjC-8V-I34"/>
+                <outlet property="shortcutTextField" destination="HHV-vz-kd1" id="Y9P-xx-7lu"/>
                 <outlet property="toolBar" destination="2Nn-7s-Jxr" id="lWa-JT-5HD"/>
                 <outlet property="updatesButton" destination="j9Q-LT-DIc" id="l8U-Wh-JT6"/>
                 <outlet property="updatesImageView" destination="kwj-gj-gnt" id="6Ec-5e-fms"/>
@@ -24,7 +27,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="480" height="270"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -126,6 +129,49 @@
                                     <constraint firstAttribute="bottom" secondItem="j9Q-LT-DIc" secondAttribute="bottom" id="nBx-29-832"/>
                                 </constraints>
                             </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="2M8-Lw-aU9">
+                                <rect key="frame" x="115" y="0.0" width="60" height="56"/>
+                                <subviews>
+                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="xM8-ra-x3Q">
+                                        <rect key="frame" x="12" y="24" width="36" height="24"/>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="pref_update" id="12P-Ou-Uve"/>
+                                    </imageView>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HHV-vz-kd1">
+                                        <rect key="frame" x="5" y="8" width="51" height="12"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="12" id="eHe-Ff-YnM"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Shortcut" id="J53-yP-elp">
+                                            <font key="font" size="9" name="HiraKakuProN-W6"/>
+                                            <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <button verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="r4G-OV-wKw">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="56"/>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" alignment="center" transparent="YES" imageScaling="proportionallyDown" inset="2" id="Lri-2H-BZv">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="toolBarItemTapped:" target="-2" id="34X-7m-HAs"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="HHV-vz-kd1" firstAttribute="leading" secondItem="2M8-Lw-aU9" secondAttribute="leading" constant="7" id="FRH-rs-nGf"/>
+                                    <constraint firstAttribute="bottom" secondItem="HHV-vz-kd1" secondAttribute="bottom" constant="8" id="MLp-dd-1F8"/>
+                                    <constraint firstAttribute="bottom" secondItem="r4G-OV-wKw" secondAttribute="bottom" id="MaN-Dd-vrB"/>
+                                    <constraint firstAttribute="trailing" secondItem="r4G-OV-wKw" secondAttribute="trailing" id="NHb-39-Y7a"/>
+                                    <constraint firstItem="xM8-ra-x3Q" firstAttribute="top" secondItem="2M8-Lw-aU9" secondAttribute="top" constant="8" id="OHe-q3-Sdg"/>
+                                    <constraint firstItem="xM8-ra-x3Q" firstAttribute="leading" secondItem="2M8-Lw-aU9" secondAttribute="leading" constant="12" id="eS8-N9-cf4"/>
+                                    <constraint firstItem="xM8-ra-x3Q" firstAttribute="centerX" secondItem="HHV-vz-kd1" secondAttribute="centerX" id="fsK-us-e3f"/>
+                                    <constraint firstItem="r4G-OV-wKw" firstAttribute="leading" secondItem="2M8-Lw-aU9" secondAttribute="leading" id="s7O-Bj-Ur2"/>
+                                    <constraint firstItem="r4G-OV-wKw" firstAttribute="top" secondItem="2M8-Lw-aU9" secondAttribute="top" id="v9E-th-p8b"/>
+                                    <constraint firstItem="HHV-vz-kd1" firstAttribute="top" secondItem="xM8-ra-x3Q" secondAttribute="bottom" constant="4" id="vF9-3G-Nfg"/>
+                                    <constraint firstItem="xM8-ra-x3Q" firstAttribute="centerX" secondItem="r4G-OV-wKw" secondAttribute="centerX" id="wvk-7F-ou1"/>
+                                </constraints>
+                            </customView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="pO8-0E-ev3" firstAttribute="leading" secondItem="2Nn-7s-Jxr" secondAttribute="leading" constant="55" id="4Up-5h-QIA"/>
@@ -136,9 +182,12 @@
                             <constraint firstItem="JA9-Qu-WzM" firstAttribute="leading" secondItem="2Nn-7s-Jxr" secondAttribute="leading" id="QMf-l4-Pb3"/>
                             <constraint firstItem="JA9-Qu-WzM" firstAttribute="top" secondItem="2Nn-7s-Jxr" secondAttribute="top" id="U1p-1z-LJ0"/>
                             <constraint firstItem="pO8-0E-ev3" firstAttribute="top" secondItem="JA9-Qu-WzM" secondAttribute="top" id="XoD-rI-clS"/>
+                            <constraint firstItem="2M8-Lw-aU9" firstAttribute="bottom" secondItem="pO8-0E-ev3" secondAttribute="bottom" id="g7Q-ta-FGX"/>
                             <constraint firstItem="pO8-0E-ev3" firstAttribute="bottom" secondItem="JA9-Qu-WzM" secondAttribute="bottom" id="gZO-CL-3i7"/>
+                            <constraint firstItem="2M8-Lw-aU9" firstAttribute="top" secondItem="pO8-0E-ev3" secondAttribute="top" id="jbh-ao-XtR"/>
                             <constraint firstAttribute="bottom" secondItem="JA9-Qu-WzM" secondAttribute="bottom" id="lxw-EG-IJY"/>
                             <constraint firstItem="09c-Kd-Fht" firstAttribute="top" secondItem="2Nn-7s-Jxr" secondAttribute="top" constant="55" id="ojb-Cg-liY"/>
+                            <constraint firstItem="2M8-Lw-aU9" firstAttribute="leading" secondItem="pO8-0E-ev3" secondAttribute="trailing" id="qxN-QO-PPb"/>
                             <constraint firstItem="JA9-Qu-WzM" firstAttribute="bottom" secondItem="09c-Kd-Fht" secondAttribute="bottom" id="z8Q-B2-RiJ"/>
                         </constraints>
                     </customView>

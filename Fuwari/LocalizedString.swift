@@ -17,6 +17,7 @@ enum LocalizedString: String {
     case LaunchOnStartup   = "Launch on system startup"
     case DontLaunch        = "Don't Launch"
     case Capture           = "Capture"
+    case About             = "About"
     
     case TabGeneral        = "General"
     case TabMenu           = "Menu"

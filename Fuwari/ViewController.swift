@@ -10,32 +10,23 @@ import Cocoa
 
 class ViewController: NSViewController {
 
-    @IBOutlet private weak var versionTextField: NSTextField!
-    
     fileprivate var windowControllers = [NSWindowController]()
     fileprivate var fullScreenWindows = [FullScreenWindow]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for (i, screen) in NSScreen.screens()!.enumerated() {
-            fullScreenWindows.append(FullScreenWindow())
-            fullScreenWindows[i] = FullScreenWindow(contentRect: NSRect(x: screen.frame.origin.x, y: screen.frame.origin.y, width: screen.frame.width, height: screen.frame.height), styleMask: .borderless, backing: .buffered, defer: false)
-            fullScreenWindows[i].captureDelegate = self
-            
-            print(screen.frame, fullScreenWindows[i].frame)
-            fullScreenWindows.append(fullScreenWindows[i])
-            let controller = NSWindowController(window: fullScreenWindows[i])
+        NSScreen.screens()!.forEach {
+            let fullScreenWindow = FullScreenWindow(contentRect: $0.frame, styleMask: .borderless, backing: .buffered, defer: false)
+            fullScreenWindow.captureDelegate = self
+            fullScreenWindows.append(fullScreenWindow)
+            let controller = NSWindowController(window: fullScreenWindow)
             controller.showWindow(nil)
             windowControllers.append(controller)
-            fullScreenWindows[i].orderOut(nil)
+            fullScreenWindow.orderOut(nil)
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(didSelectCaptureButton(_:)), name: Notification.Name(rawValue: Constants.Notification.capture), object: nil)
-        
-        if let versionString = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
-            versionTextField.stringValue = "Fuwari, v\(versionString)"
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(startCapture), name: Notification.Name(rawValue: Constants.Notification.capture), object: nil)
     }
     
     fileprivate func createFloatWindow(rect: NSRect, image: CGImage) {
@@ -45,21 +36,11 @@ class ViewController: NSViewController {
         floatWindowController.showWindow(nil)
         windowControllers.append(floatWindowController)
     }
-
-    @IBAction private func didSelectCaptureButton(_: NSButton) {
+    
+    @objc private func startCapture() {
         NSCursor.hide()
         
-        fullScreenWindows.forEach { fullScreenWindow in
-            fullScreenWindow.startCapture()
-        }
-    }
-    
-    @IBAction private func didSelectPreferencesButton(_: NSButton) {
-        PreferencesWindowController.shared.showWindow(self)
-    }
-    
-    @IBAction private func didSelectQuitButton(_: NSButton) {
-        NSApplication.shared().terminate(self)
+        fullScreenWindows.forEach { $0.startCapture() }
     }
 }
 
@@ -67,16 +48,12 @@ extension ViewController: CaptureDelegate {
     func didCaptured(rect: NSRect, image: CGImage) {
         createFloatWindow(rect: rect, image: image)
         NSCursor.unhide()
-        fullScreenWindows.forEach {
-            $0.orderOut(nil)
-        }
+        fullScreenWindows.forEach { $0.orderOut(nil) }
     }
     
     func didCanceled() {
         NSCursor.unhide()
-        fullScreenWindows.forEach {
-            $0.orderOut(nil)
-        }
+        fullScreenWindows.forEach { $0.orderOut(nil) }
     }
 }
 
@@ -86,15 +63,14 @@ extension ViewController: FloatDelegate {
     }
 
     func save(floatWindow: FloatWindow, image: CGImage) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd-HHmmss"
+        
         let savePanel = NSSavePanel()
         savePanel.canCreateDirectories = true
         savePanel.showsTagField = false
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd-HHmmss"
         savePanel.nameFieldStringValue = "screenshot-\(formatter.string(from: Date())).png"
-        
-        floatWindow.level = Int(CGWindowLevelForKey(.minimumWindow))
-        
+        savePanel.level = Int(CGWindowLevelForKey(.modalPanelWindow))
         savePanel.begin { (result) in
             if result == NSFileHandlingPanelOKButton {
                 guard let url = savePanel.url else { return }
@@ -106,8 +82,6 @@ extension ViewController: FloatDelegate {
                 } catch {
                     print(error.localizedDescription)
                 }
-            } else {
-                floatWindow.level = Int(CGWindowLevelForKey(.maximumWindow))
             }
         }
     }
