@@ -9,7 +9,7 @@
       <sparkle:releaseNotesLink xml:lang="ja">https://fuwari-app.com/releasenotes/0.3.ja.html</sparkle:releaseNotesLink>
       <pubDate>Wed, 28 Dec 2016 11:30:00 +0900</pubDate>
       <sparkle:minimumSystemVersion>10.11</sparkle:minimumSystemVersion>
-      <enclosure url="https://github.com/kentya6/Fuwari/releases/download/v0.3/Fuwari_0.3.dmg" sparkle:version="0.3" length="20161228" type="application/octet-stream" sparkle:dsaSignature="MCwCFEmpInxsVIa9kBP6iysL+Ke6+Y1rAhR0b2A4lFnI+qZ9or98FpUxCIUeqg=="/>
+      <enclosure url="https://github.com/kentya6/Fuwari/releases/download/v0.3/Fuwari_0.3.dmg" sparkle:version="0.30" length="20161228" type="application/octet-stream" sparkle:dsaSignature="MCwCFEmpInxsVIa9kBP6iysL+Ke6+Y1rAhR0b2A4lFnI+qZ9or98FpUxCIUeqg=="/>
     </item>
   </channel>
 </rss>
