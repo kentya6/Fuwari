@@ -58,6 +58,16 @@ class FloatWindow: NSWindow {
                 fade(isIn: false) {
                     self.floatDelegate?.close(floatWindow: self)
                 }
+            case UInt16(kVK_ANSI_C):
+                DispatchQueue.main.asyncAfter(deadline: .now()) {
+                    if let image = self.contentView?.layer?.contents {
+                        let cgImage = image as! CGImage
+                        let size = CGSize(width: cgImage.width, height: cgImage.height)
+                        let nsImage = NSImage(cgImage: cgImage, size: size)
+                        NSPasteboard.general().clearContents()
+                        NSPasteboard.general().writeObjects([nsImage])
+                    }
+                }
             default:
                 break
             }
