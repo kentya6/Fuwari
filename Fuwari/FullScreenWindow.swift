@@ -19,10 +19,10 @@ class FullScreenWindow: NSWindow {
     }()
     
     private var mouseLocation: NSPoint {
-        return NSPoint(x: NSEvent.mouseLocation().x - frame.origin.x, y: NSEvent.mouseLocation().y - frame.origin.y)
+        return NSPoint(x: NSEvent.mouseLocation.x - frame.origin.x, y: NSEvent.mouseLocation.y - frame.origin.y)
     }
     
-    override init(contentRect: NSRect, styleMask style: NSWindowStyleMask, backing bufferingType: NSBackingStoreType, defer flag: Bool) {
+    override init(contentRect: NSRect, styleMask style: NSWindow.StyleMask, backing bufferingType: NSWindow.BackingStoreType, defer flag: Bool) {
         super.init(contentRect: contentRect, styleMask: .borderless, backing: .buffered, defer: false)
         
         isReleasedWhenClosed = true
@@ -32,7 +32,7 @@ class FullScreenWindow: NSWindow {
         hasShadow = false
         ignoresMouseEvents = false
         acceptsMouseMovedEvents = true
-        level = Int(CGWindowLevelForKey(.assistiveTechHighWindow))
+        level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.assistiveTechHighWindow)))
         makeKeyAndOrderFront(self)
         
         contentView = captureGuideView

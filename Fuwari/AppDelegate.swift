@@ -48,7 +48,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func capture() {
         NSApp.activate(ignoringOtherApps: true)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.Notification.capture), object: nil)
-        eventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.mouseMoved, .leftMouseUp], handler: {
+        eventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [NSEvent.EventTypeMask.mouseMoved, NSEvent.EventTypeMask.leftMouseUp], handler: {
             (event: NSEvent) in
             switch event.type {
             case .mouseMoved:
@@ -78,12 +78,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.activate(ignoringOtherApps: true)
         
         //  Launch on system startup
-        if alert.runModal() == NSAlertFirstButtonReturn {
+        if alert.runModal() == NSApplication.ModalResponse.alertFirstButtonReturn {
             defaults.set(true, forKey: Constants.UserDefaults.loginItem)
             toggleLoginItemState()
         }
         // Do not show this message again
-        if alert.suppressionButton?.state == NSOnState {
+        if alert.suppressionButton?.state == .on {
             defaults.set(true, forKey: Constants.UserDefaults.suppressAlertForLoginItem)
         }
         defaults.synchronize()

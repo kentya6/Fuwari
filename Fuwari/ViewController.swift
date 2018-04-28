@@ -16,7 +16,7 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSScreen.screens()!.forEach {
+        NSScreen.screens.forEach {
             let fullScreenWindow = FullScreenWindow(contentRect: $0.frame, styleMask: .borderless, backing: .buffered, defer: false)
             fullScreenWindow.captureDelegate = self
             fullScreenWindows.append(fullScreenWindow)
@@ -27,6 +27,10 @@ class ViewController: NSViewController {
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(startCapture), name: Notification.Name(rawValue: Constants.Notification.capture), object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(rawValue: Constants.Notification.capture), object: nil)
     }
     
     fileprivate func createFloatWindow(rect: NSRect, image: CGImage) {
@@ -70,13 +74,13 @@ extension ViewController: FloatDelegate {
         savePanel.canCreateDirectories = true
         savePanel.showsTagField = false
         savePanel.nameFieldStringValue = "screenshot-\(formatter.string(from: Date())).png"
-        savePanel.level = Int(CGWindowLevelForKey(.modalPanelWindow))
+        savePanel.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.modalPanelWindow)))
         savePanel.begin { (result) in
-            if result == NSFileHandlingPanelOKButton {
+            if result.rawValue == NSFileHandlingPanelOKButton {
                 guard let url = savePanel.url else { return }
                 
                 let bitmapRep = NSBitmapImageRep(cgImage: image)
-                let data = bitmapRep.representation(using: .PNG, properties: [:])
+                let data = bitmapRep.representation(using: .png, properties: [:])
                 do {
                     try data?.write(to: url, options: .atomicWrite)
                 } catch {

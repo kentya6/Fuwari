@@ -16,10 +16,10 @@ class FloatWindow: NSWindow {
 
     var floatDelegate: FloatDelegate?
     
-    init(contentRect: NSRect, styleMask style: NSWindowStyleMask = .borderless, backing bufferingType: NSBackingStoreType = .buffered, defer flag: Bool = false, image: CGImage) {
+    init(contentRect: NSRect, styleMask style: NSWindow.StyleMask = .borderless, backing bufferingType: NSWindow.BackingStoreType = .buffered, defer flag: Bool = false, image: CGImage) {
         super.init(contentRect: contentRect, styleMask: style, backing: bufferingType, defer: flag)
         
-        level = Int(CGWindowLevelForKey(.floatingWindow))
+        level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.floatingWindow)))
         isMovableByWindowBackground = true
         hasShadow = true
         contentView?.wantsLayer = true
@@ -31,7 +31,7 @@ class FloatWindow: NSWindow {
     override func keyDown(with event: NSEvent) {
         super.keyDown(with: event)
         
-        if event.modifierFlags.rawValue & NSEventModifierFlags.command.rawValue != 0 {
+        if event.modifierFlags.rawValue & NSEvent.ModifierFlags.command.rawValue != 0 {
             switch event.keyCode {
             case UInt16(kVK_ANSI_S):
                 let saveLabel = NSTextField(frame: NSRect(x: 10, y: 10, width: 80, height: 26))
@@ -64,8 +64,8 @@ class FloatWindow: NSWindow {
                         let cgImage = image as! CGImage
                         let size = CGSize(width: cgImage.width, height: cgImage.height)
                         let nsImage = NSImage(cgImage: cgImage, size: size)
-                        NSPasteboard.general().clearContents()
-                        NSPasteboard.general().writeObjects([nsImage])
+                        NSPasteboard.general.clearContents()
+                        NSPasteboard.general.writeObjects([nsImage])
                     }
                 }
             default:
@@ -90,8 +90,8 @@ class FloatWindow: NSWindow {
         alphaValue = isIn ? 0.0 : 1.0
         makeKeyAndOrderFront(self)
         NSAnimationContext.beginGrouping()
-        NSAnimationContext.current().completionHandler = completion
-        NSAnimationContext.current().duration = 0.2
+        NSAnimationContext.current.completionHandler = completion
+        NSAnimationContext.current.duration = 0.2
         animator().alphaValue = isIn ? 1.0 : 0.0
         NSAnimationContext.endGrouping()
     }
