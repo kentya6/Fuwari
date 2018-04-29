@@ -7,11 +7,12 @@
 //
 
 import Cocoa
+import Quartz
 
 class ViewController: NSViewController {
 
-    fileprivate var windowControllers = [NSWindowController]()
-    fileprivate var fullScreenWindows = [FullScreenWindow]()
+    private var windowControllers = [NSWindowController]()
+    private var fullScreenWindows = [FullScreenWindow]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,7 @@ class ViewController: NSViewController {
         NotificationCenter.default.removeObserver(self, name: Notification.Name(rawValue: Constants.Notification.capture), object: nil)
     }
     
-    fileprivate func createFloatWindow(rect: NSRect, image: CGImage) {
+    private func createFloatWindow(rect: NSRect, image: CGImage) {
         let floatWindow = FloatWindow(contentRect: rect, image: image)
         floatWindow.floatDelegate = self
         let floatWindowController = NSWindowController(window: floatWindow)
@@ -73,19 +74,17 @@ extension ViewController: FloatDelegate {
         let savePanel = NSSavePanel()
         savePanel.canCreateDirectories = true
         savePanel.showsTagField = false
-        savePanel.nameFieldStringValue = "screenshot-\(formatter.string(from: Date())).png"
+        savePanel.nameFieldStringValue = "screenshot-\(formatter.string(from: Date()))"
         savePanel.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.modalPanelWindow)))
-        savePanel.begin { (result) in
-            if result.rawValue == NSFileHandlingPanelOKButton {
-                guard let url = savePanel.url else { return }
-                
-                let bitmapRep = NSBitmapImageRep(cgImage: image)
-                let data = bitmapRep.representation(using: .png, properties: [:])
-                do {
-                    try data?.write(to: url, options: .atomicWrite)
-                } catch {
-                    print(error.localizedDescription)
-                }
+        let saveOptions = IKSaveOptions(imageProperties: [:], imageUTType: kUTTypePNG as String?)
+        saveOptions?.addAccessoryView(to: savePanel)
+        
+        let result = savePanel.runModal()
+        if result == .OK {
+            if let url = savePanel.url as CFURL?, let type = saveOptions?.imageUTType as CFString? {
+                guard let destination = CGImageDestinationCreateWithURL(url, type, 1, nil) else { return }
+                CGImageDestinationAddImage(destination, image, saveOptions!.imageProperties! as CFDictionary)
+                CGImageDestinationFinalize(destination)
             }
         }
     }
