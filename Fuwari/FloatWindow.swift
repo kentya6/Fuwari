@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Magnet
 import Carbon
 
 class FloatWindow: NSWindow {
@@ -30,10 +31,12 @@ class FloatWindow: NSWindow {
     
     override func keyDown(with event: NSEvent) {
         super.keyDown(with: event)
-        
+
+        let combo = KeyCombo(keyCode: Int(event.keyCode), cocoaModifiers: event.modifierFlags)
         if event.modifierFlags.rawValue & NSEvent.ModifierFlags.command.rawValue != 0 {
-            switch event.keyCode {
-            case UInt16(kVK_ANSI_S):
+            guard let char = combo?.characters.first else { return }
+            switch char {
+            case "S":
                 let saveLabel = NSTextField(frame: NSRect(x: 10, y: 10, width: 80, height: 26))
                 saveLabel.stringValue = "Save"
                 saveLabel.textColor = .white
@@ -54,11 +57,11 @@ class FloatWindow: NSWindow {
                         self.floatDelegate?.save(floatWindow: self, image: image as! CGImage)
                     }
                 }
-            case UInt16(kVK_ANSI_W):
+            case "W":
                 fade(isIn: false) {
                     self.floatDelegate?.close(floatWindow: self)
                 }
-            case UInt16(kVK_ANSI_C):
+            case "C":
                 DispatchQueue.main.asyncAfter(deadline: .now()) {
                     if let image = self.contentView?.layer?.contents {
                         let cgImage = image as! CGImage
