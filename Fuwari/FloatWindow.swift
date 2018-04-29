@@ -53,6 +53,15 @@ class FloatWindow: NSWindow {
         popUpLabel.alphaValue = 0.0
         contentView?.addSubview(popUpLabel)
         
+        menu = NSMenu()
+        menu?.addItem(NSMenuItem(title: LocalizedString.Save.value, action: #selector(saveImage), keyEquivalent: "s"))
+        menu?.addItem(NSMenuItem(title: LocalizedString.Copy.value, action: #selector(copyImage), keyEquivalent: "c"))
+        menu?.addItem(NSMenuItem.separator())
+        menu?.addItem(NSMenuItem(title: LocalizedString.ZoomIn.value, action: #selector(zoomInWindow), keyEquivalent: "+"))
+        menu?.addItem(NSMenuItem(title: LocalizedString.ZoomOut.value, action: #selector(zoomOutWindow), keyEquivalent: "-"))
+        menu?.addItem(NSMenuItem.separator())
+        menu?.addItem(NSMenuItem(title: LocalizedString.Close.value, action: #selector(closeWindow), keyEquivalent: "w"))
+        
         fadeWindow(isIn: true)
     }
     
@@ -64,46 +73,20 @@ class FloatWindow: NSWindow {
             guard let char = combo?.characters.first else { return }
             switch char {
             case "S": // ⌘S
-                DispatchQueue.main.asyncAfter(deadline: .now()) {
-                    if let image = self.contentView?.layer?.contents {
-                        self.showPopUp(text: "Save")
-                        self.floatDelegate?.save(floatWindow: self, image: image as! CGImage)
-                    }
-                }
-            case "W": // ⌘W
-                fadeWindow(isIn: false) {
-                    self.floatDelegate?.close(floatWindow: self)
-                }
+                saveImage()
             case "C": // ⌘C
-                DispatchQueue.main.asyncAfter(deadline: .now()) {
-                    if let image = self.contentView?.layer?.contents {
-                        let cgImage = image as! CGImage
-                        let size = CGSize(width: cgImage.width, height: cgImage.height)
-                        let nsImage = NSImage(cgImage: cgImage, size: size)
-                        NSPasteboard.general.clearContents()
-                        NSPasteboard.general.writeObjects([nsImage])
-                        self.showPopUp(text: "Copy")
-                    }
-                }
+                copyImage()
             case "=": // ⌘+
-                if windowScale < maxWindowScale {
-                    windowScale += windowScaleInterval
-                    setFrame(NSRect(x: frame.origin.x - (originalRect.width / 2 * windowScaleInterval), y: frame.origin.y - (originalRect.height / 2 * windowScaleInterval), width: originalRect.width * windowScale, height: originalRect.height * windowScale), display: true)
-                }
-                showPopUp(text: "\(Int(windowScale * 100))%")
+                zoomInWindow()
             case "-": // ⌘-
-                if windowScale > minWindowScale {
-                    windowScale -= windowScaleInterval
-                    setFrame(NSRect(x: frame.origin.x + (originalRect.width / 2 * windowScaleInterval), y: frame.origin.y + (originalRect.height / 2 * windowScaleInterval), width: originalRect.width * windowScale, height: originalRect.height * windowScale), display: true)
-                }
-                showPopUp(text: "\(Int(windowScale * 100))%")
+                zoomOutWindow()
+            case "W": // ⌘W
+                closeWindow()
             default:
                 break
             }
         } else if event.keyCode == UInt16(kVK_Escape) {
-            fadeWindow(isIn: false) {
-                self.floatDelegate?.close(floatWindow: self)
-            }
+            closeWindow()
         }
     }
     
@@ -113,6 +96,58 @@ class FloatWindow: NSWindow {
     
     override func mouseUp(with event: NSEvent) {
         alphaValue = 1.0
+    }
+    
+    override func rightMouseDown(with event: NSEvent) {
+        if let menu = menu, let contentView = contentView {
+            NSMenu.popUpContextMenu(menu, with: event, for: contentView)
+        }
+    }
+    
+    @objc private func saveImage() {
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            if let image = self.contentView?.layer?.contents {
+                self.showPopUp(text: "Save")
+                self.floatDelegate?.save(floatWindow: self, image: image as! CGImage)
+            }
+        }
+    }
+    
+    @objc private func copyImage() {
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            if let image = self.contentView?.layer?.contents {
+                let cgImage = image as! CGImage
+                let size = CGSize(width: cgImage.width, height: cgImage.height)
+                let nsImage = NSImage(cgImage: cgImage, size: size)
+                NSPasteboard.general.clearContents()
+                NSPasteboard.general.writeObjects([nsImage])
+                self.showPopUp(text: "Copy")
+            }
+        }
+    }
+    
+    @objc private func zoomInWindow() {
+        if windowScale < maxWindowScale {
+            windowScale += windowScaleInterval
+            setFrame(NSRect(x: frame.origin.x - (originalRect.width / 2 * windowScaleInterval), y: frame.origin.y - (originalRect.height / 2 * windowScaleInterval), width: originalRect.width * windowScale, height: originalRect.height * windowScale), display: true)
+        }
+        
+        showPopUp(text: "\(Int(windowScale * 100))%")
+    }
+    
+    @objc private func zoomOutWindow() {
+        if windowScale > minWindowScale {
+            windowScale -= windowScaleInterval
+            setFrame(NSRect(x: frame.origin.x + (originalRect.width / 2 * windowScaleInterval), y: frame.origin.y + (originalRect.height / 2 * windowScaleInterval), width: originalRect.width * windowScale, height: originalRect.height * windowScale), display: true)
+        }
+        
+        showPopUp(text: "\(Int(windowScale * 100))%")
+    }
+    
+    @objc private func closeWindow() {
+        fadeWindow(isIn: false) {
+            self.floatDelegate?.close(floatWindow: self)
+        }
     }
     
     private func showPopUp(text: String, duration: Double = 0.3) {
