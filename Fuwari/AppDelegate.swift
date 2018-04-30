@@ -16,8 +16,8 @@ import Crashlytics
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    var eventMonitor: Any?
-    let defaults = UserDefaults.standard
+    private var eventMonitor: Any?
+    private let defaults = UserDefaults.standard    
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         Fabric.with([Answers.self, Crashlytics.self])
@@ -68,7 +68,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.terminate(nil)
     }
     
-    fileprivate func promptToAddLoginItems() {
+    private func promptToAddLoginItems() {
         let alert = NSAlert()
         alert.messageText = LocalizedString.LaunchFuwari.value
         alert.informativeText = LocalizedString.LaunchSettingInfo.value
@@ -89,7 +89,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         defaults.synchronize()
     }
     
-    fileprivate func toggleAddingToLoginItems(_ enable: Bool) {
+    private func toggleAddingToLoginItems(_ enable: Bool) {
         let appPath = Bundle.main.bundlePath
         LoginServiceKit.removeLoginItems(at: appPath)
         if enable {
@@ -97,7 +97,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
-    fileprivate func toggleLoginItemState() {
+    private func toggleLoginItemState() {
         let isInLoginItems = defaults.bool(forKey: Constants.UserDefaults.loginItem)
         toggleAddingToLoginItems(isInLoginItems)
     }

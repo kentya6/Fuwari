@@ -9,6 +9,11 @@
 import Cocoa
 import Carbon
 
+protocol CaptureDelegate {
+    func didCanceled()
+    func didCaptured(rect: NSRect, image: CGImage)
+}
+
 class FullScreenWindow: NSWindow {
     
     var captureDelegate: CaptureDelegate?
@@ -40,7 +45,9 @@ class FullScreenWindow: NSWindow {
         NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
             (event: NSEvent) -> NSEvent? in
             if event.keyCode == UInt16(kVK_Escape) {
-                self.captureDelegate?.didCanceled()
+                if StateManager.shared.isCapturing {
+                    self.captureDelegate?.didCanceled()
+                }
             }
             return event
         }
@@ -82,9 +89,4 @@ class FullScreenWindow: NSWindow {
 
         captureDelegate?.didCaptured(rect: rect.offsetBy(dx: frame.origin.x, dy: frame.origin.y), image: cgImage)
     }
-}
-
-protocol CaptureDelegate {
-    func didCanceled()
-    func didCaptured(rect: NSRect, image: CGImage)
 }

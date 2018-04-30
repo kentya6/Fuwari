@@ -13,6 +13,7 @@ class ViewController: NSViewController {
 
     private var windowControllers = [NSWindowController]()
     private var fullScreenWindows = [FullScreenWindow]()
+    private var isCancelled = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +45,7 @@ class ViewController: NSViewController {
     
     @objc private func startCapture() {
         NSCursor.hide()
-        
+        StateManager.shared.isCapturing = true
         fullScreenWindows.forEach { $0.startCapture() }
     }
 }
@@ -53,18 +54,29 @@ extension ViewController: CaptureDelegate {
     func didCaptured(rect: NSRect, image: CGImage) {
         createFloatWindow(rect: rect, image: image)
         NSCursor.unhide()
+        StateManager.shared.isCapturing = false
         fullScreenWindows.forEach { $0.orderOut(nil) }
+        isCancelled = false
     }
     
     func didCanceled() {
         NSCursor.unhide()
+        StateManager.shared.isCapturing = false
+        isCancelled = true
         fullScreenWindows.forEach { $0.orderOut(nil) }
     }
 }
 
 extension ViewController: FloatDelegate {
     func close(floatWindow: FloatWindow) {
-        windowControllers.filter({ $0.window === floatWindow }).first?.close()
+        if !isCancelled {
+            if windowControllers.filter({ $0.window === floatWindow }).first != nil {
+                floatWindow.fadeWindow(isIn: false) {
+                    floatWindow.close()
+                }
+            }
+        }
+        isCancelled = false
     }
 
     func save(floatWindow: FloatWindow, image: CGImage) {

@@ -68,6 +68,10 @@ class FloatWindow: NSWindow {
     override func keyDown(with event: NSEvent) {
         super.keyDown(with: event)
 
+        if StateManager.shared.isCapturing {
+            return
+        }
+        
         let combo = KeyCombo(keyCode: Int(event.keyCode), cocoaModifiers: event.modifierFlags)
         if event.modifierFlags.rawValue & NSEvent.ModifierFlags.command.rawValue != 0 {
             guard let char = combo?.characters.first else { return }
@@ -145,9 +149,7 @@ class FloatWindow: NSWindow {
     }
     
     @objc private func closeWindow() {
-        fadeWindow(isIn: false) {
-            self.floatDelegate?.close(floatWindow: self)
-        }
+        floatDelegate?.close(floatWindow: self)
     }
     
     private func showPopUp(text: String, duration: Double = 0.3) {
@@ -166,7 +168,7 @@ class FloatWindow: NSWindow {
         }
     }
     
-    private func fadeWindow(isIn: Bool, completion: (() -> Void)? = nil) {
+    func fadeWindow(isIn: Bool, completion: (() -> Void)? = nil) {
         makeKeyAndOrderFront(self)
         NSAnimationContext.beginGrouping()
         NSAnimationContext.current.completionHandler = completion
