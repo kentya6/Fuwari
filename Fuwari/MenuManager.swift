@@ -12,13 +12,13 @@ import Magnet
 class MenuManager: NSObject {
 
     static let shared = MenuManager()
-    let statusItem = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
+    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     
     private var captureItem = NSMenuItem()
 
     func configure() {
         if let button = statusItem.button {
-            button.image = NSImage(named: "MenuIcon")
+            button.image = NSImage(named: NSImage.Name(rawValue: "MenuIcon"))
         }
         
         captureItem = NSMenuItem(title: LocalizedString.Capture.value, action: #selector(AppDelegate.capture), keyEquivalent: HotKeyManager.shared.captureKeyCombo.characters.lowercased())

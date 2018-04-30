@@ -10,7 +10,7 @@ import Cocoa
 
 class AboutWindowController: NSWindowController {
 
-    static let shared = AboutWindowController(windowNibName: "AboutWindowController")
+    static let shared = AboutWindowController(windowNibName: NSNib.Name(rawValue: "AboutWindowController"))
     
     @IBOutlet private weak var versionTextField: NSTextField! {
         didSet {

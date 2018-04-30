@@ -31,6 +31,7 @@
 		BEC844FB1DED859300A4A57A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEC844FA1DED859300A4A57A /* Assets.xcassets */; };
 		BEC844FE1DED859300A4A57A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEC844FC1DED859300A4A57A /* Main.storyboard */; };
 		BEC8450C1DF59ECB00A4A57A /* CaptureGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC8450B1DF59ECB00A4A57A /* CaptureGuideView.swift */; };
+		BECCBA7F2096F95000D13978 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECCBA7E2096F95000D13978 /* StateManager.swift */; };
 		BEF57FE51DFD46AE006595B6 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF57FE41DFD46AE006595B6 /* PreferencesWindowController.swift */; };
 		BEF57FED1DFD53D3006595B6 /* UpdatePreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF57FEC1DFD53D3006595B6 /* UpdatePreferenceViewController.swift */; };
 		BEF57FEF1DFD58D4006595B6 /* NSColor+Fuwari.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF57FEE1DFD58D4006595B6 /* NSColor+Fuwari.swift */; };
@@ -69,6 +70,7 @@
 		BEC844FD1DED859300A4A57A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BEC844FF1DED859300A4A57A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEC8450B1DF59ECB00A4A57A /* CaptureGuideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureGuideView.swift; sourceTree = "<group>"; };
+		BECCBA7E2096F95000D13978 /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
 		BEF57FE41DFD46AE006595B6 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		BEF57FEC1DFD53D3006595B6 /* UpdatePreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePreferenceViewController.swift; sourceTree = "<group>"; };
 		BEF57FEE1DFD58D4006595B6 /* NSColor+Fuwari.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+Fuwari.swift"; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				BEC8450B1DF59ECB00A4A57A /* CaptureGuideView.swift */,
 				BE7E82581DF72E7A00F3F2F8 /* FullScreenWindow.swift */,
 				BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */,
+				BECCBA7E2096F95000D13978 /* StateManager.swift */,
 				BE5BE7A31E065D7800820201 /* HotKeyManager.swift */,
 				BE9777F71E100D1F00E5934F /* MenuManager.swift */,
 				BE6D5E741E12CF5E005492B2 /* AboutWindowController.swift */,
@@ -220,12 +223,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = AppKnop;
 				TargetAttributes = {
 					BEC844F21DED859300A4A57A = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = QZJ74E9669;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -317,6 +321,7 @@
 				BE6D5E761E12CF5E005492B2 /* AboutWindowController.swift in Sources */,
 				BE5BE7A41E065D7800820201 /* HotKeyManager.swift in Sources */,
 				BE5896A11DFCED26007CE7AC /* LocalizedString.swift in Sources */,
+				BECCBA7F2096F95000D13978 /* StateManager.swift in Sources */,
 				BEC8450C1DF59ECB00A4A57A /* CaptureGuideView.swift in Sources */,
 				BEC844F71DED859300A4A57A /* AppDelegate.swift in Sources */,
 				BE9777ED1E0E613700E5934F /* UserDefaults+ArchiveData.swift in Sources */,
@@ -405,6 +410,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -455,6 +461,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -494,7 +501,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appknop.Fuwari;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -514,7 +522,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appknop.Fuwari;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

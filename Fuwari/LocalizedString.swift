@@ -18,6 +18,11 @@ enum LocalizedString: String {
     case DontLaunch        = "Don't Launch"
     case Capture           = "Capture"
     case About             = "About"
+    case Save              = "Save"
+    case Copy              = "Copy"
+    case Close             = "Close"
+    case ZoomIn            = "ZoomIn"
+    case ZoomOut           = "ZoomOut"
     
     case TabGeneral        = "General"
     case TabMenu           = "Menu"

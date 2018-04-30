@@ -9,6 +9,11 @@
 import Cocoa
 import Carbon
 
+protocol CaptureDelegate {
+    func didCanceled()
+    func didCaptured(rect: NSRect, image: CGImage)
+}
+
 class FullScreenWindow: NSWindow {
     
     var captureDelegate: CaptureDelegate?
@@ -19,10 +24,10 @@ class FullScreenWindow: NSWindow {
     }()
     
     private var mouseLocation: NSPoint {
-        return NSPoint(x: NSEvent.mouseLocation().x - frame.origin.x, y: NSEvent.mouseLocation().y - frame.origin.y)
+        return NSPoint(x: NSEvent.mouseLocation.x - frame.origin.x, y: NSEvent.mouseLocation.y - frame.origin.y)
     }
     
-    override init(contentRect: NSRect, styleMask style: NSWindowStyleMask, backing bufferingType: NSBackingStoreType, defer flag: Bool) {
+    override init(contentRect: NSRect, styleMask style: NSWindow.StyleMask, backing bufferingType: NSWindow.BackingStoreType, defer flag: Bool) {
         super.init(contentRect: contentRect, styleMask: .borderless, backing: .buffered, defer: false)
         
         isReleasedWhenClosed = true
@@ -32,7 +37,7 @@ class FullScreenWindow: NSWindow {
         hasShadow = false
         ignoresMouseEvents = false
         acceptsMouseMovedEvents = true
-        level = Int(CGWindowLevelForKey(.assistiveTechHighWindow))
+        level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.assistiveTechHighWindow)))
         makeKeyAndOrderFront(self)
         
         contentView = captureGuideView
@@ -40,7 +45,9 @@ class FullScreenWindow: NSWindow {
         NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
             (event: NSEvent) -> NSEvent? in
             if event.keyCode == UInt16(kVK_Escape) {
-                self.captureDelegate?.didCanceled()
+                if StateManager.shared.isCapturing {
+                    self.captureDelegate?.didCanceled()
+                }
             }
             return event
         }
@@ -82,9 +89,4 @@ class FullScreenWindow: NSWindow {
 
         captureDelegate?.didCaptured(rect: rect.offsetBy(dx: frame.origin.x, dy: frame.origin.y), image: cgImage)
     }
-}
-
-protocol CaptureDelegate {
-    func didCanceled()
-    func didCaptured(rect: NSRect, image: CGImage)
 }

@@ -16,8 +16,8 @@ import Crashlytics
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    var eventMonitor: Any?
-    let defaults = UserDefaults.standard
+    private var eventMonitor: Any?
+    private let defaults = UserDefaults.standard    
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         Fabric.with([Answers.self, Crashlytics.self])
@@ -27,6 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             promptToAddLoginItems()
         }
 
+        HotKeyManager.shared.configure()
         MenuManager.shared.configure()
     }
 
@@ -47,7 +48,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func capture() {
         NSApp.activate(ignoringOtherApps: true)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.Notification.capture), object: nil)
-        eventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.mouseMoved, .leftMouseUp], handler: {
+        eventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [NSEvent.EventTypeMask.mouseMoved, NSEvent.EventTypeMask.leftMouseUp], handler: {
             (event: NSEvent) in
             switch event.type {
             case .mouseMoved:
@@ -67,7 +68,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.terminate(nil)
     }
     
-    fileprivate func promptToAddLoginItems() {
+    private func promptToAddLoginItems() {
         let alert = NSAlert()
         alert.messageText = LocalizedString.LaunchFuwari.value
         alert.informativeText = LocalizedString.LaunchSettingInfo.value
@@ -77,18 +78,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.activate(ignoringOtherApps: true)
         
         //  Launch on system startup
-        if alert.runModal() == NSAlertFirstButtonReturn {
+        if alert.runModal() == NSApplication.ModalResponse.alertFirstButtonReturn {
             defaults.set(true, forKey: Constants.UserDefaults.loginItem)
             toggleLoginItemState()
         }
         // Do not show this message again
-        if alert.suppressionButton?.state == NSOnState {
+        if alert.suppressionButton?.state == .on {
             defaults.set(true, forKey: Constants.UserDefaults.suppressAlertForLoginItem)
         }
         defaults.synchronize()
     }
     
-    fileprivate func toggleAddingToLoginItems(_ enable: Bool) {
+    private func toggleAddingToLoginItems(_ enable: Bool) {
         let appPath = Bundle.main.bundlePath
         LoginServiceKit.removeLoginItems(at: appPath)
         if enable {
@@ -96,7 +97,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
-    fileprivate func toggleLoginItemState() {
+    private func toggleLoginItemState() {
         let isInLoginItems = defaults.bool(forKey: Constants.UserDefaults.loginItem)
         toggleAddingToLoginItems(isInLoginItems)
     }
