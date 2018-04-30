@@ -66,8 +66,6 @@ class FloatWindow: NSWindow {
     }
     
     override func keyDown(with event: NSEvent) {
-        super.keyDown(with: event)
-
         if StateManager.shared.isCapturing {
             return
         }
