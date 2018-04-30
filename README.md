@@ -10,8 +10,8 @@ Floating screenshot like a sticky.
 </p>
 
 ## Requirement
-- Swift3+
-- Xcode8+
+- Swift4+
+- Xcode9.3+
 
 ## Contributing
 1. Fork it ( https://github.com/kentya6/Fuwari/fork )
@@ -24,7 +24,7 @@ Floating screenshot like a sticky.
 
 The MIT License (MIT)
 
-Copyright (c) 2016 Kengo YOKOYAMA
+Copyright (c) 2018 Kengo YOKOYAMA
 
 ## Author
 
