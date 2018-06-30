@@ -78,7 +78,7 @@ class FloatWindow: NSWindow {
                 saveImage()
             case "C": // ⌘C
                 copyImage()
-            case "=": // ⌘+
+            case "=", "^": // ⌘+
                 zoomInWindow()
             case "-": // ⌘-
                 zoomOutWindow()
