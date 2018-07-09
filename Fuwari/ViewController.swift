@@ -11,24 +11,30 @@ import Quartz
 
 class ViewController: NSViewController {
 
-    private var windowControllers = [NSWindowController]()
-    private var fullScreenWindows = [FullScreenWindow]()
+    private var windowControllers = [FloatWindow]()
     private var isCancelled = false
+    private var oldApp: NSRunningApplication?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        NSScreen.screens.forEach {
-            let fullScreenWindow = FullScreenWindow(contentRect: $0.frame, styleMask: .borderless, backing: .buffered, defer: false)
-            fullScreenWindow.captureDelegate = self
-            fullScreenWindows.append(fullScreenWindow)
-            let controller = NSWindowController(window: fullScreenWindow)
-            controller.showWindow(nil)
-            windowControllers.append(controller)
-            fullScreenWindow.orderOut(nil)
-        }
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(startCapture), name: Notification.Name(rawValue: Constants.Notification.capture), object: nil)
+        
+        oldApp = NSWorkspace.shared.frontmostApplication
+        oldApp?.activate(options: .activateIgnoringOtherApps)
+        
+        ScreenshotManager.shared.eventHandler {
+            imageUrl in
+            let currentScreen = NSScreen.screens.first { $0.frame.contains(NSEvent.mouseLocation) }
+            guard let currentScaleFactor = currentScreen?.backingScaleFactor else { return }
+            let mouseLocation = NSEvent.mouseLocation
+            let ciImage = CIImage(contentsOf: imageUrl)?.copy() as? CIImage
+            let context = CIContext(options: nil)
+            let cgImage = context.createCGImage(ciImage!, from: ciImage!.extent)
+            
+            self.createFloatWindow(rect: NSRect(x: Int(mouseLocation.x) - cgImage!.width / Int(2 * currentScaleFactor), y: Int(mouseLocation.y) - cgImage!.height / Int(2 * currentScaleFactor), width: Int(CGFloat(cgImage!.width) / currentScaleFactor), height: Int(CGFloat(cgImage!.height) / currentScaleFactor)), image: cgImage!)
+            try? FileManager.default.removeItem(at: imageUrl)
+        }
     }
     
     deinit {
@@ -38,45 +44,29 @@ class ViewController: NSViewController {
     private func createFloatWindow(rect: NSRect, image: CGImage) {
         let floatWindow = FloatWindow(contentRect: rect, image: image)
         floatWindow.floatDelegate = self
-        let floatWindowController = NSWindowController(window: floatWindow)
-        floatWindowController.showWindow(nil)
-        windowControllers.append(floatWindowController)
+        windowControllers.append(floatWindow)
+        NSApp.activate(ignoringOtherApps: true)
     }
     
     @objc private func startCapture() {
-        NSCursor.hide()
-        StateManager.shared.isCapturing = true
-        fullScreenWindows.forEach { $0.startCapture() }
-    }
-}
-
-extension ViewController: CaptureDelegate {
-    func didCaptured(rect: NSRect, image: CGImage) {
-        createFloatWindow(rect: rect, image: image)
-        NSCursor.unhide()
-        StateManager.shared.isCapturing = false
-        fullScreenWindows.forEach { $0.orderOut(nil) }
-        isCancelled = false
-    }
-    
-    func didCanceled() {
-        NSCursor.unhide()
-        StateManager.shared.isCapturing = false
-        isCancelled = true
-        fullScreenWindows.forEach { $0.orderOut(nil) }
+        ScreenshotManager.shared.startCapture()
     }
 }
 
 extension ViewController: FloatDelegate {
     func close(floatWindow: FloatWindow) {
         if !isCancelled {
-            if windowControllers.filter({ $0.window === floatWindow }).first != nil {
+            if windowControllers.filter({ $0 === floatWindow }).first != nil {
                 floatWindow.fadeWindow(isIn: false) {
                     floatWindow.close()
                 }
             }
         }
         isCancelled = false
+
+        if windowControllers.count == 0 {
+            oldApp?.activate(options: .activateIgnoringOtherApps)
+        }        
     }
 
     func save(floatWindow: FloatWindow, image: CGImage) {

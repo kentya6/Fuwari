@@ -20,18 +20,16 @@
 		BE6473101E05FD91005E0AB0 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = BE64730F1E05FD91005E0AB0 /* dsa_pub.pem */; };
 		BE6D5E761E12CF5E005492B2 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6D5E741E12CF5E005492B2 /* AboutWindowController.swift */; };
 		BE6D5E771E12CF5E005492B2 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE6D5E751E12CF5E005492B2 /* AboutWindowController.xib */; };
-		BE7E82591DF72E7A00F3F2F8 /* FullScreenWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E82581DF72E7A00F3F2F8 /* FullScreenWindow.swift */; };
 		BE7E825B1DF74A2D00F3F2F8 /* FloatWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */; };
 		BE9777ED1E0E613700E5934F /* UserDefaults+ArchiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9777EC1E0E613700E5934F /* UserDefaults+ArchiveData.swift */; };
 		BE9777EF1E0EB4D900E5934F /* KeyHolder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9777EE1E0EB4D900E5934F /* KeyHolder.framework */; };
 		BE9777F01E0EC24F00E5934F /* ShortcutsPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE9777F21E0EC24F00E5934F /* ShortcutsPreferenceViewController.xib */; };
 		BE9777F81E100D1F00E5934F /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9777F71E100D1F00E5934F /* MenuManager.swift */; };
+		BEAFC2D320E8FC2E00F12911 /* ScreenshotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFC2D220E8FC2E00F12911 /* ScreenshotManager.swift */; };
 		BEC844F71DED859300A4A57A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC844F61DED859300A4A57A /* AppDelegate.swift */; };
 		BEC844F91DED859300A4A57A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC844F81DED859300A4A57A /* ViewController.swift */; };
 		BEC844FB1DED859300A4A57A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEC844FA1DED859300A4A57A /* Assets.xcassets */; };
 		BEC844FE1DED859300A4A57A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEC844FC1DED859300A4A57A /* Main.storyboard */; };
-		BEC8450C1DF59ECB00A4A57A /* CaptureGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC8450B1DF59ECB00A4A57A /* CaptureGuideView.swift */; };
-		BECCBA7F2096F95000D13978 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECCBA7E2096F95000D13978 /* StateManager.swift */; };
 		BEF57FE51DFD46AE006595B6 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF57FE41DFD46AE006595B6 /* PreferencesWindowController.swift */; };
 		BEF57FED1DFD53D3006595B6 /* UpdatePreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF57FEC1DFD53D3006595B6 /* UpdatePreferenceViewController.swift */; };
 		BEF57FEF1DFD58D4006595B6 /* NSColor+Fuwari.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF57FEE1DFD58D4006595B6 /* NSColor+Fuwari.swift */; };
@@ -55,7 +53,6 @@
 		BE64730F1E05FD91005E0AB0 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		BE6D5E741E12CF5E005492B2 /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		BE6D5E751E12CF5E005492B2 /* AboutWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindowController.xib; sourceTree = "<group>"; };
-		BE7E82581DF72E7A00F3F2F8 /* FullScreenWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenWindow.swift; sourceTree = "<group>"; };
 		BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatWindow.swift; sourceTree = "<group>"; };
 		BE9777EC1E0E613700E5934F /* UserDefaults+ArchiveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+ArchiveData.swift"; sourceTree = "<group>"; };
 		BE9777EE1E0EB4D900E5934F /* KeyHolder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeyHolder.framework; path = Carthage/Build/Mac/KeyHolder.framework; sourceTree = "<group>"; };
@@ -63,14 +60,13 @@
 		BE9777F41E0EC25900E5934F /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/ShortcutsPreferenceViewController.strings; sourceTree = "<group>"; };
 		BE9777F61E0EC26F00E5934F /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/PreferencesWindowController.strings; sourceTree = "<group>"; };
 		BE9777F71E100D1F00E5934F /* MenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
+		BEAFC2D220E8FC2E00F12911 /* ScreenshotManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotManager.swift; sourceTree = "<group>"; };
 		BEC844F31DED859300A4A57A /* Fuwari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fuwari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC844F61DED859300A4A57A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEC844F81DED859300A4A57A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BEC844FA1DED859300A4A57A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEC844FD1DED859300A4A57A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BEC844FF1DED859300A4A57A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BEC8450B1DF59ECB00A4A57A /* CaptureGuideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureGuideView.swift; sourceTree = "<group>"; };
-		BECCBA7E2096F95000D13978 /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
 		BEF57FE41DFD46AE006595B6 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		BEF57FEC1DFD53D3006595B6 /* UpdatePreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePreferenceViewController.swift; sourceTree = "<group>"; };
 		BEF57FEE1DFD58D4006595B6 /* NSColor+Fuwari.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+Fuwari.swift"; sourceTree = "<group>"; };
@@ -134,10 +130,8 @@
 			children = (
 				BEC844F61DED859300A4A57A /* AppDelegate.swift */,
 				BEC844F81DED859300A4A57A /* ViewController.swift */,
-				BEC8450B1DF59ECB00A4A57A /* CaptureGuideView.swift */,
-				BE7E82581DF72E7A00F3F2F8 /* FullScreenWindow.swift */,
 				BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */,
-				BECCBA7E2096F95000D13978 /* StateManager.swift */,
+				BEAFC2D220E8FC2E00F12911 /* ScreenshotManager.swift */,
 				BE5BE7A31E065D7800820201 /* HotKeyManager.swift */,
 				BE9777F71E100D1F00E5934F /* MenuManager.swift */,
 				BE6D5E741E12CF5E005492B2 /* AboutWindowController.swift */,
@@ -313,16 +307,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE9777F81E100D1F00E5934F /* MenuManager.swift in Sources */,
+				BEAFC2D320E8FC2E00F12911 /* ScreenshotManager.swift in Sources */,
 				BE7E825B1DF74A2D00F3F2F8 /* FloatWindow.swift in Sources */,
 				BEF57FE51DFD46AE006595B6 /* PreferencesWindowController.swift in Sources */,
-				BE7E82591DF72E7A00F3F2F8 /* FullScreenWindow.swift in Sources */,
 				BEF57FEF1DFD58D4006595B6 /* NSColor+Fuwari.swift in Sources */,
 				BEC844F91DED859300A4A57A /* ViewController.swift in Sources */,
 				BE6D5E761E12CF5E005492B2 /* AboutWindowController.swift in Sources */,
 				BE5BE7A41E065D7800820201 /* HotKeyManager.swift in Sources */,
 				BE5896A11DFCED26007CE7AC /* LocalizedString.swift in Sources */,
-				BECCBA7F2096F95000D13978 /* StateManager.swift in Sources */,
-				BEC8450C1DF59ECB00A4A57A /* CaptureGuideView.swift in Sources */,
 				BEC844F71DED859300A4A57A /* AppDelegate.swift in Sources */,
 				BE9777ED1E0E613700E5934F /* UserDefaults+ArchiveData.swift in Sources */,
 				BEF57FED1DFD53D3006595B6 /* UpdatePreferenceViewController.swift in Sources */,
