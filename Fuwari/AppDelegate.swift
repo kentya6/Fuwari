@@ -12,6 +12,7 @@ import Magnet
 import LoginServiceKit
 import Fabric
 import Crashlytics
+import Sparkle
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -28,6 +29,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             promptToAddLoginItems()
         }
 
+        SUUpdater.shared().automaticallyDownloadsUpdates = false
+        SUUpdater.shared().automaticallyChecksForUpdates = false
+        SUUpdater.shared().checkForUpdatesInBackground()
+        
         HotKeyManager.shared.configure()
         MenuManager.shared.configure()
         ScreenshotManager.shared.startMonitoring()
