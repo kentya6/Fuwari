@@ -14,18 +14,14 @@ class PreferencesWindowController: NSWindowController {
     
     @IBOutlet fileprivate weak var toolBar: NSView!
     @IBOutlet fileprivate weak var generalImageView: NSImageView!
-    @IBOutlet fileprivate weak var updatesImageView: NSImageView!
     @IBOutlet fileprivate weak var shortcutImageView: NSImageView!
     @IBOutlet fileprivate weak var generalTextField: NSTextField!
-    @IBOutlet fileprivate weak var updatesTextField: NSTextField!
     @IBOutlet fileprivate weak var shortcutTextField: NSTextField!
     @IBOutlet fileprivate weak var generalButton: NSButton!
-    @IBOutlet fileprivate weak var updatesButton: NSButton!
     @IBOutlet fileprivate weak var shortcutButton: NSButton!
     
     fileprivate let defaults = UserDefaults.standard
     fileprivate let viewController = [NSViewController(nibName: NSNib.Name(rawValue: "GeneralPreferenceViewController"), bundle: nil),
-                                      UpdatePreferenceViewController(nibName: NSNib.Name(rawValue: "UpdatePreferenceViewController"), bundle: nil),
                                       ShortcutsPreferenceViewController(nibName: NSNib.Name(rawValue: "ShortcutsPreferenceViewController"), bundle: nil)]
     
     override func windowDidLoad() {
@@ -36,8 +32,7 @@ class PreferencesWindowController: NSWindowController {
             window?.titlebarAppearsTransparent = true
         }
         toolBarItemTapped(generalButton)
-        generalButton.sendAction(on: .leftMouseDown)
-        updatesButton.sendAction(on: .leftMouseDown)
+        generalButton.sendAction(on: .leftMouseDown)        
         shortcutButton.sendAction(on: .leftMouseDown)
     }
     
@@ -65,11 +60,9 @@ extension PreferencesWindowController: NSWindowDelegate {
 fileprivate extension PreferencesWindowController {
     private func resetImages() {
         generalImageView.image = NSImage(named: NSImage.Name(rawValue: Constants.ImageName.generalOff))
-        updatesImageView.image = NSImage(named: NSImage.Name(rawValue: Constants.ImageName.updatesOff))
         shortcutImageView.image = NSImage(named: NSImage.Name(rawValue: Constants.ImageName.shortcutOff))
         
         generalTextField.textColor = .tabTitle
-        updatesTextField.textColor = .tabTitle
         shortcutTextField.textColor = .tabTitle
     }
     
@@ -81,9 +74,6 @@ fileprivate extension PreferencesWindowController {
             generalImageView.image = NSImage(named: NSImage.Name(rawValue: Constants.ImageName.generalOn))
             generalTextField.textColor = .main
         case 1:
-            updatesImageView.image = NSImage(named: NSImage.Name(rawValue: Constants.ImageName.updatesOn))
-            updatesTextField.textColor = .main
-        case 2:
             shortcutImageView.image = NSImage(named: NSImage.Name(rawValue: Constants.ImageName.shortcutOn))
             shortcutTextField.textColor = .main
         default: break

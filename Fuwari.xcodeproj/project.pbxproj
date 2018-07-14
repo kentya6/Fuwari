@@ -21,6 +21,7 @@
 		BE6D5E761E12CF5E005492B2 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6D5E741E12CF5E005492B2 /* AboutWindowController.swift */; };
 		BE6D5E771E12CF5E005492B2 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE6D5E751E12CF5E005492B2 /* AboutWindowController.xib */; };
 		BE7E825B1DF74A2D00F3F2F8 /* FloatWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */; };
+		BE85482020F975E00035BC60 /* NSMenu+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE85481F20F975E00035BC60 /* NSMenu+Extension.swift */; };
 		BE9777ED1E0E613700E5934F /* UserDefaults+ArchiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9777EC1E0E613700E5934F /* UserDefaults+ArchiveData.swift */; };
 		BE9777EF1E0EB4D900E5934F /* KeyHolder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9777EE1E0EB4D900E5934F /* KeyHolder.framework */; };
 		BE9777F01E0EC24F00E5934F /* ShortcutsPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE9777F21E0EC24F00E5934F /* ShortcutsPreferenceViewController.xib */; };
@@ -31,11 +32,9 @@
 		BEC844FB1DED859300A4A57A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEC844FA1DED859300A4A57A /* Assets.xcassets */; };
 		BEC844FE1DED859300A4A57A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEC844FC1DED859300A4A57A /* Main.storyboard */; };
 		BEF57FE51DFD46AE006595B6 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF57FE41DFD46AE006595B6 /* PreferencesWindowController.swift */; };
-		BEF57FED1DFD53D3006595B6 /* UpdatePreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF57FEC1DFD53D3006595B6 /* UpdatePreferenceViewController.swift */; };
 		BEF57FEF1DFD58D4006595B6 /* NSColor+Fuwari.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF57FEE1DFD58D4006595B6 /* NSColor+Fuwari.swift */; };
 		BEF57FF21DFD5CB6006595B6 /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEF57FF41DFD5CB6006595B6 /* PreferencesWindowController.xib */; };
 		BEF57FF71DFD5CD1006595B6 /* GeneralPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEF57FF91DFD5CD1006595B6 /* GeneralPreferenceViewController.xib */; };
-		BEF57FFC1DFD5D03006595B6 /* UpdatePreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEF57FFE1DFD5D03006595B6 /* UpdatePreferenceViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +53,7 @@
 		BE6D5E741E12CF5E005492B2 /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		BE6D5E751E12CF5E005492B2 /* AboutWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindowController.xib; sourceTree = "<group>"; };
 		BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatWindow.swift; sourceTree = "<group>"; };
+		BE85481F20F975E00035BC60 /* NSMenu+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMenu+Extension.swift"; sourceTree = "<group>"; };
 		BE9777EC1E0E613700E5934F /* UserDefaults+ArchiveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+ArchiveData.swift"; sourceTree = "<group>"; };
 		BE9777EE1E0EB4D900E5934F /* KeyHolder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeyHolder.framework; path = Carthage/Build/Mac/KeyHolder.framework; sourceTree = "<group>"; };
 		BE9777F31E0EC25500E5934F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ShortcutsPreferenceViewController.xib; sourceTree = "<group>"; };
@@ -68,13 +68,10 @@
 		BEC844FD1DED859300A4A57A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BEC844FF1DED859300A4A57A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEF57FE41DFD46AE006595B6 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
-		BEF57FEC1DFD53D3006595B6 /* UpdatePreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePreferenceViewController.swift; sourceTree = "<group>"; };
 		BEF57FEE1DFD58D4006595B6 /* NSColor+Fuwari.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+Fuwari.swift"; sourceTree = "<group>"; };
 		BEF57FF51DFD5CBA006595B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreferencesWindowController.xib; sourceTree = "<group>"; };
 		BEF57FFA1DFD5CD3006595B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GeneralPreferenceViewController.xib; sourceTree = "<group>"; };
 		BEF57FFB1DFD5CD6006595B6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/GeneralPreferenceViewController.strings; sourceTree = "<group>"; };
-		BEF57FFF1DFD5D05006595B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/UpdatePreferenceViewController.xib; sourceTree = "<group>"; };
-		BEF580001DFD5D08006595B6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/UpdatePreferenceViewController.strings; sourceTree = "<group>"; };
 		BEF580081DFD9786006595B6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,6 +136,7 @@
 				BEF580021DFD9464006595B6 /* Preferences */,
 				BEF580011DFD945A006595B6 /* Utility */,
 				BEF57FEE1DFD58D4006595B6 /* NSColor+Fuwari.swift */,
+				BE85481F20F975E00035BC60 /* NSMenu+Extension.swift */,
 				BE9777EC1E0E613700E5934F /* UserDefaults+ArchiveData.swift */,
 				BEC844FC1DED859300A4A57A /* Main.storyboard */,
 				BEF580031DFD9480006595B6 /* Resources */,
@@ -160,12 +158,10 @@
 			isa = PBXGroup;
 			children = (
 				BEF57FE41DFD46AE006595B6 /* PreferencesWindowController.swift */,
-				BEF57FEC1DFD53D3006595B6 /* UpdatePreferenceViewController.swift */,
 				BE5BE79F1E065C7700820201 /* ShortcutsPreferenceViewController.swift */,
 				BE9777F21E0EC24F00E5934F /* ShortcutsPreferenceViewController.xib */,
 				BEF57FF41DFD5CB6006595B6 /* PreferencesWindowController.xib */,
 				BEF57FF91DFD5CD1006595B6 /* GeneralPreferenceViewController.xib */,
-				BEF57FFE1DFD5D03006595B6 /* UpdatePreferenceViewController.xib */,
 			);
 			name = Preferences;
 			sourceTree = "<group>";
@@ -260,7 +256,6 @@
 				BEC844FE1DED859300A4A57A /* Main.storyboard in Resources */,
 				BE6D5E771E12CF5E005492B2 /* AboutWindowController.xib in Resources */,
 				BEF57FF71DFD5CD1006595B6 /* GeneralPreferenceViewController.xib in Resources */,
-				BEF57FFC1DFD5D03006595B6 /* UpdatePreferenceViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +305,7 @@
 				BEAFC2D320E8FC2E00F12911 /* ScreenshotManager.swift in Sources */,
 				BE7E825B1DF74A2D00F3F2F8 /* FloatWindow.swift in Sources */,
 				BEF57FE51DFD46AE006595B6 /* PreferencesWindowController.swift in Sources */,
+				BE85482020F975E00035BC60 /* NSMenu+Extension.swift in Sources */,
 				BEF57FEF1DFD58D4006595B6 /* NSColor+Fuwari.swift in Sources */,
 				BEC844F91DED859300A4A57A /* ViewController.swift in Sources */,
 				BE6D5E761E12CF5E005492B2 /* AboutWindowController.swift in Sources */,
@@ -317,7 +313,6 @@
 				BE5896A11DFCED26007CE7AC /* LocalizedString.swift in Sources */,
 				BEC844F71DED859300A4A57A /* AppDelegate.swift in Sources */,
 				BE9777ED1E0E613700E5934F /* UserDefaults+ArchiveData.swift in Sources */,
-				BEF57FED1DFD53D3006595B6 /* UpdatePreferenceViewController.swift in Sources */,
 				BE23E42F1DFA1623004DA6B7 /* Constants.swift in Sources */,
 				BE5BE7A11E065C7700820201 /* ShortcutsPreferenceViewController.swift in Sources */,
 			);
@@ -369,15 +364,6 @@
 				BEF57FFB1DFD5CD6006595B6 /* ja */,
 			);
 			name = GeneralPreferenceViewController.xib;
-			sourceTree = "<group>";
-		};
-		BEF57FFE1DFD5D03006595B6 /* UpdatePreferenceViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BEF57FFF1DFD5D05006595B6 /* Base */,
-				BEF580001DFD5D08006595B6 /* ja */,
-			);
-			name = UpdatePreferenceViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
