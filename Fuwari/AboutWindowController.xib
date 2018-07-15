@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,21 +17,14 @@
         <window title="Fuwari" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="150" height="190"/>
+            <rect key="contentRect" x="196" y="240" width="150" height="230"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" wantsLayer="YES" id="se5-gp-TjO">
-                <rect key="frame" x="0.0" y="0.0" width="150" height="190"/>
+                <rect key="frame" x="0.0" y="0.0" width="150" height="230"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bAX-Ug-bBe">
-                        <rect key="frame" x="25" y="70" width="101" height="100"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="100" id="V77-6A-UZG"/>
-                        </constraints>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="AppIcon" id="y3K-cf-Hqc"/>
-                    </imageView>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="r7D-eN-oFU">
-                        <rect key="frame" x="38" y="45" width="75" height="17"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r7D-eN-oFU">
+                        <rect key="frame" x="38" y="85" width="75" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="71" id="RWp-Re-AIi"/>
                         </constraints>
@@ -41,23 +34,69 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ajp-L3-yku">
-                        <rect key="frame" x="15" y="20" width="122" height="17"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ajp-L3-yku">
+                        <rect key="frame" x="15" y="62" width="122" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="© Kengo Yokoyama" id="vNk-SA-UPB">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="nTL-FA-3o1">
+                        <rect key="frame" x="89" y="14" width="36" height="36"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="36" id="JMw-i4-wDK"/>
+                            <constraint firstAttribute="width" constant="36" id="R6D-Q6-lod"/>
+                        </constraints>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="GitHub" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Mse-29-wDd">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="didTouchGitHubButton:" target="-2" id="IwH-o2-B02"/>
+                        </connections>
+                    </button>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="qpu-hY-iBq">
+                        <rect key="frame" x="25" y="110" width="100" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="ZqN-F0-y1J"/>
+                            <constraint firstAttribute="height" constant="100" id="ajX-RL-M96"/>
+                        </constraints>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="AppIcon" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="beT-dj-NHm">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="didTouchFuwariButton:" target="-2" id="2sY-8Z-ZRX"/>
+                        </connections>
+                    </button>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="wgA-Yg-xTZ">
+                        <rect key="frame" x="25" y="14" width="36" height="36"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="36" id="0Fy-t2-JS5"/>
+                            <constraint firstAttribute="width" constant="36" id="B6L-q4-0TV"/>
+                        </constraints>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Twitter" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="q6d-7O-owb">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="didTouchTwitterButton:" target="-2" id="7IG-08-hSz"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="r7D-eN-oFU" firstAttribute="top" secondItem="bAX-Ug-bBe" secondAttribute="bottom" constant="8" symbolic="YES" id="4qJ-kc-ezh"/>
-                    <constraint firstItem="bAX-Ug-bBe" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="25" id="Df9-c8-TrE"/>
-                    <constraint firstItem="bAX-Ug-bBe" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="20" symbolic="YES" id="MFm-Zb-rfQ"/>
-                    <constraint firstItem="bAX-Ug-bBe" firstAttribute="centerX" secondItem="r7D-eN-oFU" secondAttribute="centerX" id="WjG-bz-a2i"/>
+                    <constraint firstAttribute="bottom" secondItem="wgA-Yg-xTZ" secondAttribute="bottom" constant="14" id="324-Ce-CI8"/>
+                    <constraint firstItem="r7D-eN-oFU" firstAttribute="top" secondItem="qpu-hY-iBq" secondAttribute="bottom" constant="8" symbolic="YES" id="AMH-UZ-UzL"/>
+                    <constraint firstItem="qpu-hY-iBq" firstAttribute="leading" secondItem="wgA-Yg-xTZ" secondAttribute="leading" id="H2x-Jw-6c0"/>
+                    <constraint firstItem="qpu-hY-iBq" firstAttribute="centerX" secondItem="r7D-eN-oFU" secondAttribute="centerX" id="J0Y-ee-y1q"/>
+                    <constraint firstItem="wgA-Yg-xTZ" firstAttribute="bottom" secondItem="nTL-FA-3o1" secondAttribute="bottom" id="QLo-SR-lxR"/>
                     <constraint firstItem="r7D-eN-oFU" firstAttribute="centerX" secondItem="ajp-L3-yku" secondAttribute="centerX" id="YMC-fN-3Gn"/>
+                    <constraint firstItem="qpu-hY-iBq" firstAttribute="trailing" secondItem="nTL-FA-3o1" secondAttribute="trailing" id="cgQ-DD-Lqy"/>
+                    <constraint firstItem="wgA-Yg-xTZ" firstAttribute="top" secondItem="nTL-FA-3o1" secondAttribute="top" id="g53-co-2d6"/>
                     <constraint firstItem="r7D-eN-oFU" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="40" id="gWp-FF-SkW"/>
-                    <constraint firstItem="ajp-L3-yku" firstAttribute="top" secondItem="r7D-eN-oFU" secondAttribute="bottom" constant="8" symbolic="YES" id="x4h-tL-aBK"/>
+                    <constraint firstItem="wgA-Yg-xTZ" firstAttribute="top" secondItem="ajp-L3-yku" secondAttribute="bottom" constant="12" id="h9q-JV-hJ8"/>
+                    <constraint firstItem="ajp-L3-yku" firstAttribute="top" secondItem="r7D-eN-oFU" secondAttribute="bottom" constant="6" id="x4h-tL-aBK"/>
                 </constraints>
             </view>
             <connections>
@@ -68,5 +107,7 @@
     </objects>
     <resources>
         <image name="AppIcon" width="128" height="128"/>
+        <image name="GitHub" width="18" height="18"/>
+        <image name="Twitter" width="18" height="18"/>
     </resources>
 </document>
