@@ -41,7 +41,7 @@ class MenuManager: NSObject {
     }
     
     func udpateCpatureMenuItem() {
-        statusItem.menu?.items[2].keyEquivalent = HotKeyManager.shared.captureKeyCombo.characters.lowercased()
-        statusItem.menu?.items[2].keyEquivalentModifierMask = KeyTransformer.cocoaFlags(from: HotKeyManager.shared.captureKeyCombo.modifiers)
+        captureItem.keyEquivalent = HotKeyManager.shared.captureKeyCombo.characters.lowercased()
+        captureItem.keyEquivalentModifierMask = KeyTransformer.cocoaFlags(from: HotKeyManager.shared.captureKeyCombo.modifiers)
     }
 }

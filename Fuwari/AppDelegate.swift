@@ -16,8 +16,7 @@ import Sparkle
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-    private var eventMonitor: Any?
+    
     private let defaults = UserDefaults.standard
     private var screenshotManager: ScreenshotManager?
     

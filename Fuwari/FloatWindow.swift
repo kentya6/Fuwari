@@ -31,7 +31,7 @@ class FloatWindow: NSWindow {
     
     init(contentRect: NSRect, styleMask style: NSWindow.StyleMask = .borderless, backing bufferingType: NSWindow.BackingStoreType = .buffered, defer flag: Bool = false, image: CGImage) {
         super.init(contentRect: contentRect, styleMask: style, backing: bufferingType, defer: flag)
-        
+        contentView = FloatView(frame: contentRect)
         originalRect = contentRect
         level = .floating
         isMovableByWindowBackground = true
@@ -86,14 +86,6 @@ class FloatWindow: NSWindow {
         } else if event.keyCode == UInt16(kVK_Escape) {
             closeWindow()
         }
-    }
-    
-    override func mouseDown(with event: NSEvent) {
-        alphaValue = 0.4
-    }
-    
-    override func mouseUp(with event: NSEvent) {
-        alphaValue = 1.0
     }
     
     override func rightMouseDown(with event: NSEvent) {
