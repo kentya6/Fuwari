@@ -33,7 +33,7 @@ class FloatWindow: NSWindow {
         super.init(contentRect: contentRect, styleMask: style, backing: bufferingType, defer: flag)
         
         originalRect = contentRect
-        level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.floatingWindow)))
+        level = .floating
         isMovableByWindowBackground = true
         hasShadow = true
         contentView?.wantsLayer = true
@@ -66,10 +66,6 @@ class FloatWindow: NSWindow {
     }
     
     override func keyDown(with event: NSEvent) {
-        if StateManager.shared.isCapturing {
-            return
-        }
-        
         let combo = KeyCombo(keyCode: Int(event.keyCode), cocoaModifiers: event.modifierFlags)
         if event.modifierFlags.rawValue & NSEvent.ModifierFlags.command.rawValue != 0 {
             guard let char = combo?.characters.first else { return }
@@ -78,7 +74,7 @@ class FloatWindow: NSWindow {
                 saveImage()
             case "C": // ⌘C
                 copyImage()
-            case "=": // ⌘+
+            case "=", "^": // ⌘+
                 zoomInWindow()
             case "-": // ⌘-
                 zoomOutWindow()

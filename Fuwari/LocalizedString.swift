@@ -9,6 +9,7 @@
 import Cocoa
 
 enum LocalizedString: String {
+    case CheckForUpdates   = "Check for Updates..."
     case Preference        = "Preferences..."
     case QuitFuwari        = "Quit Fuwari"
     case Cancel            = "Cancel"

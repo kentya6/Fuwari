@@ -12,12 +12,14 @@ import Magnet
 import LoginServiceKit
 import Fabric
 import Crashlytics
+import Sparkle
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     private var eventMonitor: Any?
-    private let defaults = UserDefaults.standard    
+    private let defaults = UserDefaults.standard
+    private var screenshotManager: ScreenshotManager?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         Fabric.with([Answers.self, Crashlytics.self])
@@ -27,6 +29,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             promptToAddLoginItems()
         }
 
+        SUUpdater.shared().automaticallyDownloadsUpdates = false
+        SUUpdater.shared().automaticallyChecksForUpdates = false
+        SUUpdater.shared().checkForUpdatesInBackground()
+        
         HotKeyManager.shared.configure()
         MenuManager.shared.configure()
     }
@@ -34,7 +40,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
         HotKeyCenter.shared.unregisterAll()
     }
-
+    
     @objc func openPreferences() {
         NSApp.activate(ignoringOtherApps: true)
         PreferencesWindowController.shared.showWindow(self)
@@ -46,22 +52,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func capture() {
-        NSApp.activate(ignoringOtherApps: true)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.Notification.capture), object: nil)
-        eventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [NSEvent.EventTypeMask.mouseMoved, NSEvent.EventTypeMask.leftMouseUp], handler: {
-            (event: NSEvent) in
-            switch event.type {
-            case .mouseMoved:
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.Notification.mouseMoved), object: nil)
-            case .leftMouseUp:
-                if let eventMonitor = self.eventMonitor {
-                    NSEvent.removeMonitor(eventMonitor)
-                    self.eventMonitor = nil
-                }
-            default:
-                break
-            }
-        })
     }
     
     @objc func quit() {

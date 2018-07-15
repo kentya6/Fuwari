@@ -23,9 +23,7 @@ struct Constants {
     
     struct ImageName {
         static let generalOff = "General"
-        static let generalOn  = "GeneralOn"
-        static let updatesOff = "Update"
-        static let updatesOn  = "UpdateOn"
+        static let generalOn  = "GeneralOn"        
         static let shortcutOff = "Shortcut"
         static let shortcutOn  = "ShortcutOn"
     }

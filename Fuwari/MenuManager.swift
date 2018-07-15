@@ -8,6 +8,7 @@
 
 import Cocoa
 import Magnet
+import Sparkle
 
 class MenuManager: NSObject {
 
@@ -27,9 +28,12 @@ class MenuManager: NSObject {
         let menu = NSMenu()
         menu.addItem(NSMenuItem(title: LocalizedString.About.value, action: #selector(AppDelegate.openAbout), keyEquivalent: ""))
         menu.addItem(NSMenuItem.separator())
-        menu.addItem(captureItem)
-        menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: LocalizedString.Preference.value, action: #selector(AppDelegate.openPreferences), keyEquivalent: ","))
+        menu.addItem(withTitle: LocalizedString.CheckForUpdates.value,
+                     action: #selector(SUUpdater.checkForUpdates(_:)),
+                     target: SUUpdater.shared())
+        menu.addItem(NSMenuItem.separator())
+        menu.addItem(captureItem)
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: LocalizedString.QuitFuwari.value, action: #selector(AppDelegate.quit), keyEquivalent: "q"))
         
