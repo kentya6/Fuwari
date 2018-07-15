@@ -35,12 +35,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         HotKeyManager.shared.configure()
         MenuManager.shared.configure()
-        ScreenshotManager.shared.startMonitoring()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         HotKeyCenter.shared.unregisterAll()
-        ScreenshotManager.shared.stopMonitoring()
     }
     
     @objc func openPreferences() {
