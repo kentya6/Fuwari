@@ -22,7 +22,6 @@
 		BE6D5E771E12CF5E005492B2 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE6D5E751E12CF5E005492B2 /* AboutWindowController.xib */; };
 		BE7E825B1DF74A2D00F3F2F8 /* FloatWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */; };
 		BE85482020F975E00035BC60 /* NSMenu+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE85481F20F975E00035BC60 /* NSMenu+Extension.swift */; };
-		BE85482220F9BB120035BC60 /* appcast.xml in Resources */ = {isa = PBXBuildFile; fileRef = BE85482120F9BB120035BC60 /* appcast.xml */; };
 		BE9777ED1E0E613700E5934F /* UserDefaults+ArchiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9777EC1E0E613700E5934F /* UserDefaults+ArchiveData.swift */; };
 		BE9777EF1E0EB4D900E5934F /* KeyHolder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9777EE1E0EB4D900E5934F /* KeyHolder.framework */; };
 		BE9777F01E0EC24F00E5934F /* ShortcutsPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE9777F21E0EC24F00E5934F /* ShortcutsPreferenceViewController.xib */; };
@@ -55,7 +54,6 @@
 		BE6D5E751E12CF5E005492B2 /* AboutWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindowController.xib; sourceTree = "<group>"; };
 		BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatWindow.swift; sourceTree = "<group>"; };
 		BE85481F20F975E00035BC60 /* NSMenu+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMenu+Extension.swift"; sourceTree = "<group>"; };
-		BE85482120F9BB120035BC60 /* appcast.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = appcast.xml; sourceTree = "<group>"; };
 		BE9777EC1E0E613700E5934F /* UserDefaults+ArchiveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+ArchiveData.swift"; sourceTree = "<group>"; };
 		BE9777EE1E0EB4D900E5934F /* KeyHolder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeyHolder.framework; path = Carthage/Build/Mac/KeyHolder.framework; sourceTree = "<group>"; };
 		BE9777F31E0EC25500E5934F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ShortcutsPreferenceViewController.xib; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 		BEF580031DFD9480006595B6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				BE85482120F9BB120035BC60 /* appcast.xml */,
 				BE58969C1DFCEB07007CE7AC /* Localizable.strings */,
 				BEC844FA1DED859300A4A57A /* Assets.xcassets */,
 			);
@@ -253,7 +250,6 @@
 			files = (
 				BE6473101E05FD91005E0AB0 /* dsa_pub.pem in Resources */,
 				BEC844FB1DED859300A4A57A /* Assets.xcassets in Resources */,
-				BE85482220F9BB120035BC60 /* appcast.xml in Resources */,
 				BE58969A1DFCEB07007CE7AC /* Localizable.strings in Resources */,
 				BE9777F01E0EC24F00E5934F /* ShortcutsPreferenceViewController.xib in Resources */,
 				BEF57FF21DFD5CB6006595B6 /* PreferencesWindowController.xib in Resources */,
