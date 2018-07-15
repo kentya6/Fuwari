@@ -4,12 +4,12 @@
     <link>https://fuwari-app.com/appcast.xml</link>
     <description>Fuwari update changelog.</description>
     <item>
-      <title>Fuwari 0.4</title>
-      <sparkle:releaseNotesLink xml:lang="en">https://fuwari-app.com/releasenotes/0.4.en.html</sparkle:releaseNotesLink>
-      <sparkle:releaseNotesLink xml:lang="ja">https://fuwari-app.com/releasenotes/0.4.ja.html</sparkle:releaseNotesLink>
-      <pubDate>Mon, 30 Apr 2018 18:00:00 +0900</pubDate>
+      <title>Fuwari 0.5.0</title>
+      <sparkle:releaseNotesLink xml:lang="en">https://fuwari-app.com/releasenotes/0.5.0.en.html</sparkle:releaseNotesLink>
+      <sparkle:releaseNotesLink xml:lang="ja">https://fuwari-app.com/releasenotes/0.5.0.ja.html</sparkle:releaseNotesLink>
+      <pubDate>Sun, 15 Jul 2018 11:52:09 +0900</pubDate>
       <sparkle:minimumSystemVersion>10.11</sparkle:minimumSystemVersion>
-      <enclosure url="https://github.com/kentya6/Fuwari/releases/download/v0.4/Fuwari.zip" sparkle:version="0.40" sparkle:shortVersionString="0.4" length="6631650" type="application/octet-stream" sparkle:dsaSignature="MC4CFQCqk/rzwQEJvsCceWIiL8dXn8U1BwIVAKT/MFk24ajaGjCSUmW5BT4BoTTn"/>
+      <enclosure url="https://github.com/kentya6/Fuwari/releases/download/v0.5.0/Fuwari.zip" sparkle:version="0.50" sparkle:shortVersionString="0.5.0" length="6225267" type="application/octet-stream" sparkle:dsaSignature="MC4CFQCgdzw5QTBJPkhFLExk8FRFLX9LoAIVAK4MvPaSVy3zejoYWnY7w4gHikMy"/>
     </item>
   </channel>
 </rss>
