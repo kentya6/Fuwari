@@ -40,7 +40,7 @@ class MenuManager: NSObject {
         statusItem.menu = menu
     }
     
-    func udpateCpatureMenuItem() {
+    func updateCaptureMenuItem() {
         captureItem.keyEquivalent = HotKeyManager.shared.captureKeyCombo.characters.lowercased()
         captureItem.keyEquivalentModifierMask = KeyTransformer.cocoaFlags(from: HotKeyManager.shared.captureKeyCombo.modifiers)
     }
