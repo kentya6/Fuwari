@@ -9,12 +9,17 @@
 import Cocoa
 
 class FloatView: NSView {
+    private let defaults = UserDefaults.standard
+    
     override func acceptsFirstMouse(for event: NSEvent?) -> Bool {
         return true
     }
     
     override func mouseDown(with event: NSEvent) {
-        window?.alphaValue = 0.4
+        let movingOpacity = defaults.float(forKey: Constants.UserDefaults.movingOpacity)
+        if movingOpacity < 1 {
+            window?.alphaValue = CGFloat(movingOpacity)
+        }
     }
     
     override func mouseUp(with event: NSEvent) {

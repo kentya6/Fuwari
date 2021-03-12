@@ -27,7 +27,7 @@ class ShortcutsPreferenceViewController: NSViewController {
 }
 
 fileprivate extension ShortcutsPreferenceViewController {
-    fileprivate func prepareHotKeys() {
+    func prepareHotKeys() {
         
         captureShortcutRecordView.keyCombo = HotKeyManager.shared.captureKeyCombo
     }
