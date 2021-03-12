@@ -281,7 +281,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "./carthage.sh copy-frameworks";
 		};
 		BE5896A21DFD0E71007CE7AC /* Fabric */ = {
 			isa = PBXShellScriptBuildPhase;

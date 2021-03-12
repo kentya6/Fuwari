@@ -30,6 +30,9 @@ class ViewController: NSViewController {
             let mouseLocation = NSEvent.mouseLocation
             let ciImage = CIImage(contentsOf: imageUrl)?.copy() as? CIImage
             let context = CIContext(options: nil)
+            
+            if ciImage == nil { return }
+            
             let cgImage = context.createCGImage(ciImage!, from: ciImage!.extent)
             
             self.createFloatWindow(rect: NSRect(x: Int(mouseLocation.x) - cgImage!.width / Int(2 * currentScaleFactor), y: Int(mouseLocation.y) - cgImage!.height / Int(2 * currentScaleFactor), width: Int(CGFloat(cgImage!.width) / currentScaleFactor), height: Int(CGFloat(cgImage!.height) / currentScaleFactor)), image: cgImage!)

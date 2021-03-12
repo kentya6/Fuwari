@@ -146,11 +146,13 @@ class FloatWindow: NSWindow {
             context.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
             popUpLabel.animator().alphaValue = 1.0
         }) {
-            NSAnimationContext.runAnimationGroup({ context in
-                context.duration = duration
-                context.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-                self.popUpLabel.animator().alphaValue = 0.0
-            })
+            if #available(OSX 10.12, *) {
+                NSAnimationContext.runAnimationGroup({ context in
+                    context.duration = duration
+                    context.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+                    self.popUpLabel.animator().alphaValue = 0.0
+                })
+            }
         }
     }
     

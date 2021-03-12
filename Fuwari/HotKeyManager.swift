@@ -44,7 +44,7 @@ extension HotKeyManager {
         hotKey.register()
         captureHotKey = hotKey
         
-        MenuManager.shared.udpateCpatureMenuItem()
+        MenuManager.shared.updateCaptureMenuItem()
     }
     
     fileprivate func saveKeyCombo(keyCombo: KeyCombo?) {

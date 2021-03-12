@@ -27,7 +27,6 @@ class PreferencesWindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
         window?.collectionBehavior = .canJoinAllSpaces
-        window?.backgroundColor = .white
         if #available(OSX 10.10, *) {
             window?.titlebarAppearsTransparent = true
         }
