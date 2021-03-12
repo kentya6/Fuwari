@@ -38,6 +38,7 @@ class FloatWindow: NSWindow {
         hasShadow = true
         contentView?.wantsLayer = true
         contentView?.layer?.contents = image
+        self.collectionBehavior = [.canJoinAllSpaces, .stationary, .fullScreenAuxiliary]
         self.minSize = NSMakeSize(minWindowScale, minWindowScale)
         
         popUpLabel = NSTextField(frame: NSRect(x: 10, y: 10, width: 80, height: 26))
