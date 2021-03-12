@@ -127,7 +127,7 @@ class FloatWindow: NSWindow {
     @objc private func zoomInWindow() {
         if windowScale < maxWindowScale {
             windowScale += windowScaleInterval
-            setFrame(NSRect(x: frame.origin.x - (originalRect.width / 2 * windowScaleInterval), y: frame.origin.y - (originalRect.height / 2 * windowScaleInterval), width: originalRect.width * windowScale, height: originalRect.height * windowScale), display: true)
+            setFrame(NSRect(x: frame.origin.x - (originalRect.width / 2 * windowScaleInterval), y: frame.origin.y - (originalRect.height / 2 * windowScaleInterval), width: originalRect.width * windowScale, height: originalRect.height * windowScale), display: true, animate: true)
         }
         
         showPopUp(text: "\(Int(windowScale * 100))%")
@@ -136,7 +136,7 @@ class FloatWindow: NSWindow {
     @objc private func zoomOutWindow() {
         if windowScale > minWindowScale {
             windowScale -= windowScaleInterval
-            setFrame(NSRect(x: frame.origin.x + (originalRect.width / 2 * windowScaleInterval), y: frame.origin.y + (originalRect.height / 2 * windowScaleInterval), width: originalRect.width * windowScale, height: originalRect.height * windowScale), display: true)
+            setFrame(NSRect(x: frame.origin.x + (originalRect.width / 2 * windowScaleInterval), y: frame.origin.y + (originalRect.height / 2 * windowScaleInterval), width: originalRect.width * windowScale, height: originalRect.height * windowScale), display: true, animate: true)
         }
         
         showPopUp(text: "\(Int(windowScale * 100))%")
