@@ -29,7 +29,7 @@ class FloatWindow: NSWindow {
     private let minWindowScale = CGFloat(0.25)
     private let maxWindowScale = CGFloat(2.5)
     
-    init(contentRect: NSRect, styleMask style: NSWindow.StyleMask = .borderless, backing bufferingType: NSWindow.BackingStoreType = .buffered, defer flag: Bool = false, image: CGImage) {
+    init(contentRect: NSRect, styleMask style: NSWindow.StyleMask = [.borderless, .resizable], backing bufferingType: NSWindow.BackingStoreType = .buffered, defer flag: Bool = false, image: CGImage) {
         super.init(contentRect: contentRect, styleMask: style, backing: bufferingType, defer: flag)
         contentView = FloatView(frame: contentRect)
         originalRect = contentRect
@@ -38,6 +38,7 @@ class FloatWindow: NSWindow {
         hasShadow = true
         contentView?.wantsLayer = true
         contentView?.layer?.contents = image
+        self.minSize = NSMakeSize(32, 32)
         
         popUpLabel = NSTextField(frame: NSRect(x: 10, y: 10, width: 80, height: 26))
         popUpLabel.textColor = .white
