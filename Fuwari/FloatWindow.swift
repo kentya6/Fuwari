@@ -38,7 +38,7 @@ class FloatWindow: NSWindow {
         hasShadow = true
         contentView?.wantsLayer = true
         contentView?.layer?.contents = image
-        self.minSize = NSMakeSize(32, 32)
+        self.minSize = NSMakeSize(minWindowScale, minWindowScale)
         
         popUpLabel = NSTextField(frame: NSRect(x: 10, y: 10, width: 80, height: 26))
         popUpLabel.textColor = .white
@@ -64,6 +64,12 @@ class FloatWindow: NSWindow {
         menu?.addItem(NSMenuItem(title: LocalizedString.Close.value, action: #selector(closeWindow), keyEquivalent: "w"))
         
         fadeWindow(isIn: true)
+    }
+    
+    func windowDidResize(_ notification: Notification) {
+        let resize = self.frame.size
+        windowScale = resize.width > resize.height ? resize.height / originalRect.height : resize.width / originalRect.width
+        showPopUp(text: "\(Int(windowScale * 100))%")
     }
     
     override func keyDown(with event: NSEvent) {
@@ -139,7 +145,7 @@ class FloatWindow: NSWindow {
         floatDelegate?.close(floatWindow: self)
     }
     
-    private func showPopUp(text: String, duration: Double = 0.3) {
+    private func showPopUp(text: String, duration: Double = 1.0) {
         popUpLabel.stringValue = text
         
         NSAnimationContext.runAnimationGroup({ context in
