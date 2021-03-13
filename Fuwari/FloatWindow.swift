@@ -21,6 +21,7 @@ class FloatWindow: NSWindow {
     override var canBecomeMain: Bool { return true }
 
     var floatDelegate: FloatDelegate?
+    var closeButton: NSButton!
     
     private var originalRect = NSRect()
     private var popUpLabel = NSTextField()
@@ -38,8 +39,9 @@ class FloatWindow: NSWindow {
         hasShadow = true
         contentView?.wantsLayer = true
         contentView?.layer?.contents = image
-        self.collectionBehavior = [.canJoinAllSpaces, .stationary, .fullScreenAuxiliary]
-        self.minSize = NSMakeSize(minWindowScale, minWindowScale)
+        minSize = NSMakeSize(30, 30)
+        collectionBehavior = [.canJoinAllSpaces, .stationary, .fullScreenAuxiliary]
+        animationBehavior = NSWindow.AnimationBehavior.alertPanel
         
         popUpLabel = NSTextField(frame: NSRect(x: 10, y: 10, width: 80, height: 26))
         popUpLabel.textColor = .white
@@ -55,6 +57,18 @@ class FloatWindow: NSWindow {
         popUpLabel.alphaValue = 0.0
         contentView?.addSubview(popUpLabel)
         
+        let colorAttributeTitle = NSMutableAttributedString(string: "×")
+        let range = NSMakeRange(0, colorAttributeTitle.length)
+        colorAttributeTitle.addAttribute(.foregroundColor, value: NSColor.white, range: range)
+        closeButton = NSButton(frame: NSRect(x: 4, y: frame.height - 20, width: 16, height: 16))
+        closeButton.font = NSFont.boldSystemFont(ofSize: 14)
+        closeButton.target = self
+        closeButton.action = #selector(closeWindow)
+        closeButton.attributedTitle = colorAttributeTitle
+        closeButton.isBordered = false
+        closeButton.alphaValue = 0.0
+        contentView?.addSubview(closeButton)
+        
         menu = NSMenu()
         menu?.addItem(NSMenuItem(title: LocalizedString.Save.value, action: #selector(saveImage), keyEquivalent: "s"))
         menu?.addItem(NSMenuItem(title: LocalizedString.Copy.value, action: #selector(copyImage), keyEquivalent: "c"))
@@ -69,8 +83,8 @@ class FloatWindow: NSWindow {
     }
     
     func windowDidResize(_ notification: Notification) {
-        let resize = self.frame.size
-        windowScale = resize.width > resize.height ? resize.height / originalRect.height : resize.width / originalRect.width
+        windowScale = frame.width > frame.height ? frame.height / originalRect.height : frame.width / originalRect.width
+        closeButton.frame = NSRect(x: 4, y: frame.height - 20, width: 16, height: 16)
         showPopUp(text: "\(Int(windowScale * 100))%")
     }
     
@@ -103,6 +117,14 @@ class FloatWindow: NSWindow {
         if let menu = menu, let contentView = contentView {
             NSMenu.popUpContextMenu(menu, with: event, for: contentView)
         }
+    }
+    
+    override func mouseEntered(with event: NSEvent) {
+        closeButton.alphaValue = 1.0
+    }
+    
+    override func mouseExited(with event: NSEvent) {
+        closeButton.alphaValue = 0.0
     }
     
     @objc private func saveImage() {

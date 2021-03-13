@@ -11,6 +11,18 @@ import Cocoa
 class FloatView: NSView {
     private let defaults = UserDefaults.standard
     
+    override func viewDidMoveToWindow() {
+        if !trackingAreas.isEmpty {
+            for area in trackingAreas {
+                removeTrackingArea(area)
+           }
+        }
+        if bounds.size.width == 0 || bounds.size.height == 0 { return }
+        
+        let options: NSTrackingArea.Options = [.activeInKeyWindow, .mouseEnteredAndExited]
+        addTrackingArea(NSTrackingArea(rect: bounds, options: options, owner: self, userInfo: nil))
+     }
+    
     override func acceptsFirstMouse(for event: NSEvent?) -> Bool {
         return true
     }

@@ -502,7 +502,7 @@
 				);
 				INFOPLIST_FILE = Fuwari/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MARKETING_VERSION = "0.5.2-sskmy";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appknop.Fuwari;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -525,7 +525,7 @@
 				);
 				INFOPLIST_FILE = Fuwari/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MARKETING_VERSION = "0.5.2-sskmy";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appknop.Fuwari;
 				PRODUCT_NAME = "$(TARGET_NAME)";
