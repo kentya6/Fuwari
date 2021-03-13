@@ -59,6 +59,7 @@ class FloatWindow: NSWindow {
         menu?.addItem(NSMenuItem(title: LocalizedString.Save.value, action: #selector(saveImage), keyEquivalent: "s"))
         menu?.addItem(NSMenuItem(title: LocalizedString.Copy.value, action: #selector(copyImage), keyEquivalent: "c"))
         menu?.addItem(NSMenuItem.separator())
+        menu?.addItem(NSMenuItem(title: LocalizedString.ZoomReset.value, action: #selector(resetWindowScale), keyEquivalent: "r"))
         menu?.addItem(NSMenuItem(title: LocalizedString.ZoomIn.value, action: #selector(zoomInWindow), keyEquivalent: "+"))
         menu?.addItem(NSMenuItem(title: LocalizedString.ZoomOut.value, action: #selector(zoomOutWindow), keyEquivalent: "-"))
         menu?.addItem(NSMenuItem.separator())
@@ -82,6 +83,8 @@ class FloatWindow: NSWindow {
                 saveImage()
             case "C": // ⌘C
                 copyImage()
+            case "R": // ⌘R
+                resetWindowScale()
             case "=", "^": // ⌘+
                 zoomInWindow()
             case "-": // ⌘-
@@ -140,6 +143,11 @@ class FloatWindow: NSWindow {
         }
         
         showPopUp(text: "\(Int(windowScale * 100))%")
+    }
+    
+    @objc private func resetWindowScale() {
+        windowScale = CGFloat(1.0)
+        setFrame(NSRect(x: frame.origin.x, y: frame.origin.y, width: originalRect.width * windowScale, height: originalRect.height * windowScale), display: true, animate: true)
     }
     
     @objc private func closeWindow() {

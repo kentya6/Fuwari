@@ -22,6 +22,7 @@ enum LocalizedString: String {
     case Save              = "Save"
     case Copy              = "Copy"
     case Close             = "Close"
+    case ZoomReset         = "ZoomReset"
     case ZoomIn            = "ZoomIn"
     case ZoomOut           = "ZoomOut"
     
