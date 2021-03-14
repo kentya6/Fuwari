@@ -18,6 +18,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private let defaults = UserDefaults.standard
     private var screenshotManager: ScreenshotManager?
     
+    override init() {
+        // Initialize UserDefaults value
+        defaults.register(defaults: [Constants.UserDefaults.movingOpacity: 1.0])
+    }
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Show Login Item
         if !defaults.bool(forKey: Constants.UserDefaults.loginItem) && !defaults.bool(forKey: Constants.UserDefaults.suppressAlertForLoginItem) {
