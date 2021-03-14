@@ -8,13 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BE23E42F1DFA1623004DA6B7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE23E42E1DFA1623004DA6B7 /* Constants.swift */; };
-		BE23E4321DFB8BF4004DA6B7 /* Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE23E4311DFB8BF4004DA6B7 /* Magnet.framework */; };
-		BE5896971DFCE965007CE7AC /* LoginServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896961DFCE965007CE7AC /* LoginServiceKit.framework */; };
 		BE58969A1DFCEB07007CE7AC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE58969C1DFCEB07007CE7AC /* Localizable.strings */; };
 		BE5896A11DFCED26007CE7AC /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5896A01DFCED26007CE7AC /* LocalizedString.swift */; };
-		BE5896A51DFD0E8C007CE7AC /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896A31DFD0E8C007CE7AC /* Fabric.framework */; };
-		BE5896A81DFD0EF0007CE7AC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896A71DFD0EF0007CE7AC /* Crashlytics.framework */; };
-		BE5896AA1DFD1076007CE7AC /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896A91DFD1076007CE7AC /* Sparkle.framework */; };
 		BE5BE7A11E065C7700820201 /* ShortcutsPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5BE79F1E065C7700820201 /* ShortcutsPreferenceViewController.swift */; };
 		BE5BE7A41E065D7800820201 /* HotKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5BE7A31E065D7800820201 /* HotKeyManager.swift */; };
 		BE6473101E05FD91005E0AB0 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = BE64730F1E05FD91005E0AB0 /* dsa_pub.pem */; };
@@ -24,7 +19,6 @@
 		BE85482020F975E00035BC60 /* NSMenu+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE85481F20F975E00035BC60 /* NSMenu+Extension.swift */; };
 		BE85482420FB5C640035BC60 /* FloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE85482320FB5C640035BC60 /* FloatView.swift */; };
 		BE9777ED1E0E613700E5934F /* UserDefaults+ArchiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9777EC1E0E613700E5934F /* UserDefaults+ArchiveData.swift */; };
-		BE9777EF1E0EB4D900E5934F /* KeyHolder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9777EE1E0EB4D900E5934F /* KeyHolder.framework */; };
 		BE9777F01E0EC24F00E5934F /* ShortcutsPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE9777F21E0EC24F00E5934F /* ShortcutsPreferenceViewController.xib */; };
 		BE9777F81E100D1F00E5934F /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9777F71E100D1F00E5934F /* MenuManager.swift */; };
 		BEAFC2D320E8FC2E00F12911 /* ScreenshotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFC2D220E8FC2E00F12911 /* ScreenshotManager.swift */; };
@@ -36,7 +30,15 @@
 		BEF57FEF1DFD58D4006595B6 /* NSColor+Fuwari.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF57FEE1DFD58D4006595B6 /* NSColor+Fuwari.swift */; };
 		BEF57FF21DFD5CB6006595B6 /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEF57FF41DFD5CB6006595B6 /* PreferencesWindowController.xib */; };
 		BEF57FF71DFD5CD1006595B6 /* GeneralPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEF57FF91DFD5CD1006595B6 /* GeneralPreferenceViewController.xib */; };
+		CA69DEB125FDC3A9003C8AB2 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896A31DFD0E8C007CE7AC /* Fabric.framework */; };
+		CA69DEB425FDC3BF003C8AB2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896A71DFD0EF0007CE7AC /* Crashlytics.framework */; };
+		CA69DEB625FDC3C2003C8AB2 /* KeyHolder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9777EE1E0EB4D900E5934F /* KeyHolder.framework */; };
+		CA69DEB825FDC3C5003C8AB2 /* LoginServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896961DFCE965007CE7AC /* LoginServiceKit.framework */; };
+		CA69DEBA25FDC3C7003C8AB2 /* Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE23E4311DFB8BF4004DA6B7 /* Magnet.framework */; };
+		CA69DEBC25FDC3C8003C8AB2 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896A91DFD1076007CE7AC /* Sparkle.framework */; };
+		CA69DEC025FDCAB7003C8AB2 /* KeyHolder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9777EE1E0EB4D900E5934F /* KeyHolder.framework */; };
 		CA72BCDB25FB6F3F0041CB0D /* GeneralPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA72BCDA25FB6F3F0041CB0D /* GeneralPreferenceViewController.swift */; };
+		CA72BCF025FCA22C0041CB0D /* GyazoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA72BCEF25FCA22C0041CB0D /* GyazoManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +79,7 @@
 		BEF57FFB1DFD5CD6006595B6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/GeneralPreferenceViewController.strings; sourceTree = "<group>"; };
 		BEF580081DFD9786006595B6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		CA72BCDA25FB6F3F0041CB0D /* GeneralPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferenceViewController.swift; sourceTree = "<group>"; };
+		CA72BCEF25FCA22C0041CB0D /* GyazoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GyazoManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,12 +87,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE9777EF1E0EB4D900E5934F /* KeyHolder.framework in Frameworks */,
-				BE5896AA1DFD1076007CE7AC /* Sparkle.framework in Frameworks */,
-				BE5896971DFCE965007CE7AC /* LoginServiceKit.framework in Frameworks */,
-				BE23E4321DFB8BF4004DA6B7 /* Magnet.framework in Frameworks */,
-				BE5896A81DFD0EF0007CE7AC /* Crashlytics.framework in Frameworks */,
-				BE5896A51DFD0E8C007CE7AC /* Fabric.framework in Frameworks */,
+				CA69DEB625FDC3C2003C8AB2 /* KeyHolder.framework in Frameworks */,
+				CA69DEBC25FDC3C8003C8AB2 /* Sparkle.framework in Frameworks */,
+				CA69DEB425FDC3BF003C8AB2 /* Crashlytics.framework in Frameworks */,
+				CA69DEB125FDC3A9003C8AB2 /* Fabric.framework in Frameworks */,
+				CA69DEBA25FDC3C7003C8AB2 /* Magnet.framework in Frameworks */,
+				CA69DEC025FDCAB7003C8AB2 /* KeyHolder.framework in Frameworks */,
+				CA69DEB825FDC3C5003C8AB2 /* LoginServiceKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +140,7 @@
 				BEAFC2D220E8FC2E00F12911 /* ScreenshotManager.swift */,
 				BE5BE7A31E065D7800820201 /* HotKeyManager.swift */,
 				BE9777F71E100D1F00E5934F /* MenuManager.swift */,
+				CA72BCEF25FCA22C0041CB0D /* GyazoManager.swift */,
 				BE6D5E741E12CF5E005492B2 /* AboutWindowController.swift */,
 				BE6D5E751E12CF5E005492B2 /* AboutWindowController.xib */,
 				BEF580021DFD9464006595B6 /* Preferences */,
@@ -164,10 +169,10 @@
 			children = (
 				BEF57FE41DFD46AE006595B6 /* PreferencesWindowController.swift */,
 				BE5BE79F1E065C7700820201 /* ShortcutsPreferenceViewController.swift */,
+				CA72BCDA25FB6F3F0041CB0D /* GeneralPreferenceViewController.swift */,
 				BE9777F21E0EC24F00E5934F /* ShortcutsPreferenceViewController.xib */,
 				BEF57FF41DFD5CB6006595B6 /* PreferencesWindowController.xib */,
 				BEF57FF91DFD5CD1006595B6 /* GeneralPreferenceViewController.xib */,
-				CA72BCDA25FB6F3F0041CB0D /* GeneralPreferenceViewController.swift */,
 			);
 			name = Preferences;
 			sourceTree = "<group>";
@@ -219,12 +224,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = AppKnop;
 				TargetAttributes = {
 					BEC844F21DED859300A4A57A = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = QZJ74E9669;
+						DevelopmentTeam = 8R2F2YSX5Q;
 						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 					};
@@ -232,10 +237,9 @@
 			};
 			buildConfigurationList = BEC844EE1DED859300A4A57A /* Build configuration list for PBXProject "Fuwari" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 				ja,
@@ -279,13 +283,14 @@
 				"$(SRCROOT)/Carthage/Build/Mac/LoginServiceKit.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/Sparkle.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/KeyHolder.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/Sauce.framework",
 			);
 			name = Carthage;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./carthage.sh copy-frameworks\n";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		BE5896A21DFD0E71007CE7AC /* Fabric */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -299,7 +304,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run 91c94b457e53915af7482ee33e544c1b3f3718d2 680759de191c29b40db6dc3dce98ceb8e438ca32232ac5dec8bbf8d94f7c21df";
+			shellScript = "./Fabric.framework/run 91c94b457e53915af7482ee33e544c1b3f3718d2 680759de191c29b40db6dc3dce98ceb8e438ca32232ac5dec8bbf8d94f7c21df\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -317,6 +322,7 @@
 				BEC844F91DED859300A4A57A /* ViewController.swift in Sources */,
 				BE85482420FB5C640035BC60 /* FloatView.swift in Sources */,
 				BE6D5E761E12CF5E005492B2 /* AboutWindowController.swift in Sources */,
+				CA72BCF025FCA22C0041CB0D /* GyazoManager.swift in Sources */,
 				BE5BE7A41E065D7800820201 /* HotKeyManager.swift in Sources */,
 				BE5896A11DFCED26007CE7AC /* LocalizedString.swift in Sources */,
 				BEC844F71DED859300A4A57A /* AppDelegate.swift in Sources */,
@@ -403,6 +409,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -462,6 +469,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -492,9 +500,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 0.52;
-				DEVELOPMENT_TEAM = QZJ74E9669;
+				DEVELOPMENT_TEAM = 8R2F2YSX5Q;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
@@ -504,7 +513,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MARKETING_VERSION = "0.5.2-sskmy";
-				PRODUCT_BUNDLE_IDENTIFIER = com.appknop.Fuwari;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sskmy1024y.Fuwari;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -515,9 +524,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 0.52;
-				DEVELOPMENT_TEAM = QZJ74E9669;
+				DEVELOPMENT_TEAM = 8R2F2YSX5Q;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
@@ -527,7 +537,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MARKETING_VERSION = "0.5.2-sskmy";
-				PRODUCT_BUNDLE_IDENTIFIER = com.appknop.Fuwari;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sskmy1024y.Fuwari;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;

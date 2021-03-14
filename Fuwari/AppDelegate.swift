@@ -27,7 +27,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if !defaults.bool(forKey: Constants.UserDefaults.loginItem) && !defaults.bool(forKey: Constants.UserDefaults.suppressAlertForLoginItem) {
             promptToAddLoginItems()
         }
-
+        
+        let appleEventManager:NSAppleEventManager = NSAppleEventManager.shared()
+        appleEventManager.setEventHandler(self, andSelector: #selector(handleAppleEvent), forEventClass: AEEventClass(kInternetEventClass), andEventID: AEEventID(kAEGetURL))
+        
         SUUpdater.shared().automaticallyDownloadsUpdates = false
         SUUpdater.shared().automaticallyChecksForUpdates = false
         SUUpdater.shared().checkForUpdatesInBackground()
@@ -57,6 +60,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func quit() {
         NSApp.terminate(nil)
     }
+
+    @objc private func handleAppleEvent(event: NSAppleEventDescriptor?, replyEvent: NSAppleEventDescriptor?) {
+        guard let appleEventDescription = event?.paramDescriptor(forKeyword: AEKeyword(keyDirectObject)) else { return }
+        guard let appleEventURLString = appleEventDescription.stringValue else { return }
+
+        let appleEventURL = URL(string: appleEventURLString)
+        guard let event = appleEventURL?.host else { return }
+        switch event {
+        case "gyazo_oauth":
+            GyazoManager.shared.handleOauthCode(url: appleEventURL!)
+        default:
+            break
+        }
+    }
+    
     
     private func promptToAddLoginItems() {
         let alert = NSAlert()

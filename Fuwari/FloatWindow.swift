@@ -70,8 +70,10 @@ class FloatWindow: NSWindow {
         contentView?.addSubview(closeButton)
         
         menu = NSMenu()
-        menu?.addItem(NSMenuItem(title: LocalizedString.Save.value, action: #selector(saveImage), keyEquivalent: "s"))
         menu?.addItem(NSMenuItem(title: LocalizedString.Copy.value, action: #selector(copyImage), keyEquivalent: "c"))
+        menu?.addItem(NSMenuItem.separator())
+        menu?.addItem(NSMenuItem(title: LocalizedString.Save.value, action: #selector(saveImage), keyEquivalent: "s"))
+        menu?.addItem(NSMenuItem(title: LocalizedString.Upload.value, action: #selector(uploadImage), keyEquivalent: ""))
         menu?.addItem(NSMenuItem.separator())
         menu?.addItem(NSMenuItem(title: LocalizedString.ZoomReset.value, action: #selector(resetWindowScale), keyEquivalent: "r"))
         menu?.addItem(NSMenuItem(title: LocalizedString.ZoomIn.value, action: #selector(zoomInWindow), keyEquivalent: "+"))
@@ -89,21 +91,21 @@ class FloatWindow: NSWindow {
     }
     
     override func keyDown(with event: NSEvent) {
-        let combo = KeyCombo(keyCode: Int(event.keyCode), cocoaModifiers: event.modifierFlags)
+        let combo = KeyCombo(QWERTYKeyCode: Int(event.keyCode), cocoaModifiers: event.modifierFlags)
         if event.modifierFlags.rawValue & NSEvent.ModifierFlags.command.rawValue != 0 {
             guard let char = combo?.characters.first else { return }
             switch char {
-            case "S": // ⌘S
+            case "s": // ⌘S
                 saveImage()
-            case "C": // ⌘C
+            case "c": // ⌘C
                 copyImage()
-            case "R": // ⌘R
+            case "r": // ⌘R
                 resetWindowScale()
             case "=", "^": // ⌘+
                 zoomInWindow()
             case "-": // ⌘-
                 zoomOutWindow()
-            case "W": // ⌘W
+            case "w": // ⌘W
                 closeWindow()
             default:
                 break
@@ -149,6 +151,17 @@ class FloatWindow: NSWindow {
         }
     }
     
+    @objc private func uploadImage() {
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            if let image = self.contentView?.layer?.contents {
+                let cgImage = image as! CGImage
+                let size = CGSize(width: cgImage.width, height: cgImage.height)
+                let nsImage = NSImage(cgImage: cgImage, size: size)
+                GyazoManager.shared.uploadImage(image: nsImage)
+            }
+        }
+    }
+    
     @objc private func zoomInWindow() {
         if windowScale < maxWindowScale {
             windowScale += windowScaleInterval
@@ -167,7 +180,7 @@ class FloatWindow: NSWindow {
         showPopUp(text: "\(Int(windowScale * 100))%")
     }
     
-    @objc private func resetWindowScale() {
+    @objc fileprivate func resetWindowScale() {
         windowScale = CGFloat(1.0)
         setFrame(NSRect(x: frame.origin.x, y: frame.origin.y, width: originalRect.width * windowScale, height: originalRect.height * windowScale), display: true, animate: true)
     }
@@ -192,6 +205,13 @@ class FloatWindow: NSWindow {
                 })
             }
         }
+    }
+    
+    internal override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+        if menuItem.action == #selector(resetWindowScale) {
+            return windowScale != CGFloat(1.0)
+        }
+        return true
     }
     
     func fadeWindow(isIn: Bool, completion: (() -> Void)? = nil) {

@@ -16,11 +16,11 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <userDefaultsController representsSharedInstance="YES" id="cXb-94-lz3"/>
         <view wantsLayer="YES" id="rLE-OL-M9s">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="140"/>
+            <rect key="frame" x="0.0" y="0.0" width="480" height="131"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <textField verticalHuggingPriority="750" preferredMaxLayoutWidth="206" translatesAutoresizingMaskIntoConstraints="NO" id="dif-Ja-6qb">
-                    <rect key="frame" x="36" y="104" width="61" height="16"/>
+                    <rect key="frame" x="36" y="95" width="61" height="16"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Behavior" id="r4j-9y-Hik">
                         <font key="font" metaFont="systemBold"/>
                         <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
@@ -28,7 +28,7 @@
                     </textFieldCell>
                 </textField>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="ZmK-IC-ILU">
-                    <rect key="frame" x="36" y="79" width="126" height="18"/>
+                    <rect key="frame" x="36" y="70" width="126" height="18"/>
                     <buttonCell key="cell" type="check" title="Launch on Login" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="7nO-qE-sdg">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
@@ -38,7 +38,7 @@
                     </connections>
                 </button>
                 <textField verticalHuggingPriority="750" preferredMaxLayoutWidth="206" translatesAutoresizingMaskIntoConstraints="NO" id="bFh-py-eKo">
-                    <rect key="frame" x="36" y="50" width="144" height="16"/>
+                    <rect key="frame" x="36" y="41" width="144" height="16"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Opacity when moving" id="ZBk-en-dBK">
                         <font key="font" metaFont="systemBold"/>
                         <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
@@ -46,7 +46,7 @@
                     </textFieldCell>
                 </textField>
                 <slider verticalHuggingPriority="750" id="2mp-2z-TVd" userLabel="MovingOpacity">
-                    <rect key="frame" x="36" y="27" width="280" height="17"/>
+                    <rect key="frame" x="36" y="18" width="280" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <sliderCell key="cell" controlSize="small" continuous="YES" state="on" alignment="left" maxValue="1" doubleValue="0.40000000000000002" tickMarkPosition="above" sliderType="linear" id="DSs-Z1-m8e"/>
                     <connections>
@@ -55,7 +55,7 @@
                     </connections>
                 </slider>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vIe-70-g9r">
-                    <rect key="frame" x="322" y="29" width="37" height="13"/>
+                    <rect key="frame" x="322" y="20" width="37" height="13"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="value" id="zzl-Be-1Tp">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -78,7 +78,7 @@
                 <constraint firstItem="vIe-70-g9r" firstAttribute="leading" secondItem="2mp-2z-TVd" secondAttribute="trailing" constant="10" id="khP-Rs-XbY"/>
                 <constraint firstItem="vIe-70-g9r" firstAttribute="bottom" secondItem="2mp-2z-TVd" secondAttribute="bottom" id="uJJ-Hb-TEa"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="72"/>
+            <point key="canvasLocation" x="139" y="67.5"/>
         </view>
     </objects>
 </document>

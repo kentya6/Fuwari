@@ -36,9 +36,13 @@
 
 "Save" = "保存";
 
-"Copy" = "コピー";
+"Copy" = "クリップボードにコピー";
+
+"Upload" = "Gyazoに送る...";
 
 "Close" = "閉じる";
+
+"Zoom Reset" = "元のサイズに戻す";
 
 "Zoom In" = "拡大";
 

@@ -19,7 +19,7 @@ class FloatView: NSView {
         }
         if bounds.size.width == 0 || bounds.size.height == 0 { return }
         
-        let options: NSTrackingArea.Options = [.activeInKeyWindow, .mouseEnteredAndExited]
+        let options: NSTrackingArea.Options = [.activeAlways, .mouseEnteredAndExited]
         addTrackingArea(NSTrackingArea(rect: bounds, options: options, owner: self, userInfo: nil))
      }
     
