@@ -10,8 +10,6 @@ import Cocoa
 import Carbon
 import Magnet
 import LoginServiceKit
-import Fabric
-import Crashlytics
 import Sparkle
 
 @NSApplicationMain
@@ -21,8 +19,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private var screenshotManager: ScreenshotManager?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        Fabric.with([Answers.self, Crashlytics.self])
-        
         // Show Login Item
         if !defaults.bool(forKey: Constants.UserDefaults.loginItem) && !defaults.bool(forKey: Constants.UserDefaults.suppressAlertForLoginItem) {
             promptToAddLoginItems()

@@ -30,8 +30,6 @@
 		BEF57FEF1DFD58D4006595B6 /* NSColor+Fuwari.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF57FEE1DFD58D4006595B6 /* NSColor+Fuwari.swift */; };
 		BEF57FF21DFD5CB6006595B6 /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEF57FF41DFD5CB6006595B6 /* PreferencesWindowController.xib */; };
 		BEF57FF71DFD5CD1006595B6 /* GeneralPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEF57FF91DFD5CD1006595B6 /* GeneralPreferenceViewController.xib */; };
-		CA69DEB125FDC3A9003C8AB2 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896A31DFD0E8C007CE7AC /* Fabric.framework */; };
-		CA69DEB425FDC3BF003C8AB2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896A71DFD0EF0007CE7AC /* Crashlytics.framework */; };
 		CA69DEB625FDC3C2003C8AB2 /* KeyHolder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9777EE1E0EB4D900E5934F /* KeyHolder.framework */; };
 		CA69DEB825FDC3C5003C8AB2 /* LoginServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896961DFCE965007CE7AC /* LoginServiceKit.framework */; };
 		CA69DEBA25FDC3C7003C8AB2 /* Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE23E4311DFB8BF4004DA6B7 /* Magnet.framework */; };
@@ -48,8 +46,6 @@
 		BE58969B1DFCEB07007CE7AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BE58969F1DFCEB95007CE7AC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BE5896A01DFCED26007CE7AC /* LocalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
-		BE5896A31DFD0E8C007CE7AC /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
-		BE5896A71DFD0EF0007CE7AC /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		BE5896A91DFD1076007CE7AC /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Carthage/Build/Mac/Sparkle.framework; sourceTree = "<group>"; };
 		BE5BE79F1E065C7700820201 /* ShortcutsPreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutsPreferenceViewController.swift; sourceTree = "<group>"; };
 		BE5BE7A31E065D7800820201 /* HotKeyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyManager.swift; sourceTree = "<group>"; };
@@ -89,8 +85,6 @@
 			files = (
 				CA69DEB625FDC3C2003C8AB2 /* KeyHolder.framework in Frameworks */,
 				CA69DEBC25FDC3C8003C8AB2 /* Sparkle.framework in Frameworks */,
-				CA69DEB425FDC3BF003C8AB2 /* Crashlytics.framework in Frameworks */,
-				CA69DEB125FDC3A9003C8AB2 /* Fabric.framework in Frameworks */,
 				CA69DEBA25FDC3C7003C8AB2 /* Magnet.framework in Frameworks */,
 				CA69DEC025FDCAB7003C8AB2 /* KeyHolder.framework in Frameworks */,
 				CA69DEB825FDC3C5003C8AB2 /* LoginServiceKit.framework in Frameworks */,
@@ -105,8 +99,6 @@
 			children = (
 				BE9777EE1E0EB4D900E5934F /* KeyHolder.framework */,
 				BE5896A91DFD1076007CE7AC /* Sparkle.framework */,
-				BE5896A71DFD0EF0007CE7AC /* Crashlytics.framework */,
-				BE5896A31DFD0E8C007CE7AC /* Fabric.framework */,
 				BE5896961DFCE965007CE7AC /* LoginServiceKit.framework */,
 				BE23E4311DFB8BF4004DA6B7 /* Magnet.framework */,
 			);
@@ -206,7 +198,6 @@
 				BEC844F01DED859300A4A57A /* Frameworks */,
 				BEC844F11DED859300A4A57A /* Resources */,
 				BE23E4331DFB8C08004DA6B7 /* Carthage */,
-				BE5896A21DFD0E71007CE7AC /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -291,20 +282,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		BE5896A21DFD0E71007CE7AC /* Fabric */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Fabric;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run 91c94b457e53915af7482ee33e544c1b3f3718d2 680759de191c29b40db6dc3dce98ceb8e438ca32232ac5dec8bbf8d94f7c21df\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
