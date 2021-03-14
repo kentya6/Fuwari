@@ -26,6 +26,8 @@ class FloatWindow: NSWindow {
     private var originalRect = NSRect()
     private var popUpLabel = NSTextField()
     private var windowScale = CGFloat(1.0)
+    private var windowOpacity = CGFloat(1.0)
+    private let defaults = UserDefaults.standard
     private let windowScaleInterval = CGFloat(0.25)
     private let minWindowScale = CGFloat(0.25)
     private let maxWindowScale = CGFloat(2.5)
@@ -129,8 +131,29 @@ class FloatWindow: NSWindow {
         closeButton.alphaValue = 0.0
     }
     
+    override func scrollWheel(with event: NSEvent) {
+        let min = CGFloat(0.1), max = CGFloat(1.0)
+        if windowOpacity > min || windowOpacity < max {
+            windowOpacity+=event.deltaY * 0.005
+            if windowOpacity < min { windowOpacity = min }
+            else if windowOpacity > max { windowOpacity = max }
+            alphaValue = windowOpacity
+        }
+    }
+    
     override func performClose(_ sender: Any?) {
         closeWindow()
+    }
+  
+    override func mouseDown(with event: NSEvent) {
+        let movingOpacity = defaults.float(forKey: Constants.UserDefaults.movingOpacity)
+        if movingOpacity < 1 {
+            alphaValue = CGFloat(movingOpacity)
+        }
+    }
+    
+    override func mouseUp(with event: NSEvent) {
+        alphaValue = windowOpacity
     }
     
     @objc private func saveImage() {

@@ -6,4 +6,4 @@
 "r4j-9y-Hik.title" = "動作";
 
 /* Class = "NSTextFieldCell"; title = "Opacity when moving"; ObjectID = "ZBk-en-dBK"; */
-"ZBk-en-dBK.title" = "キャプチャ移動時の透明度";
+"ZBk-en-dBK.title" = "ドラッグ時の透明度";
