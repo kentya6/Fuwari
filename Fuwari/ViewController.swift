@@ -76,7 +76,7 @@ extension ViewController: FloatDelegate {
 
         if windowControllers.count == 0 {
             oldApp?.activate(options: .activateIgnoringOtherApps)
-        }        
+        }
     }
 
     func save(floatWindow: FloatWindow, image: CGImage) {

@@ -10,7 +10,7 @@ import Cocoa
 import Magnet
 import Carbon
 
-protocol FloatDelegate {
+protocol FloatDelegate: class {
     func save(floatWindow: FloatWindow, image: CGImage)
     func close(floatWindow: FloatWindow)
 }
@@ -20,9 +20,9 @@ class FloatWindow: NSWindow {
     override var canBecomeKey: Bool { return true }
     override var canBecomeMain: Bool { return true }
 
-    var floatDelegate: FloatDelegate?
-    var closeButton: NSButton!
+    weak var floatDelegate: FloatDelegate? = nil
     
+    private var closeButton: NSButton!
     private var originalRect = NSRect()
     private var popUpLabel = NSTextField()
     private var windowScale = CGFloat(1.0)
@@ -129,6 +129,10 @@ class FloatWindow: NSWindow {
         closeButton.alphaValue = 0.0
     }
     
+    override func performClose(_ sender: Any?) {
+        closeWindow()
+    }
+    
     @objc private func saveImage() {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             if let image = self.contentView?.layer?.contents {
@@ -221,5 +225,6 @@ class FloatWindow: NSWindow {
         NSAnimationContext.current.duration = 0.2
         animator().alphaValue = isIn ? 1.0 : 0.0
         NSAnimationContext.endGrouping()
+        if !isIn { orderOut(self) }
     }
 }
