@@ -16,7 +16,8 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
-Fuwari.xcscheme
+.env
+Environment.swift
 
 ## Other
 *.moved-aside

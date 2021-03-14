@@ -14,7 +14,6 @@ class GyazoManager: NSObject {
     
     let redirectUri = "fuwari://gyazo_oauth"
     
-    private final let env = ProcessInfo.processInfo.environment
     private final let host = "https://gyazo.com"
     private let clientId: String?
     private let secretKey: String?
@@ -23,8 +22,8 @@ class GyazoManager: NSObject {
     private var accessToken: String? = nil
     
     override init() {
-        let _clientId = env["GYAZO_CLIENT_ID"]
-        let _secretKey = env["GYAZO_SECRET"]
+        let _clientId = Env["GYAZO_CLIENT_ID"]
+        let _secretKey = Env["GYAZO_SECRET"]
     
         isAvailable = (_clientId != nil && _secretKey != nil)
         clientId = _clientId
