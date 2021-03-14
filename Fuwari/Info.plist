@@ -18,6 +18,19 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.sskmy1024y.Fuwari</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fuwari</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>Fabric</key>
@@ -47,14 +60,14 @@
 	<key>LSUIElement</key>
 	<true/>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2018年 AppKnop. All rights reserved.</string>
+	<string>Copyright © 2021年 sskmy1024y. All rights reserved.</string>
 	<key>NSMainStoryboardFile</key>
 	<string>Main</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
-	<string>https://fuwari-app.com/appcast.xml</string>
-	<key>SUPublicDSAKeyFile</key>
-	<string>dsa_pub.pem</string>
+	<string>https://sskmy1024y.github.io/Fuwari/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>hUnyBjtgGSDNAjDH+uxxNTE7w5UgfwS9f2C9bWMVCo8=</string>
 </dict>
 </plist>

@@ -13,10 +13,6 @@ class GeneralPreferenceViewController: NSViewController {
     
     @IBOutlet weak var movingOpacityValue: NSTextField!
     
-    private func toPercentageString(_ value: Float) -> String {
-        return String(Int(value * 100)) + "%"
-    }
-    
     @IBAction func sliderValue(_ sender: NSSlider) {
         movingOpacityValue.stringValue = toPercentageString(sender.floatValue)
     }
@@ -26,5 +22,9 @@ class GeneralPreferenceViewController: NSViewController {
         
         let movingOpacity = defaults.float(forKey: Constants.UserDefaults.movingOpacity)
         movingOpacityValue.stringValue = toPercentageString(movingOpacity)
+    }
+    
+    private func toPercentageString(_ value: Float) -> String {
+        return String(Int(value * 100)) + "%"
     }
 }

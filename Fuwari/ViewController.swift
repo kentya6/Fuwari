@@ -9,7 +9,7 @@
 import Cocoa
 import Quartz
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, NSWindowDelegate {
 
     private var windowControllers = [FloatWindow]()
     private var isCancelled = false
@@ -19,6 +19,7 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         NotificationCenter.default.addObserver(self, selector: #selector(startCapture), name: Notification.Name(rawValue: Constants.Notification.capture), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(NSWindowDelegate.windowDidResize(_:)), name: NSWindow.didResizeNotification, object: nil)
         
         oldApp = NSWorkspace.shared.frontmostApplication
         oldApp?.activate(options: .activateIgnoringOtherApps)
@@ -54,6 +55,10 @@ class ViewController: NSViewController {
     @objc private func startCapture() {
         ScreenshotManager.shared.startCapture()
     }
+    
+    func windowDidResize(_ notification: Notification) {
+        windowControllers.filter {$0 .isKeyWindow}.first?.windowDidResize(notification)
+    }
 }
 
 extension ViewController: FloatDelegate {
@@ -71,7 +76,7 @@ extension ViewController: FloatDelegate {
 
         if windowControllers.count == 0 {
             oldApp?.activate(options: .activateIgnoringOtherApps)
-        }        
+        }
     }
 
     func save(floatWindow: FloatWindow, image: CGImage) {

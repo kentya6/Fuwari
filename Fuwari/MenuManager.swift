@@ -8,6 +8,7 @@
 
 import Cocoa
 import Magnet
+import Sauce
 import Sparkle
 
 class MenuManager: NSObject {
@@ -23,7 +24,7 @@ class MenuManager: NSObject {
         }
         
         captureItem = NSMenuItem(title: LocalizedString.Capture.value, action: #selector(AppDelegate.capture), keyEquivalent: HotKeyManager.shared.captureKeyCombo.characters.lowercased())
-        captureItem.keyEquivalentModifierMask = KeyTransformer.cocoaFlags(from: HotKeyManager.shared.captureKeyCombo.modifiers)
+        captureItem.keyEquivalentModifierMask = HotKeyManager.shared.captureKeyCombo.modifiers.convertSupportCocoaModifiers()
         
         let menu = NSMenu()
         menu.addItem(NSMenuItem(title: LocalizedString.About.value, action: #selector(AppDelegate.openAbout), keyEquivalent: ""))
@@ -42,6 +43,6 @@ class MenuManager: NSObject {
     
     func updateCaptureMenuItem() {
         captureItem.keyEquivalent = HotKeyManager.shared.captureKeyCombo.characters.lowercased()
-        captureItem.keyEquivalentModifierMask = KeyTransformer.cocoaFlags(from: HotKeyManager.shared.captureKeyCombo.modifiers)
+        captureItem.keyEquivalentModifierMask = HotKeyManager.shared.captureKeyCombo.modifiers.convertSupportCocoaModifiers()
     }
 }
