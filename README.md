@@ -5,7 +5,7 @@
 
 <div align="center">
 <a href="https://github.com/sskmy1024y/Fuwari/releases/latest"><img src="https://img.shields.io/github/release/sskmy1024y/Fuwari.svg" alt="Release version"></a>
-<a href="https://github.com/kentya6/Fuwari/blob/master/LICENSE"><img src="https://img.shields.io/github/license/sskmy1024y/Fuwari.svg" alt="License: MIT"></a>
+<a href="https://github.com/sskmy1024y/Fuwari/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License: MIT"></a>
 </div>
 
 <div align="center">
