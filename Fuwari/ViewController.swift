@@ -9,7 +9,7 @@
 import Cocoa
 import Quartz
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, NSWindowDelegate {
 
     private var windowControllers = [FloatWindow]()
     private var isCancelled = false
@@ -19,6 +19,7 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         NotificationCenter.default.addObserver(self, selector: #selector(startCapture), name: Notification.Name(rawValue: Constants.Notification.capture), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(NSWindowDelegate.windowDidResize(_:)), name: NSWindow.didResizeNotification, object: nil)
         
         oldApp = NSWorkspace.shared.frontmostApplication
         oldApp?.activate(options: .activateIgnoringOtherApps)
@@ -30,6 +31,9 @@ class ViewController: NSViewController {
             let mouseLocation = NSEvent.mouseLocation
             let ciImage = CIImage(contentsOf: imageUrl)?.copy() as? CIImage
             let context = CIContext(options: nil)
+            
+            if ciImage == nil { return }
+            
             let cgImage = context.createCGImage(ciImage!, from: ciImage!.extent)
             
             self.createFloatWindow(rect: NSRect(x: Int(mouseLocation.x) - cgImage!.width / Int(2 * currentScaleFactor), y: Int(mouseLocation.y) - cgImage!.height / Int(2 * currentScaleFactor), width: Int(CGFloat(cgImage!.width) / currentScaleFactor), height: Int(CGFloat(cgImage!.height) / currentScaleFactor)), image: cgImage!)
@@ -51,6 +55,10 @@ class ViewController: NSViewController {
     @objc private func startCapture() {
         ScreenshotManager.shared.startCapture()
     }
+    
+    func windowDidResize(_ notification: Notification) {
+        windowControllers.filter {$0 .isKeyWindow}.first?.windowDidResize(notification)
+    }
 }
 
 extension ViewController: FloatDelegate {
@@ -68,7 +76,7 @@ extension ViewController: FloatDelegate {
 
         if windowControllers.count == 0 {
             oldApp?.activate(options: .activateIgnoringOtherApps)
-        }        
+        }
     }
 
     func save(floatWindow: FloatWindow, image: CGImage) {

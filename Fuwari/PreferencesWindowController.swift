@@ -21,13 +21,12 @@ class PreferencesWindowController: NSWindowController {
     @IBOutlet fileprivate weak var shortcutButton: NSButton!
     
     fileprivate let defaults = UserDefaults.standard
-    fileprivate let viewController = [NSViewController(nibName: NSNib.Name(rawValue: "GeneralPreferenceViewController"), bundle: nil),
+    fileprivate let viewController = [GeneralPreferenceViewController(nibName: NSNib.Name(rawValue: "GeneralPreferenceViewController"), bundle: nil),
                                       ShortcutsPreferenceViewController(nibName: NSNib.Name(rawValue: "ShortcutsPreferenceViewController"), bundle: nil)]
     
     override func windowDidLoad() {
         super.windowDidLoad()
         window?.collectionBehavior = .canJoinAllSpaces
-        window?.backgroundColor = .white
         if #available(OSX 10.10, *) {
             window?.titlebarAppearsTransparent = true
         }
@@ -80,7 +79,7 @@ fileprivate extension PreferencesWindowController {
         }
     }
     
-    fileprivate func switchView(_ index: Int) {
+    func switchView(_ index: Int) {
         let newView = viewController[index].view
         // Remove current views without toolbar
         window?.contentView?.subviews.forEach { view in

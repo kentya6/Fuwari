@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -14,36 +14,34 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="Fuwari" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
+        <window title="Fuwari" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="150" height="230"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="contentRect" x="196" y="240" width="380" height="260"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1415"/>
             <view key="contentView" wantsLayer="YES" id="se5-gp-TjO">
-                <rect key="frame" x="0.0" y="0.0" width="150" height="230"/>
+                <rect key="frame" x="0.0" y="0.0" width="380" height="260"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r7D-eN-oFU">
-                        <rect key="frame" x="38" y="85" width="75" height="17"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="71" id="RWp-Re-AIi"/>
-                        </constraints>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="v0.1" id="xje-cB-SSP">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ajp-L3-yku">
+                        <rect key="frame" x="144" y="62" width="95" height="16"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="© sskmy1024y" id="vNk-SA-UPB">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ajp-L3-yku">
-                        <rect key="frame" x="15" y="62" width="122" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="© Kengo Yokoyama" id="vNk-SA-UPB">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UoF-ox-5qb">
+                        <rect key="frame" x="129" y="84" width="123" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="© Kengo Yokoyama" id="xco-Ph-WYd">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="nTL-FA-3o1">
-                        <rect key="frame" x="89" y="14" width="36" height="36"/>
+                        <rect key="frame" x="205" y="14" width="36" height="36"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="36" id="JMw-i4-wDK"/>
                             <constraint firstAttribute="width" constant="36" id="R6D-Q6-lod"/>
@@ -57,7 +55,7 @@
                         </connections>
                     </button>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="qpu-hY-iBq">
-                        <rect key="frame" x="25" y="110" width="100" height="100"/>
+                        <rect key="frame" x="141" y="132" width="100" height="100"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="ZqN-F0-y1J"/>
                             <constraint firstAttribute="height" constant="100" id="ajX-RL-M96"/>
@@ -71,7 +69,7 @@
                         </connections>
                     </button>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="wgA-Yg-xTZ">
-                        <rect key="frame" x="25" y="14" width="36" height="36"/>
+                        <rect key="frame" x="141" y="14" width="36" height="36"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="36" id="0Fy-t2-JS5"/>
                             <constraint firstAttribute="width" constant="36" id="B6L-q4-0TV"/>
@@ -84,6 +82,17 @@
                             <action selector="didTouchTwitterButton:" target="-2" id="7IG-08-hSz"/>
                         </connections>
                     </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r7D-eN-oFU">
+                        <rect key="frame" x="139" y="108" width="104" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="RWp-Re-AIi"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="v0.1" id="xje-cB-SSP">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="wgA-Yg-xTZ" secondAttribute="bottom" constant="14" id="324-Ce-CI8"/>
@@ -94,15 +103,15 @@
                     <constraint firstItem="r7D-eN-oFU" firstAttribute="centerX" secondItem="ajp-L3-yku" secondAttribute="centerX" id="YMC-fN-3Gn"/>
                     <constraint firstItem="qpu-hY-iBq" firstAttribute="trailing" secondItem="nTL-FA-3o1" secondAttribute="trailing" id="cgQ-DD-Lqy"/>
                     <constraint firstItem="wgA-Yg-xTZ" firstAttribute="top" secondItem="nTL-FA-3o1" secondAttribute="top" id="g53-co-2d6"/>
-                    <constraint firstItem="r7D-eN-oFU" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="40" id="gWp-FF-SkW"/>
+                    <constraint firstItem="r7D-eN-oFU" firstAttribute="centerX" secondItem="se5-gp-TjO" secondAttribute="centerX" constant="1" id="gWp-FF-SkW"/>
                     <constraint firstItem="wgA-Yg-xTZ" firstAttribute="top" secondItem="ajp-L3-yku" secondAttribute="bottom" constant="12" id="h9q-JV-hJ8"/>
-                    <constraint firstItem="ajp-L3-yku" firstAttribute="top" secondItem="r7D-eN-oFU" secondAttribute="bottom" constant="6" id="x4h-tL-aBK"/>
+                    <constraint firstItem="ajp-L3-yku" firstAttribute="top" secondItem="r7D-eN-oFU" secondAttribute="bottom" constant="30" id="x4h-tL-aBK"/>
                 </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
-            <point key="canvasLocation" x="-26" y="122"/>
+            <point key="canvasLocation" x="89" y="137"/>
         </window>
     </objects>
     <resources>

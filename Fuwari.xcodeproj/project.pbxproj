@@ -3,18 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		BE23E42F1DFA1623004DA6B7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE23E42E1DFA1623004DA6B7 /* Constants.swift */; };
-		BE23E4321DFB8BF4004DA6B7 /* Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE23E4311DFB8BF4004DA6B7 /* Magnet.framework */; };
-		BE5896971DFCE965007CE7AC /* LoginServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896961DFCE965007CE7AC /* LoginServiceKit.framework */; };
 		BE58969A1DFCEB07007CE7AC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE58969C1DFCEB07007CE7AC /* Localizable.strings */; };
 		BE5896A11DFCED26007CE7AC /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5896A01DFCED26007CE7AC /* LocalizedString.swift */; };
-		BE5896A51DFD0E8C007CE7AC /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896A31DFD0E8C007CE7AC /* Fabric.framework */; };
-		BE5896A81DFD0EF0007CE7AC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896A71DFD0EF0007CE7AC /* Crashlytics.framework */; };
-		BE5896AA1DFD1076007CE7AC /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5896A91DFD1076007CE7AC /* Sparkle.framework */; };
 		BE5BE7A11E065C7700820201 /* ShortcutsPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5BE79F1E065C7700820201 /* ShortcutsPreferenceViewController.swift */; };
 		BE5BE7A41E065D7800820201 /* HotKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5BE7A31E065D7800820201 /* HotKeyManager.swift */; };
 		BE6473101E05FD91005E0AB0 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = BE64730F1E05FD91005E0AB0 /* dsa_pub.pem */; };
@@ -24,7 +19,6 @@
 		BE85482020F975E00035BC60 /* NSMenu+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE85481F20F975E00035BC60 /* NSMenu+Extension.swift */; };
 		BE85482420FB5C640035BC60 /* FloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE85482320FB5C640035BC60 /* FloatView.swift */; };
 		BE9777ED1E0E613700E5934F /* UserDefaults+ArchiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9777EC1E0E613700E5934F /* UserDefaults+ArchiveData.swift */; };
-		BE9777EF1E0EB4D900E5934F /* KeyHolder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9777EE1E0EB4D900E5934F /* KeyHolder.framework */; };
 		BE9777F01E0EC24F00E5934F /* ShortcutsPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE9777F21E0EC24F00E5934F /* ShortcutsPreferenceViewController.xib */; };
 		BE9777F81E100D1F00E5934F /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9777F71E100D1F00E5934F /* MenuManager.swift */; };
 		BEAFC2D320E8FC2E00F12911 /* ScreenshotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFC2D220E8FC2E00F12911 /* ScreenshotManager.swift */; };
@@ -36,18 +30,44 @@
 		BEF57FEF1DFD58D4006595B6 /* NSColor+Fuwari.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF57FEE1DFD58D4006595B6 /* NSColor+Fuwari.swift */; };
 		BEF57FF21DFD5CB6006595B6 /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEF57FF41DFD5CB6006595B6 /* PreferencesWindowController.xib */; };
 		BEF57FF71DFD5CD1006595B6 /* GeneralPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEF57FF91DFD5CD1006595B6 /* GeneralPreferenceViewController.xib */; };
+		CA72BCDB25FB6F3F0041CB0D /* GeneralPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA72BCDA25FB6F3F0041CB0D /* GeneralPreferenceViewController.swift */; };
+		CA72BCF025FCA22C0041CB0D /* GyazoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA72BCEF25FCA22C0041CB0D /* GyazoManager.swift */; };
+		CAD92F2D25FE460F008D6CF8 /* KeyHolder.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1F25FE3B6B008D6CF8 /* KeyHolder.xcframework */; };
+		CAD92F2E25FE460F008D6CF8 /* KeyHolder.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1F25FE3B6B008D6CF8 /* KeyHolder.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CAD92F3025FE4611008D6CF8 /* LoginServiceKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1D25FE3B6B008D6CF8 /* LoginServiceKit.xcframework */; };
+		CAD92F3125FE4611008D6CF8 /* LoginServiceKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1D25FE3B6B008D6CF8 /* LoginServiceKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CAD92F3225FE4612008D6CF8 /* Magnet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1C25FE3B6B008D6CF8 /* Magnet.xcframework */; };
+		CAD92F3325FE4612008D6CF8 /* Magnet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1C25FE3B6B008D6CF8 /* Magnet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CAD92F3425FE4613008D6CF8 /* Sauce.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F2025FE3B6B008D6CF8 /* Sauce.xcframework */; };
+		CAD92F3525FE4613008D6CF8 /* Sauce.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F2025FE3B6B008D6CF8 /* Sauce.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CAD92F3625FE4615008D6CF8 /* Sparkle.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1E25FE3B6B008D6CF8 /* Sparkle.xcframework */; };
+		CAD92F3725FE4615008D6CF8 /* Sparkle.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1E25FE3B6B008D6CF8 /* Sparkle.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CAD92F3D25FE54F7008D6CF8 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD92F3C25FE54F7008D6CF8 /* Environment.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CAD92F2F25FE460F008D6CF8 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CAD92F3125FE4611008D6CF8 /* LoginServiceKit.xcframework in Embed Frameworks */,
+				CAD92F3525FE4613008D6CF8 /* Sauce.xcframework in Embed Frameworks */,
+				CAD92F3325FE4612008D6CF8 /* Magnet.xcframework in Embed Frameworks */,
+				CAD92F2E25FE460F008D6CF8 /* KeyHolder.xcframework in Embed Frameworks */,
+				CAD92F3725FE4615008D6CF8 /* Sparkle.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		BE23E42E1DFA1623004DA6B7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		BE23E4311DFB8BF4004DA6B7 /* Magnet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Magnet.framework; path = Carthage/Build/Mac/Magnet.framework; sourceTree = "<group>"; };
-		BE5896961DFCE965007CE7AC /* LoginServiceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LoginServiceKit.framework; path = Carthage/Build/Mac/LoginServiceKit.framework; sourceTree = "<group>"; };
 		BE58969B1DFCEB07007CE7AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BE58969F1DFCEB95007CE7AC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BE5896A01DFCED26007CE7AC /* LocalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
-		BE5896A31DFD0E8C007CE7AC /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
-		BE5896A71DFD0EF0007CE7AC /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
-		BE5896A91DFD1076007CE7AC /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Carthage/Build/Mac/Sparkle.framework; sourceTree = "<group>"; };
 		BE5BE79F1E065C7700820201 /* ShortcutsPreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutsPreferenceViewController.swift; sourceTree = "<group>"; };
 		BE5BE7A31E065D7800820201 /* HotKeyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyManager.swift; sourceTree = "<group>"; };
 		BE64730F1E05FD91005E0AB0 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
@@ -57,7 +77,6 @@
 		BE85481F20F975E00035BC60 /* NSMenu+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMenu+Extension.swift"; sourceTree = "<group>"; };
 		BE85482320FB5C640035BC60 /* FloatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatView.swift; sourceTree = "<group>"; };
 		BE9777EC1E0E613700E5934F /* UserDefaults+ArchiveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+ArchiveData.swift"; sourceTree = "<group>"; };
-		BE9777EE1E0EB4D900E5934F /* KeyHolder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeyHolder.framework; path = Carthage/Build/Mac/KeyHolder.framework; sourceTree = "<group>"; };
 		BE9777F31E0EC25500E5934F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ShortcutsPreferenceViewController.xib; sourceTree = "<group>"; };
 		BE9777F41E0EC25900E5934F /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/ShortcutsPreferenceViewController.strings; sourceTree = "<group>"; };
 		BE9777F61E0EC26F00E5934F /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/PreferencesWindowController.strings; sourceTree = "<group>"; };
@@ -75,6 +94,14 @@
 		BEF57FFA1DFD5CD3006595B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GeneralPreferenceViewController.xib; sourceTree = "<group>"; };
 		BEF57FFB1DFD5CD6006595B6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/GeneralPreferenceViewController.strings; sourceTree = "<group>"; };
 		BEF580081DFD9786006595B6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		CA72BCDA25FB6F3F0041CB0D /* GeneralPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferenceViewController.swift; sourceTree = "<group>"; };
+		CA72BCEF25FCA22C0041CB0D /* GyazoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GyazoManager.swift; sourceTree = "<group>"; };
+		CAD92F1C25FE3B6B008D6CF8 /* Magnet.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Magnet.xcframework; path = Carthage/Build/Magnet.xcframework; sourceTree = "<group>"; };
+		CAD92F1D25FE3B6B008D6CF8 /* LoginServiceKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LoginServiceKit.xcframework; path = Carthage/Build/LoginServiceKit.xcframework; sourceTree = "<group>"; };
+		CAD92F1E25FE3B6B008D6CF8 /* Sparkle.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Sparkle.xcframework; path = Carthage/Build/Sparkle.xcframework; sourceTree = "<group>"; };
+		CAD92F1F25FE3B6B008D6CF8 /* KeyHolder.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = KeyHolder.xcframework; path = Carthage/Build/KeyHolder.xcframework; sourceTree = "<group>"; };
+		CAD92F2025FE3B6B008D6CF8 /* Sauce.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Sauce.xcframework; path = Carthage/Build/Sauce.xcframework; sourceTree = "<group>"; };
+		CAD92F3C25FE54F7008D6CF8 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,12 +109,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE9777EF1E0EB4D900E5934F /* KeyHolder.framework in Frameworks */,
-				BE5896AA1DFD1076007CE7AC /* Sparkle.framework in Frameworks */,
-				BE5896971DFCE965007CE7AC /* LoginServiceKit.framework in Frameworks */,
-				BE23E4321DFB8BF4004DA6B7 /* Magnet.framework in Frameworks */,
-				BE5896A81DFD0EF0007CE7AC /* Crashlytics.framework in Frameworks */,
-				BE5896A51DFD0E8C007CE7AC /* Fabric.framework in Frameworks */,
+				CAD92F3025FE4611008D6CF8 /* LoginServiceKit.xcframework in Frameworks */,
+				CAD92F3425FE4613008D6CF8 /* Sauce.xcframework in Frameworks */,
+				CAD92F3225FE4612008D6CF8 /* Magnet.xcframework in Frameworks */,
+				CAD92F2D25FE460F008D6CF8 /* KeyHolder.xcframework in Frameworks */,
+				CAD92F3625FE4615008D6CF8 /* Sparkle.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,12 +123,11 @@
 		BE23E4301DFB8BF4004DA6B7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BE9777EE1E0EB4D900E5934F /* KeyHolder.framework */,
-				BE5896A91DFD1076007CE7AC /* Sparkle.framework */,
-				BE5896A71DFD0EF0007CE7AC /* Crashlytics.framework */,
-				BE5896A31DFD0E8C007CE7AC /* Fabric.framework */,
-				BE5896961DFCE965007CE7AC /* LoginServiceKit.framework */,
-				BE23E4311DFB8BF4004DA6B7 /* Magnet.framework */,
+				CAD92F1F25FE3B6B008D6CF8 /* KeyHolder.xcframework */,
+				CAD92F1D25FE3B6B008D6CF8 /* LoginServiceKit.xcframework */,
+				CAD92F1C25FE3B6B008D6CF8 /* Magnet.xcframework */,
+				CAD92F2025FE3B6B008D6CF8 /* Sauce.xcframework */,
+				CAD92F1E25FE3B6B008D6CF8 /* Sparkle.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -134,6 +159,7 @@
 				BEAFC2D220E8FC2E00F12911 /* ScreenshotManager.swift */,
 				BE5BE7A31E065D7800820201 /* HotKeyManager.swift */,
 				BE9777F71E100D1F00E5934F /* MenuManager.swift */,
+				CA72BCEF25FCA22C0041CB0D /* GyazoManager.swift */,
 				BE6D5E741E12CF5E005492B2 /* AboutWindowController.swift */,
 				BE6D5E751E12CF5E005492B2 /* AboutWindowController.xib */,
 				BEF580021DFD9464006595B6 /* Preferences */,
@@ -153,6 +179,7 @@
 			children = (
 				BE23E42E1DFA1623004DA6B7 /* Constants.swift */,
 				BE5896A01DFCED26007CE7AC /* LocalizedString.swift */,
+				CAD92F3C25FE54F7008D6CF8 /* Environment.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -162,6 +189,7 @@
 			children = (
 				BEF57FE41DFD46AE006595B6 /* PreferencesWindowController.swift */,
 				BE5BE79F1E065C7700820201 /* ShortcutsPreferenceViewController.swift */,
+				CA72BCDA25FB6F3F0041CB0D /* GeneralPreferenceViewController.swift */,
 				BE9777F21E0EC24F00E5934F /* ShortcutsPreferenceViewController.xib */,
 				BEF57FF41DFD5CB6006595B6 /* PreferencesWindowController.xib */,
 				BEF57FF91DFD5CD1006595B6 /* GeneralPreferenceViewController.xib */,
@@ -194,11 +222,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BEC845021DED859300A4A57A /* Build configuration list for PBXNativeTarget "Fuwari" */;
 			buildPhases = (
+				CAD92F3825FE509B008D6CF8 /* ShellScript */,
 				BEC844EF1DED859300A4A57A /* Sources */,
 				BEC844F01DED859300A4A57A /* Frameworks */,
 				BEC844F11DED859300A4A57A /* Resources */,
-				BE23E4331DFB8C08004DA6B7 /* Carthage */,
-				BE5896A21DFD0E71007CE7AC /* Fabric */,
+				CAD92F2F25FE460F008D6CF8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -216,12 +244,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = AppKnop;
 				TargetAttributes = {
 					BEC844F21DED859300A4A57A = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = QZJ74E9669;
+						DevelopmentTeam = 8R2F2YSX5Q;
 						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 					};
@@ -229,7 +257,7 @@
 			};
 			buildConfigurationList = BEC844EE1DED859300A4A57A /* Build configuration list for PBXProject "Fuwari" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -265,37 +293,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		BE23E4331DFB8C08004DA6B7 /* Carthage */ = {
+		CAD92F3825FE509B008D6CF8 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/Mac/Magnet.framework",
-				"$(SRCROOT)/Carthage/Build/Mac/LoginServiceKit.framework",
-				"$(SRCROOT)/Carthage/Build/Mac/Sparkle.framework",
-				"$(SRCROOT)/Carthage/Build/Mac/KeyHolder.framework",
+			inputFileListPaths = (
 			);
-			name = Carthage;
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-		BE5896A21DFD0E71007CE7AC /* Fabric */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Fabric;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run 91c94b457e53915af7482ee33e544c1b3f3718d2 680759de191c29b40db6dc3dce98ceb8e438ca32232ac5dec8bbf8d94f7c21df";
+			shellScript = "\"${SRCROOT}/buildEnv.sh\" \"${SRCROOT}/.env\" \"${SRCROOT}/${PROJECT}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -313,9 +327,12 @@
 				BEC844F91DED859300A4A57A /* ViewController.swift in Sources */,
 				BE85482420FB5C640035BC60 /* FloatView.swift in Sources */,
 				BE6D5E761E12CF5E005492B2 /* AboutWindowController.swift in Sources */,
+				CA72BCF025FCA22C0041CB0D /* GyazoManager.swift in Sources */,
 				BE5BE7A41E065D7800820201 /* HotKeyManager.swift in Sources */,
 				BE5896A11DFCED26007CE7AC /* LocalizedString.swift in Sources */,
 				BEC844F71DED859300A4A57A /* AppDelegate.swift in Sources */,
+				CAD92F3D25FE54F7008D6CF8 /* Environment.swift in Sources */,
+				CA72BCDB25FB6F3F0041CB0D /* GeneralPreferenceViewController.swift in Sources */,
 				BE9777ED1E0E613700E5934F /* UserDefaults+ArchiveData.swift in Sources */,
 				BE23E42F1DFA1623004DA6B7 /* Constants.swift in Sources */,
 				BE5BE7A11E065C7700820201 /* ShortcutsPreferenceViewController.swift in Sources */,
@@ -398,6 +415,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -457,6 +475,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -479,7 +498,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};
@@ -487,17 +507,23 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = QZJ74E9669;
+				CURRENT_PROJECT_VERSION = 0.60;
+				DEVELOPMENT_TEAM = 8R2F2YSX5Q;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Fuwari/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = com.appknop.Fuwari;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MARKETING_VERSION = "0.6.0-sskmy";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sskmy1024y.Fuwari;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -508,17 +534,23 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = QZJ74E9669;
+				CURRENT_PROJECT_VERSION = 0.60;
+				DEVELOPMENT_TEAM = 8R2F2YSX5Q;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Fuwari/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = com.appknop.Fuwari;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MARKETING_VERSION = "0.6.0-sskmy";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sskmy1024y.Fuwari;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;

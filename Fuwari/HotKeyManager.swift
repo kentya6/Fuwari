@@ -19,7 +19,7 @@ final class HotKeyManager: NSObject {
         if let keyCombo = self.defaults.archiveDataForKey(KeyCombo.self, key: Constants.UserDefaults.captureKeyCombo) {
             return keyCombo
         } else {
-            let defaultKeyCombo = KeyCombo(keyCode: kVK_ANSI_5, cocoaModifiers: [.command, .shift])!
+            let defaultKeyCombo = KeyCombo(key: .m, cocoaModifiers: [.command, .shift])!
             self.defaults.setArchiveData(defaultKeyCombo, forKey: Constants.UserDefaults.captureKeyCombo)
             self.defaults.synchronize()
             return defaultKeyCombo
@@ -44,7 +44,7 @@ extension HotKeyManager {
         hotKey.register()
         captureHotKey = hotKey
         
-        MenuManager.shared.udpateCpatureMenuItem()
+        MenuManager.shared.updateCaptureMenuItem()
     }
     
     fileprivate func saveKeyCombo(keyCombo: KeyCombo?) {

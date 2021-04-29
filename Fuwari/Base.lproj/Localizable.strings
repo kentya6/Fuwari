@@ -36,9 +36,13 @@
 
 "Save" = "Save";
 
-"Copy" = "Copy";
+"Copy" = "Copy to Clipboard";
+
+"Upload" = "Send to Gyazo...";
 
 "Close" = "Close";
+
+"Zoom Reset" = "Reset to Original Size";
 
 "Zoom In" = "Zoom In";
 

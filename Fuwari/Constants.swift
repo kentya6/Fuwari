@@ -19,6 +19,7 @@ struct Constants {
         static let loginItem                 = "loginItem"
         static let suppressAlertForLoginItem = "suppressAlertForLoginItem"
         static let captureKeyCombo           = "captureKeyCombo"
+        static let movingOpacity             = "movingOpacity"
     }
     
     struct ImageName {

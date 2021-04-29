@@ -9,15 +9,19 @@
 import Cocoa
 
 class FloatView: NSView {
+    override func viewDidMoveToWindow() {
+        if !trackingAreas.isEmpty {
+            for area in trackingAreas {
+                removeTrackingArea(area)
+           }
+        }
+        if bounds.size.width == 0 || bounds.size.height == 0 { return }
+        
+        let options: NSTrackingArea.Options = [.activeAlways, .mouseEnteredAndExited]
+        addTrackingArea(NSTrackingArea(rect: bounds, options: options, owner: self, userInfo: nil))
+     }
+    
     override func acceptsFirstMouse(for event: NSEvent?) -> Bool {
         return true
-    }
-    
-    override func mouseDown(with event: NSEvent) {
-        window?.alphaValue = 0.4
-    }
-    
-    override func mouseUp(with event: NSEvent) {
-        window?.alphaValue = 1.0
     }
 }
