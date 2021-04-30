@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		BE23E42F1DFA1623004DA6B7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE23E42E1DFA1623004DA6B7 /* Constants.swift */; };
+		BE38949F263C20EA00131366 /* KeyHolder.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1F25FE3B6B008D6CF8 /* KeyHolder.xcframework */; };
+		BE3894A0263C20EA00131366 /* KeyHolder.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1F25FE3B6B008D6CF8 /* KeyHolder.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BE3894A1263C20EA00131366 /* LoginServiceKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1D25FE3B6B008D6CF8 /* LoginServiceKit.xcframework */; };
+		BE3894A2263C20EA00131366 /* LoginServiceKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1D25FE3B6B008D6CF8 /* LoginServiceKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BE3894A3263C20EA00131366 /* Magnet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1C25FE3B6B008D6CF8 /* Magnet.xcframework */; };
+		BE3894A4263C20EA00131366 /* Magnet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1C25FE3B6B008D6CF8 /* Magnet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BE3894A5263C20EA00131366 /* Sauce.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F2025FE3B6B008D6CF8 /* Sauce.xcframework */; };
+		BE3894A6263C20EA00131366 /* Sauce.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F2025FE3B6B008D6CF8 /* Sauce.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BE3894A7263C20EA00131366 /* Sparkle.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1E25FE3B6B008D6CF8 /* Sparkle.xcframework */; };
+		BE3894A8263C20EA00131366 /* Sparkle.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1E25FE3B6B008D6CF8 /* Sparkle.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE58969A1DFCEB07007CE7AC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE58969C1DFCEB07007CE7AC /* Localizable.strings */; };
 		BE5896A11DFCED26007CE7AC /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5896A01DFCED26007CE7AC /* LocalizedString.swift */; };
 		BE5BE7A11E065C7700820201 /* ShortcutsPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5BE79F1E065C7700820201 /* ShortcutsPreferenceViewController.swift */; };
@@ -32,16 +42,6 @@
 		BEF57FF71DFD5CD1006595B6 /* GeneralPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEF57FF91DFD5CD1006595B6 /* GeneralPreferenceViewController.xib */; };
 		CA72BCDB25FB6F3F0041CB0D /* GeneralPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA72BCDA25FB6F3F0041CB0D /* GeneralPreferenceViewController.swift */; };
 		CA72BCF025FCA22C0041CB0D /* GyazoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA72BCEF25FCA22C0041CB0D /* GyazoManager.swift */; };
-		CAD92F2D25FE460F008D6CF8 /* KeyHolder.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1F25FE3B6B008D6CF8 /* KeyHolder.xcframework */; };
-		CAD92F2E25FE460F008D6CF8 /* KeyHolder.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1F25FE3B6B008D6CF8 /* KeyHolder.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CAD92F3025FE4611008D6CF8 /* LoginServiceKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1D25FE3B6B008D6CF8 /* LoginServiceKit.xcframework */; };
-		CAD92F3125FE4611008D6CF8 /* LoginServiceKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1D25FE3B6B008D6CF8 /* LoginServiceKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CAD92F3225FE4612008D6CF8 /* Magnet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1C25FE3B6B008D6CF8 /* Magnet.xcframework */; };
-		CAD92F3325FE4612008D6CF8 /* Magnet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1C25FE3B6B008D6CF8 /* Magnet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CAD92F3425FE4613008D6CF8 /* Sauce.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F2025FE3B6B008D6CF8 /* Sauce.xcframework */; };
-		CAD92F3525FE4613008D6CF8 /* Sauce.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F2025FE3B6B008D6CF8 /* Sauce.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CAD92F3625FE4615008D6CF8 /* Sparkle.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1E25FE3B6B008D6CF8 /* Sparkle.xcframework */; };
-		CAD92F3725FE4615008D6CF8 /* Sparkle.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1E25FE3B6B008D6CF8 /* Sparkle.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CAD92F3D25FE54F7008D6CF8 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD92F3C25FE54F7008D6CF8 /* Environment.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,11 +52,11 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CAD92F3125FE4611008D6CF8 /* LoginServiceKit.xcframework in Embed Frameworks */,
-				CAD92F3525FE4613008D6CF8 /* Sauce.xcframework in Embed Frameworks */,
-				CAD92F3325FE4612008D6CF8 /* Magnet.xcframework in Embed Frameworks */,
-				CAD92F2E25FE460F008D6CF8 /* KeyHolder.xcframework in Embed Frameworks */,
-				CAD92F3725FE4615008D6CF8 /* Sparkle.xcframework in Embed Frameworks */,
+				BE3894A2263C20EA00131366 /* LoginServiceKit.xcframework in Embed Frameworks */,
+				BE3894A6263C20EA00131366 /* Sauce.xcframework in Embed Frameworks */,
+				BE3894A4263C20EA00131366 /* Magnet.xcframework in Embed Frameworks */,
+				BE3894A0263C20EA00131366 /* KeyHolder.xcframework in Embed Frameworks */,
+				BE3894A8263C20EA00131366 /* Sparkle.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,11 +109,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAD92F3025FE4611008D6CF8 /* LoginServiceKit.xcframework in Frameworks */,
-				CAD92F3425FE4613008D6CF8 /* Sauce.xcframework in Frameworks */,
-				CAD92F3225FE4612008D6CF8 /* Magnet.xcframework in Frameworks */,
-				CAD92F2D25FE460F008D6CF8 /* KeyHolder.xcframework in Frameworks */,
-				CAD92F3625FE4615008D6CF8 /* Sparkle.xcframework in Frameworks */,
+				BE3894A1263C20EA00131366 /* LoginServiceKit.xcframework in Frameworks */,
+				BE3894A5263C20EA00131366 /* Sauce.xcframework in Frameworks */,
+				BE3894A3263C20EA00131366 /* Magnet.xcframework in Frameworks */,
+				BE38949F263C20EA00131366 /* KeyHolder.xcframework in Frameworks */,
+				BE3894A7263C20EA00131366 /* Sparkle.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,7 +249,6 @@
 				TargetAttributes = {
 					BEC844F21DED859300A4A57A = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 8R2F2YSX5Q;
 						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 					};
@@ -510,7 +509,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 0.60;
-				DEVELOPMENT_TEAM = 8R2F2YSX5Q;
+				DEVELOPMENT_TEAM = QZJ74E9669;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
@@ -522,8 +521,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = "0.6.0-sskmy";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sskmy1024y.Fuwari;
+				MARKETING_VERSION = 0.6.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appknop.Fuwari;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -537,7 +536,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 0.60;
-				DEVELOPMENT_TEAM = 8R2F2YSX5Q;
+				DEVELOPMENT_TEAM = QZJ74E9669;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
@@ -549,8 +548,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = "0.6.0-sskmy";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sskmy1024y.Fuwari;
+				MARKETING_VERSION = 0.6.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appknop.Fuwari;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
