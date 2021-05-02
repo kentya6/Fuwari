@@ -42,7 +42,6 @@
 		BEF57FF71DFD5CD1006595B6 /* GeneralPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEF57FF91DFD5CD1006595B6 /* GeneralPreferenceViewController.xib */; };
 		CA72BCDB25FB6F3F0041CB0D /* GeneralPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA72BCDA25FB6F3F0041CB0D /* GeneralPreferenceViewController.swift */; };
 		CA72BCF025FCA22C0041CB0D /* GyazoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA72BCEF25FCA22C0041CB0D /* GyazoManager.swift */; };
-		CAD92F3D25FE54F7008D6CF8 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD92F3C25FE54F7008D6CF8 /* Environment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -101,7 +100,6 @@
 		CAD92F1E25FE3B6B008D6CF8 /* Sparkle.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Sparkle.xcframework; path = Carthage/Build/Sparkle.xcframework; sourceTree = "<group>"; };
 		CAD92F1F25FE3B6B008D6CF8 /* KeyHolder.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = KeyHolder.xcframework; path = Carthage/Build/KeyHolder.xcframework; sourceTree = "<group>"; };
 		CAD92F2025FE3B6B008D6CF8 /* Sauce.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Sauce.xcframework; path = Carthage/Build/Sauce.xcframework; sourceTree = "<group>"; };
-		CAD92F3C25FE54F7008D6CF8 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,7 +177,6 @@
 			children = (
 				BE23E42E1DFA1623004DA6B7 /* Constants.swift */,
 				BE5896A01DFCED26007CE7AC /* LocalizedString.swift */,
-				CAD92F3C25FE54F7008D6CF8 /* Environment.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -222,7 +219,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BEC845021DED859300A4A57A /* Build configuration list for PBXNativeTarget "Fuwari" */;
 			buildPhases = (
-				CAD92F3825FE509B008D6CF8 /* ShellScript */,
 				BEC844EF1DED859300A4A57A /* Sources */,
 				BEC844F01DED859300A4A57A /* Frameworks */,
 				BEC844F11DED859300A4A57A /* Resources */,
@@ -291,27 +287,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		CAD92F3825FE509B008D6CF8 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/buildEnv.sh\" \"${SRCROOT}/.env\" \"${SRCROOT}/${PROJECT}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		BEC844EF1DED859300A4A57A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -330,7 +305,6 @@
 				BE5BE7A41E065D7800820201 /* HotKeyManager.swift in Sources */,
 				BE5896A11DFCED26007CE7AC /* LocalizedString.swift in Sources */,
 				BEC844F71DED859300A4A57A /* AppDelegate.swift in Sources */,
-				CAD92F3D25FE54F7008D6CF8 /* Environment.swift in Sources */,
 				CA72BCDB25FB6F3F0041CB0D /* GeneralPreferenceViewController.swift in Sources */,
 				BE9777ED1E0E613700E5934F /* UserDefaults+ArchiveData.swift in Sources */,
 				BE23E42F1DFA1623004DA6B7 /* Constants.swift in Sources */,
@@ -512,7 +486,7 @@
 				DEVELOPMENT_TEAM = QZJ74E9669;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Fuwari/Info.plist;
@@ -540,7 +514,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Fuwari/Info.plist;

@@ -16,8 +16,6 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
-.env
-Environment.swift
 
 ## Other
 *.moved-aside

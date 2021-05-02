@@ -34,6 +34,7 @@
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>Fabric</key>
+	<key>Gyazo</key>
 	<dict>
 		<key>APIKey</key>
 		<string>91c94b457e53915af7482ee33e544c1b3f3718d2</string>
@@ -52,6 +53,10 @@
 				<string>Crashlytics</string>
 			</dict>
 		</array>
+		<key>ClientId</key>
+		<string></string>
+		<key>ClientSecret</key>
+		<string></string>
 	</dict>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.utilities</string>

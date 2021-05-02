@@ -22,10 +22,11 @@ class GyazoManager: NSObject {
     private var accessToken: String? = nil
     
     override init() {
-        let _clientId = Env["GYAZO_CLIENT_ID"]
-        let _secretKey = Env["GYAZO_SECRET"]
-    
-        isAvailable = (_clientId != nil && _secretKey != nil)
+        let gyazoApi = Bundle.main.object(forInfoDictionaryKey: "Gyazo") as? [String: String]
+        let _clientId = gyazoApi?["ClientId"] ?? ""
+        let _secretKey = gyazoApi?["ClientSecret"] ?? ""
+        
+        isAvailable = (!_clientId.isEmpty && !_secretKey.isEmpty)
         clientId = _clientId
         secretKey = _secretKey
     }

@@ -4,8 +4,8 @@
 </div>
 
 <div align="center">
-<a href="https://github.com/sskmy1024y/Fuwari/releases/latest"><img src="https://img.shields.io/github/release/sskmy1024y/Fuwari.svg" alt="Release version"></a>
-<a href="https://github.com/sskmy1024y/Fuwari/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License: MIT"></a>
+<a href="https://github.com/kentya6/Fuwari/releases/latest"><img src="https://img.shields.io/github/release/kentya6/Fuwari.svg" alt="Release version"></a>
+<a href="https://github.com/kentya6/Fuwari/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License: MIT"></a>
 </div>
 
 <div align="center">
@@ -29,29 +29,24 @@
 
 ## 📦 Requirement
 
-* Swift 4+
+* Swift 5+
 * Xcode 12.4+
 * Carthage 0.37.0+
 
 ## 🤝 Contributing
 
-1. Fork it ( <https://github.com/sskmy1024y/Fuwari/fork> )
+1. Fork it ( <https://github.com/kentya6/Fuwari/fork> )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
 
-We are developing this as a derivative project, as the [original](https://github.com/kentya6/Fuwari) has not been updated for a long time.  
-If development is resumed, we would like to contribute to the development of the original.
-
 ## 🎫 Licence
 
 The MIT License (MIT)
 
-* Copyright (c) 2018 Kengo YOKOYAMA
-* Copyright (c) 2021 Sho YAMASHITA
+* Copyright (c) 2021 Kengo YOKOYAMA
 
 ## 🖋 Author
 
 * [kentya6](https://github.com/kentya6)
-* [sskmy1024y](https://github.com/sskmy1024y)
