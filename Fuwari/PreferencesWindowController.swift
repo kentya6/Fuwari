@@ -10,7 +10,7 @@ import Cocoa
 
 class PreferencesWindowController: NSWindowController {
 
-    static let shared = PreferencesWindowController(windowNibName: NSNib.Name(rawValue: "PreferencesWindowController"))
+    static let shared = PreferencesWindowController(windowNibName: "PreferencesWindowController")
     
     @IBOutlet fileprivate weak var toolBar: NSView!
     @IBOutlet fileprivate weak var generalImageView: NSImageView!
@@ -21,8 +21,8 @@ class PreferencesWindowController: NSWindowController {
     @IBOutlet fileprivate weak var shortcutButton: NSButton!
     
     fileprivate let defaults = UserDefaults.standard
-    fileprivate let viewController = [GeneralPreferenceViewController(nibName: NSNib.Name(rawValue: "GeneralPreferenceViewController"), bundle: nil),
-                                      ShortcutsPreferenceViewController(nibName: NSNib.Name(rawValue: "ShortcutsPreferenceViewController"), bundle: nil)]
+    fileprivate let viewController = [GeneralPreferenceViewController(nibName: "GeneralPreferenceViewController", bundle: nil),
+                                      ShortcutsPreferenceViewController(nibName: "ShortcutsPreferenceViewController", bundle: nil)]
     
     override func windowDidLoad() {
         super.windowDidLoad()
@@ -58,8 +58,8 @@ extension PreferencesWindowController: NSWindowDelegate {
 // MARK: - Layout
 fileprivate extension PreferencesWindowController {
     private func resetImages() {
-        generalImageView.image = NSImage(named: NSImage.Name(rawValue: Constants.ImageName.generalOff))
-        shortcutImageView.image = NSImage(named: NSImage.Name(rawValue: Constants.ImageName.shortcutOff))
+        generalImageView.image = NSImage(named: Constants.ImageName.generalOff)
+        shortcutImageView.image = NSImage(named: Constants.ImageName.shortcutOff)
         
         generalTextField.textColor = .tabTitle
         shortcutTextField.textColor = .tabTitle
@@ -70,10 +70,10 @@ fileprivate extension PreferencesWindowController {
         
         switch index {
         case 0:
-            generalImageView.image = NSImage(named: NSImage.Name(rawValue: Constants.ImageName.generalOn))
+            generalImageView.image = NSImage(named: Constants.ImageName.generalOn)
             generalTextField.textColor = .main
         case 1:
-            shortcutImageView.image = NSImage(named: NSImage.Name(rawValue: Constants.ImageName.shortcutOn))
+            shortcutImageView.image = NSImage(named: Constants.ImageName.shortcutOn)
             shortcutTextField.textColor = .main
         default: break
         }

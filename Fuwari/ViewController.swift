@@ -66,7 +66,7 @@ extension ViewController: FloatDelegate {
         if !isCancelled {
             if windowControllers.filter({ $0 === floatWindow }).first != nil {
                 floatWindow.fadeWindow(isIn: false) {
-                    guard let index = self.windowControllers.index(where: {$0 === floatWindow}) else { return }
+                    guard let index = self.windowControllers.firstIndex(where: {$0 === floatWindow}) else { return }
                     self.windowControllers.remove(at: index)
                     self.windowControllers.last?.makeKey()
                 }

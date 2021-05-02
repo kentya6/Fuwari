@@ -20,7 +20,7 @@ class MenuManager: NSObject {
 
     func configure() {
         if let button = statusItem.button {
-            button.image = NSImage(named: NSImage.Name(rawValue: "MenuIcon"))
+            button.image = NSImage(named: "MenuIcon")
         }
         
         captureItem = NSMenuItem(title: LocalizedString.Capture.value, action: #selector(AppDelegate.capture), keyEquivalent: HotKeyManager.shared.captureKeyCombo.characters.lowercased())
