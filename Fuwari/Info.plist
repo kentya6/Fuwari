@@ -47,13 +47,13 @@
 	<key>LSUIElement</key>
 	<true/>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2021年 sskmy1024y. All rights reserved.</string>
+	<string>Copyright © 2021年 kentya6. All rights reserved.</string>
 	<key>NSMainStoryboardFile</key>
 	<string>Main</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
-	<string>https://sskmy1024y.github.io/Fuwari/appcast.xml</string>
+	<string>https://fuwari-app.com/appcast.xml</string>
 	<key>SUPublicEDKey</key>
 	<string>hUnyBjtgGSDNAjDH+uxxNTE7w5UgfwS9f2C9bWMVCo8=</string>
 </dict>

@@ -26,15 +26,15 @@ class AboutWindowController: NSWindowController {
     }
     
     @IBAction private func didTouchFuwariButton(_ sender: NSButton) {
-        NSWorkspace.shared.open(URL(string: "https://github.com/sskmy1024y/Fuwari")!)
+        NSWorkspace.shared.open(URL(string: "https://github.com/kentya6/Fuwari")!)
     }
     
     @IBAction private func didTouchTwitterButton(_ sender: NSButton) {
-        NSWorkspace.shared.open(URL(string: "https://twitter.com/sskmy1024r")!)
+        NSWorkspace.shared.open(URL(string: "https://twitter.com/kentya6")!)
     }
     
     @IBAction private func didTouchGitHubButton(_ sender: NSButton) {
-        NSWorkspace.shared.open(URL(string: "https://github.com/sskmy1024y")!)
+        NSWorkspace.shared.open(URL(string: "https://github.com/kentya6")!)
     }
 }
 
