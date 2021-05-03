@@ -31,6 +31,8 @@ class FloatWindow: NSWindow {
     private let windowScaleInterval = CGFloat(0.25)
     private let minWindowScale = CGFloat(0.25)
     private let maxWindowScale = CGFloat(2.5)
+    private let closeButtonOpacity = CGFloat(0.5)
+    private let closeButtonOpacityDuration = TimeInterval(0.3)
     
     init(contentRect: NSRect, styleMask style: NSWindow.StyleMask = [.borderless, .resizable], backing bufferingType: NSWindow.BackingStoreType = .buffered, defer flag: Bool = false, image: CGImage) {
         super.init(contentRect: contentRect, styleMask: style, backing: bufferingType, defer: flag)
@@ -124,17 +126,23 @@ class FloatWindow: NSWindow {
     }
     
     override func mouseEntered(with event: NSEvent) {
-        closeButton.alphaValue = 1.0
+        NSAnimationContext.runAnimationGroup { context in
+            context.duration = self.closeButtonOpacityDuration
+            self.closeButton.animator().alphaValue = self.closeButtonOpacity
+        }
     }
     
     override func mouseExited(with event: NSEvent) {
-        closeButton.alphaValue = 0.0
+        NSAnimationContext.runAnimationGroup { context in
+            context.duration = self.closeButtonOpacityDuration
+            self.closeButton.animator().alphaValue = 0.0
+        }
     }
     
     override func scrollWheel(with event: NSEvent) {
         let min = CGFloat(0.1), max = CGFloat(1.0)
         if windowOpacity > min || windowOpacity < max {
-            windowOpacity+=event.deltaY * 0.005
+            windowOpacity += event.deltaY * 0.005
             if windowOpacity < min { windowOpacity = min }
             else if windowOpacity > max { windowOpacity = max }
             alphaValue = windowOpacity
@@ -150,10 +158,12 @@ class FloatWindow: NSWindow {
         if movingOpacity < 1 {
             alphaValue = CGFloat(movingOpacity)
         }
+        closeButton.alphaValue = 0.0
     }
     
     override func mouseUp(with event: NSEvent) {
         alphaValue = windowOpacity
+        closeButton.alphaValue = closeButtonOpacity
     }
     
     @objc private func saveImage() {
