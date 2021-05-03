@@ -19,7 +19,7 @@ class ScreenshotManager: NSObject {
     }
     
     func startCapture() {
-        guard let fileUrl = try? FileManager.default.url(for: .desktopDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("fuwari-temporary-screenshot.png") else { return }
+        let fileUrl = FileManager.default.temporaryDirectory.appendingPathComponent("fuwari-temporary-screenshot.png")
         let captureProcess = Process()
         captureProcess.launchPath = "/usr/sbin/screencapture"
         captureProcess.arguments = ["-x", "-i"] + [fileUrl.path]
