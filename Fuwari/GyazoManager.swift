@@ -44,18 +44,22 @@ class GyazoManager: NSObject {
     }
     
     func uploadImage(image: NSImage) {
-        let alert = NSAlert()
-        alert.alertStyle = .warning
-        alert.messageText = LocalizedString.UploadTextTitle.value
-        alert.informativeText = LocalizedString.UploadTextBody.value
-        alert.addButton(withTitle: LocalizedString.OK.value)
-        alert.addButton(withTitle: LocalizedString.Cancel.value)
-        let response = alert.runModal()
-        switch response {
-        case .alertFirstButtonReturn:
+        if (UserDefaults.standard.bool(forKey: Constants.UserDefaults.uploadConfirmationItem)) {
+            let alert = NSAlert()
+            alert.alertStyle = .warning
+            alert.messageText = LocalizedString.UploadTextTitle.value
+            alert.informativeText = LocalizedString.UploadTextBody.value
+            alert.addButton(withTitle: LocalizedString.OK.value)
+            alert.addButton(withTitle: LocalizedString.Cancel.value)
+            let response = alert.runModal()
+            switch response {
+            case .alertFirstButtonReturn:
+                postImageWithEasyAuth(image: image)
+            default:
+                break
+            }
+        } else {
             postImageWithEasyAuth(image: image)
-        default:
-            break
         }
     }
     

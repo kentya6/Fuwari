@@ -16,11 +16,11 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <userDefaultsController representsSharedInstance="YES" id="cXb-94-lz3"/>
         <view wantsLayer="YES" id="rLE-OL-M9s">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="131"/>
+            <rect key="frame" x="0.0" y="0.0" width="480" height="171"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <textField verticalHuggingPriority="750" preferredMaxLayoutWidth="206" translatesAutoresizingMaskIntoConstraints="NO" id="dif-Ja-6qb">
-                    <rect key="frame" x="36" y="95" width="61" height="16"/>
+                    <rect key="frame" x="36" y="135" width="61" height="16"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Behavior" id="r4j-9y-Hik">
                         <font key="font" metaFont="systemBold"/>
                         <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
@@ -28,7 +28,7 @@
                     </textFieldCell>
                 </textField>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="ZmK-IC-ILU">
-                    <rect key="frame" x="36" y="70" width="126" height="18"/>
+                    <rect key="frame" x="36" y="110" width="126" height="18"/>
                     <buttonCell key="cell" type="check" title="Launch on Login" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="7nO-qE-sdg">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
@@ -62,11 +62,24 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="faj-da-RwZ">
+                    <rect key="frame" x="36" y="78" width="175" height="18"/>
+                    <buttonCell key="cell" type="check" title="Show Alert when Upload" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="g3q-Hv-xrg">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="cXb-94-lz3" name="value" keyPath="values.uploadConfirmationItem" id="c6o-le-g2n"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="faj-da-RwZ" secondAttribute="trailing" constant="20" symbolic="YES" id="8kw-ik-m8f"/>
+                <constraint firstItem="faj-da-RwZ" firstAttribute="leading" secondItem="ZmK-IC-ILU" secondAttribute="leading" id="BaH-a5-qSw"/>
                 <constraint firstItem="bFh-py-eKo" firstAttribute="leading" secondItem="2mp-2z-TVd" secondAttribute="leading" id="DZp-uA-oUp"/>
                 <constraint firstItem="ZmK-IC-ILU" firstAttribute="top" secondItem="dif-Ja-6qb" secondAttribute="bottom" constant="8" symbolic="YES" id="EoN-J4-eiW"/>
                 <constraint firstItem="dif-Ja-6qb" firstAttribute="top" secondItem="rLE-OL-M9s" secondAttribute="top" constant="20" symbolic="YES" id="H2I-0w-0bd"/>
+                <constraint firstItem="faj-da-RwZ" firstAttribute="top" secondItem="ZmK-IC-ILU" secondAttribute="bottom" constant="16" id="IAq-UJ-v8c"/>
                 <constraint firstItem="dif-Ja-6qb" firstAttribute="leading" secondItem="ZmK-IC-ILU" secondAttribute="leading" id="JDA-PZ-Vgr"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZmK-IC-ILU" secondAttribute="trailing" constant="20" symbolic="YES" id="NFt-3v-EPF"/>
                 <constraint firstItem="dif-Ja-6qb" firstAttribute="leading" secondItem="rLE-OL-M9s" secondAttribute="leading" constant="38" id="TUf-db-GSj"/>
@@ -78,7 +91,7 @@
                 <constraint firstItem="vIe-70-g9r" firstAttribute="leading" secondItem="2mp-2z-TVd" secondAttribute="trailing" constant="10" id="khP-Rs-XbY"/>
                 <constraint firstItem="vIe-70-g9r" firstAttribute="bottom" secondItem="2mp-2z-TVd" secondAttribute="bottom" id="uJJ-Hb-TEa"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="67.5"/>
+            <point key="canvasLocation" x="139" y="87.5"/>
         </view>
     </objects>
 </document>
