@@ -52,9 +52,5 @@
 	<string>Main</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	<key>SUFeedURL</key>
-	<string>https://fuwari-app.com/appcast.xml</string>
-	<key>SUPublicEDKey</key>
-	<string>hUnyBjtgGSDNAjDH+uxxNTE7w5UgfwS9f2C9bWMVCo8=</string>
 </dict>
 </plist>

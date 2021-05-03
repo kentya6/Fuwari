@@ -10,7 +10,6 @@ import Cocoa
 import Carbon
 import Magnet
 import LoginServiceKit
-import Sparkle
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -32,10 +31,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let appleEventManager = NSAppleEventManager.shared()
         appleEventManager.setEventHandler(self, andSelector: #selector(handleAppleEvent), forEventClass: AEEventClass(kInternetEventClass), andEventID: AEEventID(kAEGetURL))
-        
-        SUUpdater.shared().automaticallyDownloadsUpdates = false
-        SUUpdater.shared().automaticallyChecksForUpdates = false
-        SUUpdater.shared().checkForUpdatesInBackground()
         
         HotKeyManager.shared.configure()
         MenuManager.shared.configure()

@@ -16,8 +16,6 @@
 		BE3894A4263C20EA00131366 /* Magnet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1C25FE3B6B008D6CF8 /* Magnet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE3894A5263C20EA00131366 /* Sauce.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F2025FE3B6B008D6CF8 /* Sauce.xcframework */; };
 		BE3894A6263C20EA00131366 /* Sauce.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F2025FE3B6B008D6CF8 /* Sauce.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BE3894A7263C20EA00131366 /* Sparkle.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1E25FE3B6B008D6CF8 /* Sparkle.xcframework */; };
-		BE3894A8263C20EA00131366 /* Sparkle.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1E25FE3B6B008D6CF8 /* Sparkle.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE58969A1DFCEB07007CE7AC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE58969C1DFCEB07007CE7AC /* Localizable.strings */; };
 		BE5896A11DFCED26007CE7AC /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5896A01DFCED26007CE7AC /* LocalizedString.swift */; };
 		BE5BE7A11E065C7700820201 /* ShortcutsPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5BE79F1E065C7700820201 /* ShortcutsPreferenceViewController.swift */; };
@@ -55,7 +53,6 @@
 				BE3894A6263C20EA00131366 /* Sauce.xcframework in Embed Frameworks */,
 				BE3894A4263C20EA00131366 /* Magnet.xcframework in Embed Frameworks */,
 				BE3894A0263C20EA00131366 /* KeyHolder.xcframework in Embed Frameworks */,
-				BE3894A8263C20EA00131366 /* Sparkle.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,7 +94,6 @@
 		CA72BCEF25FCA22C0041CB0D /* GyazoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GyazoManager.swift; sourceTree = "<group>"; };
 		CAD92F1C25FE3B6B008D6CF8 /* Magnet.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Magnet.xcframework; path = Carthage/Build/Magnet.xcframework; sourceTree = "<group>"; };
 		CAD92F1D25FE3B6B008D6CF8 /* LoginServiceKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LoginServiceKit.xcframework; path = Carthage/Build/LoginServiceKit.xcframework; sourceTree = "<group>"; };
-		CAD92F1E25FE3B6B008D6CF8 /* Sparkle.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Sparkle.xcframework; path = Carthage/Build/Sparkle.xcframework; sourceTree = "<group>"; };
 		CAD92F1F25FE3B6B008D6CF8 /* KeyHolder.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = KeyHolder.xcframework; path = Carthage/Build/KeyHolder.xcframework; sourceTree = "<group>"; };
 		CAD92F2025FE3B6B008D6CF8 /* Sauce.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Sauce.xcframework; path = Carthage/Build/Sauce.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,7 +107,6 @@
 				BE3894A5263C20EA00131366 /* Sauce.xcframework in Frameworks */,
 				BE3894A3263C20EA00131366 /* Magnet.xcframework in Frameworks */,
 				BE38949F263C20EA00131366 /* KeyHolder.xcframework in Frameworks */,
-				BE3894A7263C20EA00131366 /* Sparkle.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +120,6 @@
 				CAD92F1D25FE3B6B008D6CF8 /* LoginServiceKit.xcframework */,
 				CAD92F1C25FE3B6B008D6CF8 /* Magnet.xcframework */,
 				CAD92F2025FE3B6B008D6CF8 /* Sauce.xcframework */,
-				CAD92F1E25FE3B6B008D6CF8 /* Sparkle.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

@@ -9,7 +9,6 @@
 import Cocoa
 import Magnet
 import Sauce
-import Sparkle
 
 class MenuManager: NSObject {
 
@@ -30,9 +29,6 @@ class MenuManager: NSObject {
         menu.addItem(NSMenuItem(title: LocalizedString.About.value, action: #selector(AppDelegate.openAbout), keyEquivalent: ""))
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: LocalizedString.Preference.value, action: #selector(AppDelegate.openPreferences), keyEquivalent: ","))
-        menu.addItem(withTitle: LocalizedString.CheckForUpdates.value,
-                     action: #selector(SUUpdater.checkForUpdates(_:)),
-                     target: SUUpdater.shared())
         menu.addItem(NSMenuItem.separator())
         menu.addItem(captureItem)
         menu.addItem(NSMenuItem.separator())
