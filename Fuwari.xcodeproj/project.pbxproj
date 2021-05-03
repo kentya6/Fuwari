@@ -20,7 +20,6 @@
 		BE5896A11DFCED26007CE7AC /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5896A01DFCED26007CE7AC /* LocalizedString.swift */; };
 		BE5BE7A11E065C7700820201 /* ShortcutsPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5BE79F1E065C7700820201 /* ShortcutsPreferenceViewController.swift */; };
 		BE5BE7A41E065D7800820201 /* HotKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5BE7A31E065D7800820201 /* HotKeyManager.swift */; };
-		BE6473101E05FD91005E0AB0 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = BE64730F1E05FD91005E0AB0 /* dsa_pub.pem */; };
 		BE6D5E761E12CF5E005492B2 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6D5E741E12CF5E005492B2 /* AboutWindowController.swift */; };
 		BE6D5E771E12CF5E005492B2 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE6D5E751E12CF5E005492B2 /* AboutWindowController.xib */; };
 		BE7E825B1DF74A2D00F3F2F8 /* FloatWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E825A1DF74A2D00F3F2F8 /* FloatWindow.swift */; };
@@ -270,7 +269,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE6473101E05FD91005E0AB0 /* dsa_pub.pem in Resources */,
 				BEC844FB1DED859300A4A57A /* Assets.xcassets in Resources */,
 				BE58969A1DFCEB07007CE7AC /* Localizable.strings in Resources */,
 				BE9777F01E0EC24F00E5934F /* ShortcutsPreferenceViewController.xib in Resources */,
