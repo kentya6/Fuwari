@@ -23,17 +23,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="380" height="260"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ajp-L3-yku">
-                        <rect key="frame" x="144" y="62" width="95" height="16"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="© sskmy1024y" id="vNk-SA-UPB">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UoF-ox-5qb">
-                        <rect key="frame" x="129" y="84" width="123" height="16"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UoF-ox-5qb">
+                        <rect key="frame" x="130" y="84" width="123" height="16"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="© Kengo Yokoyama" id="xco-Ph-WYd">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -100,12 +91,12 @@
                     <constraint firstItem="qpu-hY-iBq" firstAttribute="leading" secondItem="wgA-Yg-xTZ" secondAttribute="leading" id="H2x-Jw-6c0"/>
                     <constraint firstItem="qpu-hY-iBq" firstAttribute="centerX" secondItem="r7D-eN-oFU" secondAttribute="centerX" id="J0Y-ee-y1q"/>
                     <constraint firstItem="wgA-Yg-xTZ" firstAttribute="bottom" secondItem="nTL-FA-3o1" secondAttribute="bottom" id="QLo-SR-lxR"/>
-                    <constraint firstItem="r7D-eN-oFU" firstAttribute="centerX" secondItem="ajp-L3-yku" secondAttribute="centerX" id="YMC-fN-3Gn"/>
+                    <constraint firstItem="nTL-FA-3o1" firstAttribute="top" secondItem="UoF-ox-5qb" secondAttribute="bottom" constant="34" id="Wg0-T5-U0B"/>
+                    <constraint firstItem="UoF-ox-5qb" firstAttribute="centerX" secondItem="r7D-eN-oFU" secondAttribute="centerX" id="bgS-v5-m3T"/>
                     <constraint firstItem="qpu-hY-iBq" firstAttribute="trailing" secondItem="nTL-FA-3o1" secondAttribute="trailing" id="cgQ-DD-Lqy"/>
+                    <constraint firstItem="UoF-ox-5qb" firstAttribute="top" secondItem="r7D-eN-oFU" secondAttribute="bottom" constant="8" id="fny-mp-iaD"/>
                     <constraint firstItem="wgA-Yg-xTZ" firstAttribute="top" secondItem="nTL-FA-3o1" secondAttribute="top" id="g53-co-2d6"/>
                     <constraint firstItem="r7D-eN-oFU" firstAttribute="centerX" secondItem="se5-gp-TjO" secondAttribute="centerX" constant="1" id="gWp-FF-SkW"/>
-                    <constraint firstItem="wgA-Yg-xTZ" firstAttribute="top" secondItem="ajp-L3-yku" secondAttribute="bottom" constant="12" id="h9q-JV-hJ8"/>
-                    <constraint firstItem="ajp-L3-yku" firstAttribute="top" secondItem="r7D-eN-oFU" secondAttribute="bottom" constant="30" id="x4h-tL-aBK"/>
                 </constraints>
             </view>
             <connections>
