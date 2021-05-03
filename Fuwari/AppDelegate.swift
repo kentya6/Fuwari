@@ -30,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             promptToAddLoginItems()
         }
         
-        let appleEventManager:NSAppleEventManager = NSAppleEventManager.shared()
+        let appleEventManager = NSAppleEventManager.shared()
         appleEventManager.setEventHandler(self, andSelector: #selector(handleAppleEvent), forEventClass: AEEventClass(kInternetEventClass), andEventID: AEEventID(kAEGetURL))
         
         SUUpdater.shared().automaticallyDownloadsUpdates = false

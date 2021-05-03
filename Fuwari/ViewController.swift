@@ -29,14 +29,13 @@ class ViewController: NSViewController, NSWindowDelegate {
             let currentScreen = NSScreen.screens.first { $0.frame.contains(NSEvent.mouseLocation) }
             guard let currentScaleFactor = currentScreen?.backingScaleFactor else { return }
             let mouseLocation = NSEvent.mouseLocation
-            let ciImage = CIImage(contentsOf: imageUrl)?.copy() as? CIImage
+            guard let ciImage = CIImage(contentsOf: imageUrl)?.copy() as? CIImage else { return }
+            
             let context = CIContext(options: nil)
             
-            if ciImage == nil { return }
+            guard let cgImage = context.createCGImage(ciImage, from: ciImage.extent) else { return }
             
-            let cgImage = context.createCGImage(ciImage!, from: ciImage!.extent)
-            
-            self.createFloatWindow(rect: NSRect(x: Int(mouseLocation.x) - cgImage!.width / Int(2 * currentScaleFactor), y: Int(mouseLocation.y) - cgImage!.height / Int(2 * currentScaleFactor), width: Int(CGFloat(cgImage!.width) / currentScaleFactor), height: Int(CGFloat(cgImage!.height) / currentScaleFactor)), image: cgImage!)
+            self.createFloatWindow(rect: NSRect(x: Int(mouseLocation.x) - cgImage.width / Int(2 * currentScaleFactor), y: Int(mouseLocation.y) - cgImage.height / Int(2 * currentScaleFactor), width: Int(CGFloat(cgImage.width) / currentScaleFactor), height: Int(CGFloat(cgImage.height) / currentScaleFactor)), image: cgImage)
             try? FileManager.default.removeItem(at: imageUrl)
         }
     }
