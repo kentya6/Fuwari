@@ -227,7 +227,7 @@ class FloatWindow: NSWindow {
         floatDelegate?.close(floatWindow: self)
     }
     
-    private func showPopUp(text: String, duration: Double = 1.0) {
+    private func showPopUp(text: String, duration: Double = 0.5, interval: Double = 0.5) {
         popUpLabel.stringValue = text
         
         NSAnimationContext.runAnimationGroup({ context in
@@ -235,7 +235,7 @@ class FloatWindow: NSWindow {
             context.timingFunction = CAMediaTimingFunction(name: .easeOut)
             popUpLabel.animator().alphaValue = 1.0
         }) {
-            if #available(OSX 10.12, *) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + interval) {
                 NSAnimationContext.runAnimationGroup({ context in
                     context.duration = duration
                     context.timingFunction = CAMediaTimingFunction(name: .easeIn)
