@@ -24,7 +24,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.sskmy1024y.Fuwari</string>
+			<string>com.appknop.Fuwari</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>fuwari</string>
