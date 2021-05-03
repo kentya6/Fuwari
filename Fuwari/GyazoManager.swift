@@ -44,7 +44,19 @@ class GyazoManager: NSObject {
     }
     
     func uploadImage(image: NSImage) {
-        postImageWithEasyAuth(image: image)
+        let alert = NSAlert()
+        alert.alertStyle = .warning
+        alert.messageText = LocalizedString.UploadTextTitle.value
+        alert.informativeText = LocalizedString.UploadTextBody.value
+        alert.addButton(withTitle: LocalizedString.OK.value)
+        alert.addButton(withTitle: LocalizedString.Cancel.value)
+        let response = alert.runModal()
+        switch response {
+        case .alertFirstButtonReturn:
+            postImageWithEasyAuth(image: image)
+        default:
+            break
+        }
     }
     
     private func getAccessToken(code: String) {
