@@ -8,11 +8,13 @@
 
 "Launch Fuwari on system startup?" = "システム起動時にFuwariを起動しますか?";
 
-"You can change this setting in the Preferences if you want." = "この設定はいつでも変更できます";
+"You can change this setting in the Preferences if you want." = "この設定はいつでも変更できます。";
 
 "Launch on system startup" = "起動する";
 
 "Don't Launch" = "起動しない";
+
+"OK" = "OK";
 
 "Cancel" = "キャンセル";
 
@@ -36,9 +38,17 @@
 
 "Save" = "保存";
 
-"Copy" = "コピー";
+"Copy" = "クリップボードにコピー";
+
+"Upload" = "Gyazoに送る...";
+
+"Upload Text Title" = "Gyazoにアップロードしてもよろしいですか？";
+
+"Upload Text Body" = "外部にアップロードするため、取り扱いに注意してください。";
 
 "Close" = "閉じる";
+
+"Zoom Reset" = "元のサイズに戻す";
 
 "Zoom In" = "拡大";
 

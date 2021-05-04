@@ -14,6 +14,8 @@
 
 "Don't Launch" = "Don't Launch";
 
+"OK" = "OK";
+
 "Cancel" = "Cancel";
 
 "Check for Updates..." = "Check for Updates...";
@@ -36,9 +38,17 @@
 
 "Save" = "Save";
 
-"Copy" = "Copy";
+"Copy" = "Copy to Clipboard";
+
+"Upload" = "Send to Gyazo...";
+
+"Upload Text Title" = "Do you want to upload it to Gyazo?";
+
+"Upload Text Body" = "Please handle with care as you are upload to an external site.";
 
 "Close" = "Close";
+
+"Zoom Reset" = "Reset to Original Size";
 
 "Zoom In" = "Zoom In";
 

@@ -10,9 +10,6 @@ import Cocoa
 import Carbon
 import Magnet
 import LoginServiceKit
-import Fabric
-import Crashlytics
-import Sparkle
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -20,17 +17,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private let defaults = UserDefaults.standard
     private var screenshotManager: ScreenshotManager?
     
+    override init() {
+        // Initialize UserDefaults value
+        defaults.register(defaults: [Constants.UserDefaults.movingOpacity: 0.4])
+        defaults.register(defaults: [Constants.UserDefaults.uploadConfirmationItem: true])
+    }
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        Fabric.with([Answers.self, Crashlytics.self])
-        
         // Show Login Item
         if !defaults.bool(forKey: Constants.UserDefaults.loginItem) && !defaults.bool(forKey: Constants.UserDefaults.suppressAlertForLoginItem) {
             promptToAddLoginItems()
         }
-
-        SUUpdater.shared().automaticallyDownloadsUpdates = false
-        SUUpdater.shared().automaticallyChecksForUpdates = false
-        SUUpdater.shared().checkForUpdatesInBackground()
+        
+        let appleEventManager = NSAppleEventManager.shared()
+        appleEventManager.setEventHandler(self, andSelector: #selector(handleAppleEvent), forEventClass: AEEventClass(kInternetEventClass), andEventID: AEEventID(kAEGetURL))
         
         HotKeyManager.shared.configure()
         MenuManager.shared.configure()
@@ -57,6 +57,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func quit() {
         NSApp.terminate(nil)
     }
+
+    @objc private func handleAppleEvent(event: NSAppleEventDescriptor?, replyEvent: NSAppleEventDescriptor?) {
+        guard let appleEventDescription = event?.paramDescriptor(forKeyword: AEKeyword(keyDirectObject)) else { return }
+        guard let appleEventURLString = appleEventDescription.stringValue else { return }
+
+        let appleEventURL = URL(string: appleEventURLString)
+        guard let event = appleEventURL?.host else { return }
+        switch event {
+        case "gyazo_oauth":
+            GyazoManager.shared.handleOauthCode(url: appleEventURL!)
+        default:
+            break
+        }
+    }
+    
     
     private func promptToAddLoginItems() {
         let alert = NSAlert()

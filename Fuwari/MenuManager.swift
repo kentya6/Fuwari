@@ -8,7 +8,7 @@
 
 import Cocoa
 import Magnet
-import Sparkle
+import Sauce
 
 class MenuManager: NSObject {
 
@@ -19,19 +19,16 @@ class MenuManager: NSObject {
 
     func configure() {
         if let button = statusItem.button {
-            button.image = NSImage(named: NSImage.Name(rawValue: "MenuIcon"))
+            button.image = NSImage(named: "MenuIcon")
         }
         
         captureItem = NSMenuItem(title: LocalizedString.Capture.value, action: #selector(AppDelegate.capture), keyEquivalent: HotKeyManager.shared.captureKeyCombo.characters.lowercased())
-        captureItem.keyEquivalentModifierMask = KeyTransformer.cocoaFlags(from: HotKeyManager.shared.captureKeyCombo.modifiers)
+        captureItem.keyEquivalentModifierMask = HotKeyManager.shared.captureKeyCombo.modifiers.convertSupportCocoaModifiers()
         
         let menu = NSMenu()
         menu.addItem(NSMenuItem(title: LocalizedString.About.value, action: #selector(AppDelegate.openAbout), keyEquivalent: ""))
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: LocalizedString.Preference.value, action: #selector(AppDelegate.openPreferences), keyEquivalent: ","))
-        menu.addItem(withTitle: LocalizedString.CheckForUpdates.value,
-                     action: #selector(SUUpdater.checkForUpdates(_:)),
-                     target: SUUpdater.shared())
         menu.addItem(NSMenuItem.separator())
         menu.addItem(captureItem)
         menu.addItem(NSMenuItem.separator())
@@ -40,8 +37,8 @@ class MenuManager: NSObject {
         statusItem.menu = menu
     }
     
-    func udpateCpatureMenuItem() {
+    func updateCaptureMenuItem() {
         captureItem.keyEquivalent = HotKeyManager.shared.captureKeyCombo.characters.lowercased()
-        captureItem.keyEquivalentModifierMask = KeyTransformer.cocoaFlags(from: HotKeyManager.shared.captureKeyCombo.modifiers)
+        captureItem.keyEquivalentModifierMask = HotKeyManager.shared.captureKeyCombo.modifiers.convertSupportCocoaModifiers()
     }
 }

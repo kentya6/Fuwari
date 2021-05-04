@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="Stn-ic-cb3" customClass="RecordView" customModule="KeyHolder">
-                    <rect key="frame" x="92" y="20" width="368" height="40"/>
+                    <rect key="frame" x="91" y="20" width="369" height="40"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                             <real key="value" value="17"/>
@@ -34,7 +34,7 @@
                     </userDefinedRuntimeAttributes>
                 </customView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AxN-hC-9s6">
-                    <rect key="frame" x="18" y="30" width="68" height="20"/>
+                    <rect key="frame" x="18" y="30" width="67" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="IVl-1s-ApD"/>
                     </constraints>
@@ -53,6 +53,7 @@
                 <constraint firstItem="Stn-ic-cb3" firstAttribute="leading" secondItem="AxN-hC-9s6" secondAttribute="trailing" constant="8" symbolic="YES" id="wah-mG-Raf"/>
                 <constraint firstItem="AxN-hC-9s6" firstAttribute="centerY" secondItem="Stn-ic-cb3" secondAttribute="centerY" id="zvF-IM-QJO"/>
             </constraints>
+            <point key="canvasLocation" x="102" y="154"/>
         </customView>
     </objects>
 </document>

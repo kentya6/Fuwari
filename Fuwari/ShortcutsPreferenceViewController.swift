@@ -27,7 +27,7 @@ class ShortcutsPreferenceViewController: NSViewController {
 }
 
 fileprivate extension ShortcutsPreferenceViewController {
-    fileprivate func prepareHotKeys() {
+    func prepareHotKeys() {
         
         captureShortcutRecordView.keyCombo = HotKeyManager.shared.captureKeyCombo
     }
@@ -50,7 +50,7 @@ extension ShortcutsPreferenceViewController: RecordViewDelegate {
         }
     }
     
-    func recordView(_ recordView: RecordView, didChangeKeyCombo keyCombo: KeyCombo) {
+    func recordView(_ recordView: RecordView, didChangeKeyCombo keyCombo: KeyCombo?) {
         switch recordView {
         case captureShortcutRecordView:
             HotKeyManager.shared.registerHotKey(keyCombo: keyCombo)
