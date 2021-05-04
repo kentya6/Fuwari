@@ -8,6 +8,14 @@
 <a href="https://github.com/kentya6/Fuwari/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License: MIT"></a>
 </div>
 
+<br>
+
+<div align="center">
+  <img src="https://fuwari-app.com/images/download_on_the_appstore.svg"/>
+</div>
+
+<br>
+
 <div align="center">
   <strong>Floating screenshot like a sticky.</strong>
 </div>
@@ -15,7 +23,7 @@
 ## 🖥 Demo
 
 <p align="center" >
-<img src="https://raw.githubusercontent.com/sskmy1024y/Fuwari/gh-pages/images/fuwari_demo.gif" width="720px" />
+<img src="https://fuwari-app.com/images/fuwari_demo_0.6.0.gif" width="720px" />
 </p>
 
 ## ✅ Feature
@@ -45,7 +53,7 @@
 
 The MIT License (MIT)
 
-* Copyright (c) 2021 Kengo YOKOYAMA
+* Copyright (c) 2016 Kengo YOKOYAMA
 
 ## 🖋 Author
 
