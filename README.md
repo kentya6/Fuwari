@@ -11,7 +11,9 @@
 <br>
 
 <div align="center">
-  <img src="https://fuwari-app.com/images/download_on_the_appstore.svg"/>
+  <a href="https://apps.apple.com/app/fuwari/id1187652334">
+    <img src="https://fuwari-app.com/images/download_on_the_appstore.svg"/>
+  </a>
 </div>
 
 <br>
