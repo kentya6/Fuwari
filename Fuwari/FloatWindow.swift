@@ -10,7 +10,7 @@ import Cocoa
 import Magnet
 import Carbon
 
-protocol FloatDelegate: class {
+protocol FloatDelegate: AnyObject {
     func save(floatWindow: FloatWindow, image: CGImage)
     func close(floatWindow: FloatWindow)
 }
