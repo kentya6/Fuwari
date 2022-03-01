@@ -1,0 +1,70 @@
+name: CI
+
+on:
+  push:
+    branches: [ ux-improvements ]
+    tags:
+    - 'v*'
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: [ macos-latest ]
+
+    steps:
+    - name: Select latest Xcode
+      run: "sudo xcode-select -s /Applications/Xcode_13.2.app"
+
+    - name: Install make
+      run: |
+        brew install make create-dmg ripgrep
+        echo "/usr/local/opt/make/libexec/gnubin" >> $GITHUB_PATH
+
+    - uses: actions/checkout@v2
+
+    - name: Build and make dmg
+      run: |
+        make dmg
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: Fuwari
+        path: ./dist
+
+  pre-release:
+    needs: build
+    runs-on: [ macos-latest ]
+    if: "!startsWith(github.ref, 'refs/tags/v')"
+    steps:
+    - uses: actions/download-artifact@v2
+      with:
+        name: Fuwari
+        path: ./dist
+
+    - uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "latest"
+        prerelease: true
+        title: "Development Build"
+        files: |
+          dist/Fuwari.dmg
+
+  release:
+    needs: build
+    runs-on: [ macos-latest ]
+    if: "startsWith(github.ref, 'refs/tags/v')"
+    steps:
+    - uses: actions/download-artifact@v2
+      with:
+        name: Fuwari
+        path: ./dist
+
+    - uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        prerelease: false
+        files: |
+          dist/Fuwari.dmg
