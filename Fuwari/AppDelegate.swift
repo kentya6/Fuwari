@@ -19,7 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     override init() {
         // Initialize UserDefaults value
-        defaults.register(defaults: [Constants.UserDefaults.movingOpacity: 0.4])
+        defaults.register(defaults: [Constants.UserDefaults.movingOpacity: 1.0])
         defaults.register(defaults: [Constants.UserDefaults.uploadConfirmationItem: true])
     }
     

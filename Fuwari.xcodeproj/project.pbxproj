@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30C4E09427CEC8B900EBDCBB /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C4E09327CEC8B900EBDCBB /* Regex.swift */; };
 		BE23E42F1DFA1623004DA6B7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE23E42E1DFA1623004DA6B7 /* Constants.swift */; };
 		BE38949F263C20EA00131366 /* KeyHolder.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1F25FE3B6B008D6CF8 /* KeyHolder.xcframework */; };
 		BE3894A0263C20EA00131366 /* KeyHolder.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1F25FE3B6B008D6CF8 /* KeyHolder.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -59,6 +60,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		30C4E09327CEC8B900EBDCBB /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		BE23E42E1DFA1623004DA6B7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BE357092263FE10900F8C5E0 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/GeneralPreferenceViewController.strings; sourceTree = "<group>"; };
 		BE3570932640406F00F8C5E0 /* Fuwari.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fuwari.entitlements; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			children = (
 				BE23E42E1DFA1623004DA6B7 /* Constants.swift */,
 				BE5896A01DFCED26007CE7AC /* LocalizedString.swift */,
+				30C4E09327CEC8B900EBDCBB /* Regex.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				BE7E825B1DF74A2D00F3F2F8 /* FloatWindow.swift in Sources */,
 				BEF57FE51DFD46AE006595B6 /* PreferencesWindowController.swift in Sources */,
 				BE85482020F975E00035BC60 /* NSMenu+Extension.swift in Sources */,
+				30C4E09427CEC8B900EBDCBB /* Regex.swift in Sources */,
 				BEF57FEF1DFD58D4006595B6 /* NSColor+Fuwari.swift in Sources */,
 				BEC844F91DED859300A4A57A /* ViewController.swift in Sources */,
 				BE85482420FB5C640035BC60 /* FloatView.swift in Sources */,
@@ -489,7 +493,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 0.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appknop.fuwari;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -518,7 +522,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 0.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appknop.fuwari;
 				PRODUCT_NAME = "$(TARGET_NAME)";

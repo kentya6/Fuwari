@@ -165,6 +165,10 @@ class FloatWindow: NSWindow {
     override func mouseUp(with event: NSEvent) {
         alphaValue = windowOpacity
         closeButton.alphaValue = closeButtonOpacity
+        // Double click to close
+        if event.clickCount >= 2 {
+            closeWindow()
+        }
     }
     
     @objc private func saveImage() {
