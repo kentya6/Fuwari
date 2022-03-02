@@ -2,11 +2,11 @@ name: CI
 
 on:
   push:
-    branches: [ ux-improvements ]
+    branches: [ master ]
     tags:
     - 'v*'
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   build:
