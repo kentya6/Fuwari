@@ -9,25 +9,25 @@
 import Cocoa
 
 class ScreenshotManager: NSObject {
-    
+
     static let shared = ScreenshotManager()
 
     private var eventHandler: ((URL, NSRect?) -> Void)?
-    
+
     func eventHandler(eventHandler: @escaping (URL, NSRect?) -> Void) {
         self.eventHandler = eventHandler
     }
-    
+
     func startCapture() {
         let fileUrl = FileManager.default.temporaryDirectory.appendingPathComponent("fuwari-temporary-screenshot.png")
         let captureProcess = Process()
-        let standardOutputPipe = Pipe()
+        let pipe = Pipe()
         captureProcess.launchPath = "/usr/sbin/screencapture"
         captureProcess.arguments = ["-x", "-i", "-o"] + [fileUrl.path]
-        captureProcess.standardError = standardOutputPipe
+        captureProcess.standardError = pipe
         captureProcess.terminationHandler = { task in
             guard task.terminationStatus == 0 else { return }
-            let output = standardOutputPipe.fileHandleForReading.availableData
+            let output = pipe.fileHandleForReading.availableData
             let str = String(decoding: output, as: UTF8.self)
             let rect = self.extractCoordinates(str: str)
             DispatchQueue.main.async { [weak self] in
