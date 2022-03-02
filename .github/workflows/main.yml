@@ -51,6 +51,12 @@ jobs:
 
     - uses: actions/checkout@v2
 
+    - name: "Carthage Bootstrap"
+      uses: devbotsxyz/carthage-bootstrap@main
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        platform: macOS
+
     - name: Build and make dmg
       run: |
         make dmg
