@@ -53,7 +53,7 @@ jobs:
 
     - name: Build and make dmg
       run: |
-        carthage bootstrap
+        carthage bootstrap --use-xcframeworks
         make dmg
 
     - name: Upload artifacts
