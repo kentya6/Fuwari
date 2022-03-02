@@ -25,6 +25,7 @@ class ViewController: NSViewController, NSWindowDelegate {
         oldApp?.activate(options: .activateIgnoringOtherApps)
         
         ScreenshotManager.shared.eventHandler { imageUrl, rectMaybeConst in
+            let mainScreen = NSScreen.screens.first
             let currentScreen = NSScreen.screens.first { $0.frame.contains(NSEvent.mouseLocation) }
             guard let currentScaleFactor = currentScreen?.backingScaleFactor else { return }
             let mouseLocation = NSEvent.mouseLocation
@@ -34,7 +35,7 @@ class ViewController: NSViewController, NSWindowDelegate {
             
             guard let cgImage = context.createCGImage(ciImage, from: ciImage.extent) else { return }
             var rectMaybe = rectMaybeConst
-            if let height = currentScreen?.frame.size.height, let rect = rectMaybe {
+            if let height = mainScreen?.frame.size.height, let rect = rectMaybe {
                 rectMaybe = NSRect(
                     x: rect.minX,
                     y: height - rect.maxY,
