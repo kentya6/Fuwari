@@ -44,21 +44,16 @@ jobs:
         # mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
         # cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
-    - name: Install make
+    - name: Install deps
       run: |
         brew install make create-dmg ripgrep
         echo "/usr/local/opt/make/libexec/gnubin" >> $GITHUB_PATH
 
     - uses: actions/checkout@v2
 
-    - name: "Carthage Bootstrap"
-      uses: devbotsxyz/carthage-bootstrap@main
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        platform: macOS
-
     - name: Build and make dmg
       run: |
+        carthage bootstrap
         make dmg
 
     - name: Upload artifacts
