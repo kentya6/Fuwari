@@ -27,7 +27,7 @@ release: dist/${AppName}.app
 .PHONY: release
 
 install: dist/${AppName}.app
-> [ -e "/Applications/${AppName}.app" ] && rmtrash /Applications/${AppName}.app
+> [ -e "/Applications/${AppName}.app" ] && trash /Applications/${AppName}.app
 > cp -a dist/${AppName}.app /Applications/${AppName}.app
 .PHONY: install
 
