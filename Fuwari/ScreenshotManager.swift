@@ -24,6 +24,7 @@ class ScreenshotManager: NSObject {
         let pipe = Pipe()
         captureProcess.launchPath = "/usr/sbin/screencapture"
         captureProcess.arguments = ["-x", "-i", "-o"] + [fileUrl.path]
+        captureProcess.environment = ["OS_ACTIVITY_DT_MODE": "YES"]
         captureProcess.standardError = pipe
         captureProcess.terminationHandler = { task in
             guard task.terminationStatus == 0 else { return }
