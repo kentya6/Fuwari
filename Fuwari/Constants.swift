@@ -20,11 +20,13 @@ struct Constants {
         static let uploadConfirmationItem    = "uploadConfirmationItem"
         static let captureKeyCombo           = "captureKeyCombo"
         static let movingOpacity             = "movingOpacity"
+        static let singleTapCaptureMode      = "singleTapCaptureMode"
+        static let doubleTapCaptureMode      = "doubleTapCaptureMode"
     }
     
     struct ImageName {
         static let generalOff = "General"
-        static let generalOn  = "GeneralOn"        
+        static let generalOn  = "GeneralOn"
         static let shortcutOff = "Shortcut"
         static let shortcutOn  = "ShortcutOn"
     }

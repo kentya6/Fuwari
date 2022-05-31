@@ -12,6 +12,8 @@ class ScreenshotManager: NSObject {
 
     static let shared = ScreenshotManager()
     
+    private let defaults = UserDefaults.standard
+    
     private var tapCount = 0
 
     private var eventHandler: ((URL, NSRect?, SpaceMode) -> Void)?
@@ -38,9 +40,11 @@ class ScreenshotManager: NSObject {
             DispatchQueue.main.async { [weak self] in
                 guard let tapCount = self?.tapCount else { return }
                 if (tapCount == 1) {
-                    self?.eventHandler?(fileUrl, rect, .all)
+                    guard let singleTapCaptureMode = self?.defaults.integer(forKey: Constants.UserDefaults.singleTapCaptureMode) else { return }
+                    self?.eventHandler?(fileUrl, rect, SpaceMode(rawValue: singleTapCaptureMode) ?? .all)
                 } else {
-                    self?.eventHandler?(fileUrl, rect, .current)
+                    guard let doubleTapCaptureMode = self?.defaults.integer(forKey: Constants.UserDefaults.doubleTapCaptureMode) else { return }
+                    self?.eventHandler?(fileUrl, rect, SpaceMode(rawValue: doubleTapCaptureMode) ?? .current)
                 }
                 self?.tapCount = 0
             }

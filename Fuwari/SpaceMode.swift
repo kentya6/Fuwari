@@ -8,8 +8,8 @@
 
 import Cocoa
 
-enum SpaceMode {
-    case all
+enum SpaceMode: Int {
+    case all = 0
     case current
     
     func getCollectionBehavior() -> NSWindow.CollectionBehavior {

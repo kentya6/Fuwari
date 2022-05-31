@@ -68,6 +68,7 @@ class FloatWindow: NSWindow {
         super.init(contentRect: contentRect, styleMask: style, backing: bufferingType, defer: flag)
         contentView = FloatView(frame: contentRect)
         originalRect = contentRect
+        self.spaceMode = spaceMode
         collectionBehavior = spaceMode.getCollectionBehavior()
         level = .floating
         isMovableByWindowBackground = true
