@@ -24,28 +24,39 @@ class FloatWindow: NSWindow {
     weak var floatDelegate: FloatDelegate? = nil
     
     private var closeButton: NSButton!
+    private var spaceButton: NSButton!
     private var originalRect = NSRect()
     private var popUpLabel = NSTextField()
     private var windowScale = CGFloat(1.0)
     private var windowOpacity = CGFloat(1.0)
+    private var spaceMode = SpaceMode.all {
+        didSet {
+            collectionBehavior = spaceMode.getCollectionBehavior()
+            if spaceMode == .all {
+                spaceButton.image = NSImage(named: "SpaceAll")
+            } else {
+                spaceButton.image = NSImage(named: "SpaceCurrent")
+            }
+        }
+    }
     private let defaults = UserDefaults.standard
     private let windowScaleInterval = CGFloat(0.25)
     private let minWindowScale = CGFloat(0.25)
     private let maxWindowScale = CGFloat(2.5)
-    private let closeButtonOpacity = CGFloat(0.5)
-    private let closeButtonOpacityDuration = TimeInterval(0.3)
+    private let buttonOpacity = CGFloat(0.5)
+    private let buttonOpacityDuration = TimeInterval(0.3)
     
-    init(contentRect: NSRect, styleMask style: NSWindow.StyleMask = [.borderless, .resizable], backing bufferingType: NSWindow.BackingStoreType = .buffered, defer flag: Bool = false, image: CGImage) {
+    init(contentRect: NSRect, styleMask style: NSWindow.StyleMask = [.borderless, .resizable], backing bufferingType: NSWindow.BackingStoreType = .buffered, defer flag: Bool = false, image: CGImage, spaceMode: SpaceMode) {
         super.init(contentRect: contentRect, styleMask: style, backing: bufferingType, defer: flag)
         contentView = FloatView(frame: contentRect)
         originalRect = contentRect
+        collectionBehavior = spaceMode.getCollectionBehavior()
         level = .floating
         isMovableByWindowBackground = true
         hasShadow = true
         contentView?.wantsLayer = true
         contentView?.layer?.contents = image
         minSize = NSMakeSize(30, 30)
-        collectionBehavior = [.canJoinAllSpaces, .stationary, .fullScreenAuxiliary]
         animationBehavior = NSWindow.AnimationBehavior.alertPanel
         
         popUpLabel = NSTextField(frame: NSRect(x: 10, y: 10, width: 80, height: 26))
@@ -61,18 +72,28 @@ class FloatWindow: NSWindow {
         popUpLabel.isSelectable = false
         popUpLabel.alphaValue = 0.0
         contentView?.addSubview(popUpLabel)
+
+        if let image = NSImage(named: "Close") {
+            closeButton = NSButton(frame: NSRect(x: 4, y: frame.height - 20, width: 16, height: 16))
+            closeButton.image = image
+            closeButton.imageScaling = .scaleProportionallyDown
+            closeButton.isBordered = false
+            closeButton.alphaValue = 0.0
+            closeButton.target = self
+            closeButton.action = #selector(closeWindow)
+            contentView?.addSubview(closeButton)
+        }
         
-        let colorAttributeTitle = NSMutableAttributedString(string: "×")
-        let range = NSMakeRange(0, colorAttributeTitle.length)
-        colorAttributeTitle.addAttribute(.foregroundColor, value: NSColor.white, range: range)
-        closeButton = NSButton(frame: NSRect(x: 4, y: frame.height - 20, width: 16, height: 16))
-        closeButton.font = NSFont.boldSystemFont(ofSize: 14)
-        closeButton.target = self
-        closeButton.action = #selector(closeWindow)
-        closeButton.attributedTitle = colorAttributeTitle
-        closeButton.isBordered = false
-        closeButton.alphaValue = 0.0
-        contentView?.addSubview(closeButton)
+        if let image = NSImage(named: spaceMode == .all ? "SpaceAll" : "SpaceCurrent") {
+            spaceButton = NSButton(frame: NSRect(x: frame.width - 20, y: frame.height - 20, width: 16, height: 16))
+            spaceButton.image = image
+            spaceButton.imageScaling = .scaleProportionallyDown
+            spaceButton.isBordered = false
+            spaceButton.alphaValue = 0.0
+            spaceButton.target = self
+            spaceButton.action = #selector(changeSpaceMode)
+            contentView?.addSubview(spaceButton)
+        }
         
         menu = NSMenu()
         menu?.addItem(NSMenuItem(title: LocalizedString.Copy.value, action: #selector(copyImage), keyEquivalent: "c"))
@@ -85,6 +106,8 @@ class FloatWindow: NSWindow {
         menu?.addItem(NSMenuItem(title: LocalizedString.ResetWindow.value, action: #selector(resetWindow), keyEquivalent: "0"))
         menu?.addItem(NSMenuItem(title: LocalizedString.ZoomIn.value, action: #selector(zoomInWindow), keyEquivalent: "+"))
         menu?.addItem(NSMenuItem(title: LocalizedString.ZoomOut.value, action: #selector(zoomOutWindow), keyEquivalent: "-"))
+        menu?.addItem(NSMenuItem(title: LocalizedString.ShowAllSpaces.value, action: #selector(changeSpaceModeAll), keyEquivalent: "k"))
+        menu?.addItem(NSMenuItem(title: LocalizedString.ShowCurrentSpace.value, action: #selector(changeSpaceModeCurrent), keyEquivalent: "l"))
         menu?.addItem(NSMenuItem.separator())
         menu?.addItem(NSMenuItem(title: LocalizedString.Close.value, action: #selector(closeWindow), keyEquivalent: "w"))
         
@@ -140,6 +163,10 @@ class FloatWindow: NSWindow {
                 saveImage()
             case .c:
                 copyImage()
+            case .k:
+                changeSpaceModeAll()
+            case .l:
+                changeSpaceModeCurrent()
             case .zero, .keypadZero:
                 resetWindow()
             case .one, .keypadOne:
@@ -164,15 +191,17 @@ class FloatWindow: NSWindow {
     
     override func mouseEntered(with event: NSEvent) {
         NSAnimationContext.runAnimationGroup { context in
-            context.duration = self.closeButtonOpacityDuration
-            self.closeButton.animator().alphaValue = self.closeButtonOpacity
+            context.duration = self.buttonOpacityDuration
+            self.closeButton.animator().alphaValue = self.buttonOpacity
+            self.spaceButton.animator().alphaValue = self.buttonOpacity
         }
     }
     
     override func mouseExited(with event: NSEvent) {
         NSAnimationContext.runAnimationGroup { context in
-            context.duration = self.closeButtonOpacityDuration
+            context.duration = self.buttonOpacityDuration
             self.closeButton.animator().alphaValue = 0.0
+            self.spaceButton.animator().alphaValue = 0.0
         }
     }
     
@@ -196,11 +225,13 @@ class FloatWindow: NSWindow {
             alphaValue = CGFloat(movingOpacity)
         }
         closeButton.alphaValue = 0.0
+        spaceButton.alphaValue = 0.0
     }
     
     override func mouseUp(with event: NSEvent) {
         alphaValue = windowOpacity
-        closeButton.alphaValue = closeButtonOpacity
+        closeButton.alphaValue = buttonOpacity
+        spaceButton.alphaValue = buttonOpacity
         // Double click to close
         if event.clickCount >= 2 {
             closeWindow()
@@ -272,6 +303,18 @@ class FloatWindow: NSWindow {
     @objc fileprivate func resetWindow() {
         windowScale = CGFloat(1.0)
         setFrame(originalRect, display: true, animate: true)
+    }
+
+    @objc private func changeSpaceModeAll() {
+        spaceMode = .all
+    }
+    
+    @objc private func changeSpaceModeCurrent() {
+        spaceMode = .current
+    }
+    
+    @objc private func changeSpaceMode() {
+        spaceMode = spaceMode == .all ? .current : .all
     }
     
     @objc private func closeWindow() {

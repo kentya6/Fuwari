@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		30C4E09427CEC8B900EBDCBB /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C4E09327CEC8B900EBDCBB /* Regex.swift */; };
+		BE103A372845E59E005CA1A0 /* SpaceMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE103A362845E59E005CA1A0 /* SpaceMode.swift */; };
 		BE23E42F1DFA1623004DA6B7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE23E42E1DFA1623004DA6B7 /* Constants.swift */; };
 		BE38949F263C20EA00131366 /* KeyHolder.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1F25FE3B6B008D6CF8 /* KeyHolder.xcframework */; };
 		BE3894A0263C20EA00131366 /* KeyHolder.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1F25FE3B6B008D6CF8 /* KeyHolder.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -61,6 +62,7 @@
 
 /* Begin PBXFileReference section */
 		30C4E09327CEC8B900EBDCBB /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		BE103A362845E59E005CA1A0 /* SpaceMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceMode.swift; sourceTree = "<group>"; };
 		BE23E42E1DFA1623004DA6B7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BE357092263FE10900F8C5E0 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/GeneralPreferenceViewController.strings; sourceTree = "<group>"; };
 		BE3570932640406F00F8C5E0 /* Fuwari.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fuwari.entitlements; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				BE23E42E1DFA1623004DA6B7 /* Constants.swift */,
 				BE5896A01DFCED26007CE7AC /* LocalizedString.swift */,
 				30C4E09327CEC8B900EBDCBB /* Regex.swift */,
+				BE103A362845E59E005CA1A0 /* SpaceMode.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				BE85482420FB5C640035BC60 /* FloatView.swift in Sources */,
 				BE6D5E761E12CF5E005492B2 /* AboutWindowController.swift in Sources */,
 				CA72BCF025FCA22C0041CB0D /* GyazoManager.swift in Sources */,
+				BE103A372845E59E005CA1A0 /* SpaceMode.swift in Sources */,
 				BE5BE7A41E065D7800820201 /* HotKeyManager.swift in Sources */,
 				BE5896A11DFCED26007CE7AC /* LocalizedString.swift in Sources */,
 				BEC844F71DED859300A4A57A /* AppDelegate.swift in Sources */,

@@ -30,6 +30,8 @@ enum LocalizedString: String {
     case ZoomReset         = "Zoom Reset"
     case ZoomIn            = "Zoom In"
     case ZoomOut           = "Zoom Out"
+    case ShowAllSpaces     = "Show All Spaces"
+    case ShowCurrentSpace  = "Show Current Space"
     
     case TabGeneral        = "General"
     case TabMenu           = "Menu"

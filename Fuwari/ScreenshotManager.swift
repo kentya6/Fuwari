@@ -11,14 +11,18 @@ import Cocoa
 class ScreenshotManager: NSObject {
 
     static let shared = ScreenshotManager()
+    
+    private var tapCount = 0
 
-    private var eventHandler: ((URL, NSRect?) -> Void)?
+    private var eventHandler: ((URL, NSRect?, SpaceMode) -> Void)?
 
-    func eventHandler(eventHandler: @escaping (URL, NSRect?) -> Void) {
+    func eventHandler(eventHandler: @escaping (URL, NSRect?, SpaceMode) -> Void) {
         self.eventHandler = eventHandler
     }
 
-    func startCapture() {
+    func startCapture(spaceMode: SpaceMode) {
+        tapCount += 1
+
         let fileUrl = FileManager.default.temporaryDirectory.appendingPathComponent("fuwari-temporary-screenshot.png")
         let captureProcess = Process()
         let pipe = Pipe()
@@ -32,7 +36,13 @@ class ScreenshotManager: NSObject {
             let str = String(decoding: output, as: UTF8.self)
             let rect = self.extractCoordinates(str: str)
             DispatchQueue.main.async { [weak self] in
-                self?.eventHandler?(fileUrl, rect)
+                guard let tapCount = self?.tapCount else { return }
+                if (tapCount == 1) {
+                    self?.eventHandler?(fileUrl, rect, .all)
+                } else {
+                    self?.eventHandler?(fileUrl, rect, .current)
+                }
+                self?.tapCount = 0
             }
         }
         captureProcess.launch()

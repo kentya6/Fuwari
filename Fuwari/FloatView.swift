@@ -19,7 +19,7 @@ class FloatView: NSView {
         
         let options: NSTrackingArea.Options = [.activeAlways, .mouseEnteredAndExited]
         addTrackingArea(NSTrackingArea(rect: bounds, options: options, owner: self, userInfo: nil))
-     }
+    }
     
     override func acceptsFirstMouse(for event: NSEvent?) -> Bool {
         return true
