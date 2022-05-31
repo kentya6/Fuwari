@@ -33,9 +33,27 @@ class FloatWindow: NSWindow {
         didSet {
             collectionBehavior = spaceMode.getCollectionBehavior()
             if spaceMode == .all {
-                spaceButton.image = NSImage(named: "SpaceAll")
+                NSAnimationContext.runAnimationGroup( { context in
+                    context.duration = self.buttonOpacityDuration
+                    self.spaceButton.animator().alphaValue = 0
+                }, completionHandler: {
+                    self.spaceButton.image = NSImage(named: "SpaceAll")
+                    NSAnimationContext.runAnimationGroup( { context in
+                        context.duration = self.buttonOpacityDuration
+                        self.spaceButton.animator().alphaValue = self.buttonOpacity
+                    })
+                })
             } else {
-                spaceButton.image = NSImage(named: "SpaceCurrent")
+                NSAnimationContext.runAnimationGroup( { context in
+                    context.duration = self.buttonOpacityDuration
+                    self.spaceButton.animator().alphaValue = 0
+                }, completionHandler: {
+                    self.spaceButton.image = NSImage(named: "SpaceCurrent")
+                    NSAnimationContext.runAnimationGroup( { context in
+                        context.duration = self.buttonOpacityDuration
+                        self.spaceButton.animator().alphaValue = self.buttonOpacity
+                    })
+                })
             }
         }
     }
