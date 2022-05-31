@@ -25,6 +25,8 @@ class FloatWindow: NSWindow {
     
     private var closeButton: NSButton!
     private var spaceButton: NSButton!
+    private var allSpaceMenuItem: NSMenuItem!
+    private var currentSpaceMenuItem: NSMenuItem!
     private var originalRect = NSRect()
     private var popUpLabel = NSTextField()
     private var windowScale = CGFloat(1.0)
@@ -33,6 +35,9 @@ class FloatWindow: NSWindow {
         didSet {
             collectionBehavior = spaceMode.getCollectionBehavior()
             if spaceMode == .all {
+                allSpaceMenuItem.state = .on
+                currentSpaceMenuItem.state = .off
+                
                 NSAnimationContext.runAnimationGroup({ context in
                     context.duration = self.buttonOpacityDuration
                     self.spaceButton.animator().alphaValue = 0.0
@@ -44,6 +49,9 @@ class FloatWindow: NSWindow {
                     })
                 })
             } else {
+                allSpaceMenuItem.state = .off
+                currentSpaceMenuItem.state = .on
+                
                 NSAnimationContext.runAnimationGroup({ context in
                     context.duration = self.buttonOpacityDuration
                     self.spaceButton.animator().alphaValue = 0.0
@@ -114,6 +122,12 @@ class FloatWindow: NSWindow {
             contentView?.addSubview(spaceButton)
         }
         
+        allSpaceMenuItem = NSMenuItem(title: LocalizedString.ShowAllSpaces.value, action: #selector(changeSpaceModeAll), keyEquivalent: "k")
+        currentSpaceMenuItem = NSMenuItem(title: LocalizedString.ShowCurrentSpace.value, action: #selector(changeSpaceModeCurrent), keyEquivalent: "l")
+
+        allSpaceMenuItem.state = spaceMode == .all ? .on : .off
+        currentSpaceMenuItem.state = spaceMode == .all ? .off : .on
+        
         menu = NSMenu()
         menu?.addItem(NSMenuItem(title: LocalizedString.Copy.value, action: #selector(copyImage), keyEquivalent: "c"))
         menu?.addItem(NSMenuItem.separator())
@@ -125,8 +139,8 @@ class FloatWindow: NSWindow {
         menu?.addItem(NSMenuItem(title: LocalizedString.ResetWindow.value, action: #selector(resetWindow), keyEquivalent: "0"))
         menu?.addItem(NSMenuItem(title: LocalizedString.ZoomIn.value, action: #selector(zoomInWindow), keyEquivalent: "+"))
         menu?.addItem(NSMenuItem(title: LocalizedString.ZoomOut.value, action: #selector(zoomOutWindow), keyEquivalent: "-"))
-        menu?.addItem(NSMenuItem(title: LocalizedString.ShowAllSpaces.value, action: #selector(changeSpaceModeAll), keyEquivalent: "k"))
-        menu?.addItem(NSMenuItem(title: LocalizedString.ShowCurrentSpace.value, action: #selector(changeSpaceModeCurrent), keyEquivalent: "l"))
+        menu?.addItem(allSpaceMenuItem)
+        menu?.addItem(currentSpaceMenuItem)
         menu?.addItem(NSMenuItem.separator())
         menu?.addItem(NSMenuItem(title: LocalizedString.Close.value, action: #selector(closeWindow), keyEquivalent: "w"))
         
