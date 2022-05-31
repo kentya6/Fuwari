@@ -305,11 +305,14 @@ class FloatWindow: NSWindow {
     
     func fadeWindow(isIn: Bool, completion: (() -> Void)? = nil) {
         makeKeyAndOrderFront(self)
-        NSAnimationContext.beginGrouping()
-        NSAnimationContext.current.completionHandler = completion
-        NSAnimationContext.current.duration = 0.2
-        animator().alphaValue = isIn ? 1.0 : 0.0
-        NSAnimationContext.endGrouping()
-        if !isIn { orderOut(self) }
+        NSAnimationContext.runAnimationGroup({ context in
+            context.duration = 0.2
+            animator().alphaValue = isIn ? 1.0 : 0.0
+        }, completionHandler: { [weak self] in
+            if !isIn {
+                self?.orderOut(self)
+            }
+            completion?()
+        })
     }
 }
