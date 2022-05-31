@@ -99,6 +99,41 @@ class FloatWindow: NSWindow {
     
     override func keyDown(with event: NSEvent) {
         guard let key = Sauce.shared.key(for: Int(event.keyCode)) else { return }
+
+        var moveOffset = (dx: 0.0, dy: 0.0)
+        switch key {
+        case .leftArrow:
+            moveOffset = (dx: -1, dy: 0)
+        case .rightArrow:
+            moveOffset = (dx: 1, dy: 0)
+        case .upArrow:
+            moveOffset = (dx: 0, dy: 1)
+        case .downArrow:
+            moveOffset = (dx: 0, dy: -1)
+        case .escape:
+            closeWindow()
+        default:
+            break
+        }
+        
+        if event.modifierFlags.rawValue & NSEvent.ModifierFlags.shift.rawValue != 0 {
+            moveOffset = (moveOffset.dx * 10, moveOffset.dy * 10)
+        }
+
+        if moveOffset.dx != 0.0 || moveOffset.dy != 0.0 {
+            guard let screen = screen else { return }
+
+            // clamp offset
+            if frame.origin.x + moveOffset.dx < screen.frame.origin.x - (frame.width / 2) || (screen.frame.origin.x + screen.frame.width) - (frame.width / 2) < frame.origin.x + moveOffset.dx {
+                moveOffset.dx = 0
+            }
+            if frame.origin.y + moveOffset.dy < screen.frame.origin.y - (frame.height / 2) || (screen.frame.origin.y + screen.frame.height) - (frame.height / 2) < frame.origin.y + moveOffset.dy {
+                moveOffset.dy = 0
+            }
+            
+            moveWindow(dx: moveOffset.dx, dy: moveOffset.dy)
+        }
+            
         if event.modifierFlags.rawValue & NSEvent.ModifierFlags.command.rawValue != 0 {
             switch key {
             case .s:
@@ -118,8 +153,6 @@ class FloatWindow: NSWindow {
             default:
                 break
             }
-        } else if key == Key.escape {
-            closeWindow()
         }
     }
     
@@ -225,6 +258,10 @@ class FloatWindow: NSWindow {
         }
         
         showPopUp(text: "\(Int(windowScale * 100))%")
+    }
+    
+    @objc fileprivate func moveWindow(dx: CGFloat, dy: CGFloat) {
+        setFrame(NSRect(x: frame.origin.x + dx, y: frame.origin.y + dy, width: frame.width, height: frame.height), display: true, animate: true)
     }
     
     @objc fileprivate func resetWindowScale() {
