@@ -133,10 +133,6 @@ class FloatWindow: NSWindow {
         fadeWindow(isIn: true)
     }
     
-    func windowDidMove(_ notification: Notification) {
-        showPopUp(text: "(\(Int(frame.origin.x)),\(Int(frame.origin.y)))")
-    }
-    
     func windowDidResize(_ notification: Notification) {
         windowScale = frame.width > frame.height ? frame.height / originalRect.height : frame.width / originalRect.width
         closeButton.frame = NSRect(x: 4, y: frame.height - 20, width: 16, height: 16)
@@ -317,6 +313,7 @@ class FloatWindow: NSWindow {
     
     @objc private func moveWindow(dx: CGFloat, dy: CGFloat) {
         setFrame(NSRect(x: frame.origin.x + dx, y: frame.origin.y + dy, width: frame.width, height: frame.height), display: true, animate: true)
+        showPopUp(text: "(\(Int(frame.origin.x)),\(Int(frame.origin.y)))")
     }
     
     @objc private func resetWindowScale() {
