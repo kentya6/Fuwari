@@ -319,8 +319,10 @@ class FloatWindow: NSWindow {
     }
     
     @objc private func resetWindowScale() {
+        let diffScale = 1.0 - windowScale
         windowScale = CGFloat(1.0)
-        setFrame(NSRect(x: frame.origin.x, y: frame.origin.y, width: originalRect.width * windowScale, height: originalRect.height * windowScale), display: true, animate: true)
+        setFrame(NSRect(x: frame.origin.x - (originalRect.width * diffScale / 2), y: frame.origin.y - (originalRect.height * diffScale / 2), width: originalRect.width * windowScale, height: originalRect.height * windowScale), display: true, animate: true)
+        showPopUp(text: "\(Int(windowScale * 100))%")
     }
     
     @objc private func resetWindow() {
