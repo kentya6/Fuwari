@@ -26,6 +26,7 @@ enum LocalizedString: String {
     case UploadTextBody    = "Upload Text Body"
     case Copy              = "Copy"
     case Close             = "Close"
+    case ResetWindow       = "Reset Window"
     case ZoomReset         = "Zoom Reset"
     case ZoomIn            = "Zoom In"
     case ZoomOut           = "Zoom Out"

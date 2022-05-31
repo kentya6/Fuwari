@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   Fuwari
 
@@ -53,3 +53,5 @@
 "Zoom In" = "拡大";
 
 "Zoom Out" = "縮小";
+
+"Reset Window" = "元の位置とサイズに戻す";

@@ -82,6 +82,7 @@ class FloatWindow: NSWindow {
         menu?.addItem(NSMenuItem(title: LocalizedString.Upload.value, action: #selector(uploadImage), keyEquivalent: ""))
         menu?.addItem(NSMenuItem.separator())
         menu?.addItem(NSMenuItem(title: LocalizedString.ZoomReset.value, action: #selector(resetWindowScale), keyEquivalent: "r"))
+        menu?.addItem(NSMenuItem(title: LocalizedString.ResetWindow.value, action: #selector(resetWindow), keyEquivalent: "0"))
         menu?.addItem(NSMenuItem(title: LocalizedString.ZoomIn.value, action: #selector(zoomInWindow), keyEquivalent: "+"))
         menu?.addItem(NSMenuItem(title: LocalizedString.ZoomOut.value, action: #selector(zoomOutWindow), keyEquivalent: "-"))
         menu?.addItem(NSMenuItem.separator())
@@ -104,6 +105,8 @@ class FloatWindow: NSWindow {
                 saveImage()
             case .c:
                 copyImage()
+            case .zero, .keypadZero:
+                resetWindow()
             case .one, .keypadOne:
                 resetWindowScale()
             case .equal, .six, .semicolon, .keypadPlus:
@@ -227,6 +230,11 @@ class FloatWindow: NSWindow {
     @objc fileprivate func resetWindowScale() {
         windowScale = CGFloat(1.0)
         setFrame(NSRect(x: frame.origin.x, y: frame.origin.y, width: originalRect.width * windowScale, height: originalRect.height * windowScale), display: true, animate: true)
+    }
+    
+    @objc fileprivate func resetWindow() {
+        windowScale = CGFloat(1.0)
+        setFrame(originalRect, display: true, animate: true)
     }
     
     @objc private func closeWindow() {
