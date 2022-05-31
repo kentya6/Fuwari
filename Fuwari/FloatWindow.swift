@@ -8,6 +8,7 @@
 
 import Cocoa
 import Magnet
+import Sauce
 import Carbon
 
 protocol FloatDelegate: AnyObject {
@@ -96,26 +97,25 @@ class FloatWindow: NSWindow {
     }
     
     override func keyDown(with event: NSEvent) {
-        let combo = KeyCombo(QWERTYKeyCode: Int(event.keyCode), cocoaModifiers: event.modifierFlags)
+        guard let key = Sauce.shared.key(for: Int(event.keyCode)) else { return }
         if event.modifierFlags.rawValue & NSEvent.ModifierFlags.command.rawValue != 0 {
-            guard let char = combo?.characters.first else { return }
-            switch char {
-            case "s": // ⌘S
+            switch key {
+            case .s:
                 saveImage()
-            case "c": // ⌘C
+            case .c:
                 copyImage()
-            case "r": // ⌘R
+            case .r:
                 resetWindowScale()
-            case "=", "^": // ⌘+
+            case .equal, .six, .semicolon, .keypadPlus:
                 zoomInWindow()
-            case "-": // ⌘-
+            case .minus, .keypadMinus:
                 zoomOutWindow()
-            case "w": // ⌘W
+            case .w:
                 closeWindow()
             default:
                 break
             }
-        } else if event.keyCode == UInt16(kVK_Escape) {
+        } else if key == Key.escape {
             closeWindow()
         }
     }
