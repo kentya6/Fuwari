@@ -50,8 +50,7 @@ class ScreenshotManager: NSObject {
 
     func extractCoordinates(str: String) -> NSRect? {
         // Note, not found when capturing a window, rather than a selection
-        let capturePattern = #"captureRect = \((?<x>[\d.]+), (?<y>[\d.]+), (?<width>[\d.]+), (?<height>[\d.]+)\)"#
-
+        let capturePattern = #"captureRect = \((?<x>-?[\d.]+), (?<y>-?[\d.]+), (?<width>[\d.]+), (?<height>[\d.]+)\)"#
         guard let match = Regex.match(str: str, regexPattern: capturePattern) else {
             return nil
         }
