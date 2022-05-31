@@ -12,7 +12,7 @@ import Magnet
 
 class ShortcutsPreferenceViewController: NSViewController {
     
-    @IBOutlet fileprivate weak var captureShortcutRecordView: RecordView! {
+    @IBOutlet private weak var captureShortcutRecordView: RecordView! {
         didSet {
             captureShortcutRecordView.tintColor = .main
         }
@@ -26,7 +26,7 @@ class ShortcutsPreferenceViewController: NSViewController {
     
 }
 
-fileprivate extension ShortcutsPreferenceViewController {
+private extension ShortcutsPreferenceViewController {
     func prepareHotKeys() {
         
         captureShortcutRecordView.keyCombo = HotKeyManager.shared.captureKeyCombo

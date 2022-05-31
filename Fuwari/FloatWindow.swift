@@ -309,16 +309,16 @@ class FloatWindow: NSWindow {
         showPopUp(text: "\(Int(windowScale * 100))%")
     }
     
-    @objc fileprivate func moveWindow(dx: CGFloat, dy: CGFloat) {
+    @objc private func moveWindow(dx: CGFloat, dy: CGFloat) {
         setFrame(NSRect(x: frame.origin.x + dx, y: frame.origin.y + dy, width: frame.width, height: frame.height), display: true, animate: true)
     }
     
-    @objc fileprivate func resetWindowScale() {
+    @objc private func resetWindowScale() {
         windowScale = CGFloat(1.0)
         setFrame(NSRect(x: frame.origin.x, y: frame.origin.y, width: originalRect.width * windowScale, height: originalRect.height * windowScale), display: true, animate: true)
     }
     
-    @objc fileprivate func resetWindow() {
+    @objc private func resetWindow() {
         windowScale = CGFloat(1.0)
         setFrame(originalRect, display: true, animate: true)
     }

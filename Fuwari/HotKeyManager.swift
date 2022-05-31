@@ -13,9 +13,9 @@ import Carbon
 final class HotKeyManager: NSObject {
     
     static let shared = HotKeyManager()
-    fileprivate let defaults = UserDefaults.standard
+    private let defaults = UserDefaults.standard
     
-    fileprivate(set) lazy var captureKeyCombo: KeyCombo = {
+    private(set) lazy var captureKeyCombo: KeyCombo = {
         if let keyCombo = self.defaults.archiveDataForKey(KeyCombo.self, key: Constants.UserDefaults.captureKeyCombo) {
             return keyCombo
         } else {
@@ -25,7 +25,7 @@ final class HotKeyManager: NSObject {
             return defaultKeyCombo
         }
     }()
-    fileprivate(set) var captureHotKey: HotKey?
+    private(set) var captureHotKey: HotKey?
     
     func configure() {
         registerHotKey(keyCombo: captureKeyCombo)
@@ -47,7 +47,7 @@ extension HotKeyManager {
         MenuManager.shared.updateCaptureMenuItem()
     }
     
-    fileprivate func saveKeyCombo(keyCombo: KeyCombo?) {
+    private func saveKeyCombo(keyCombo: KeyCombo?) {
         if let keyCombo = keyCombo {
             defaults.setArchiveData(keyCombo, forKey: Constants.UserDefaults.captureKeyCombo)
         } else {
