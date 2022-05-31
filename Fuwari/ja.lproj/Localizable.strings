@@ -50,8 +50,12 @@
 
 "Zoom Reset" = "元のサイズに戻す";
 
-"Zoom In" = "拡大";
+"Zoom In" = "ズームイン";
 
-"Zoom Out" = "縮小";
+"Zoom Out" = "ズームアウト";
+
+"Show All Spaces" = "全ての操作スペースで表示";
+
+"Show Current Space" = "現在の操作スペースで表示";
 
 "Reset Window" = "元の位置とサイズに戻す";
