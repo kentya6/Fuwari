@@ -104,7 +104,7 @@ class FloatWindow: NSWindow {
                 saveImage()
             case .c:
                 copyImage()
-            case .r:
+            case .one, .keypadOne:
                 resetWindowScale()
             case .equal, .six, .semicolon, .keypadPlus:
                 zoomInWindow()
