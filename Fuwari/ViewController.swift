@@ -20,6 +20,7 @@ class ViewController: NSViewController, NSWindowDelegate {
 
         NotificationCenter.default.addObserver(self, selector: #selector(startCapture), name: Notification.Name(rawValue: Constants.Notification.capture), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(NSWindowDelegate.windowDidResize(_:)), name: NSWindow.didResizeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(NSWindowDelegate.windowDidMove(_:)), name: NSWindow.didMoveNotification, object: nil)
         
         oldApp = NSWorkspace.shared.frontmostApplication
         oldApp?.activate(options: .activateIgnoringOtherApps)
@@ -71,6 +72,10 @@ class ViewController: NSViewController, NSWindowDelegate {
     
     func windowDidResize(_ notification: Notification) {
         windowControllers.filter {$0 .isKeyWindow}.first?.windowDidResize(notification)
+    }
+    
+    func windowDidMove(_ notification: Notification) {
+        windowControllers.filter {$0 .isKeyWindow}.first?.windowDidMove(notification)
     }
 }
 

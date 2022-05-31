@@ -33,23 +33,23 @@ class FloatWindow: NSWindow {
         didSet {
             collectionBehavior = spaceMode.getCollectionBehavior()
             if spaceMode == .all {
-                NSAnimationContext.runAnimationGroup( { context in
+                NSAnimationContext.runAnimationGroup({ context in
                     context.duration = self.buttonOpacityDuration
-                    self.spaceButton.animator().alphaValue = 0
+                    self.spaceButton.animator().alphaValue = 0.0
                 }, completionHandler: {
                     self.spaceButton.image = NSImage(named: "SpaceAll")
-                    NSAnimationContext.runAnimationGroup( { context in
+                    NSAnimationContext.runAnimationGroup({ context in
                         context.duration = self.buttonOpacityDuration
                         self.spaceButton.animator().alphaValue = self.buttonOpacity
                     })
                 })
             } else {
-                NSAnimationContext.runAnimationGroup( { context in
+                NSAnimationContext.runAnimationGroup({ context in
                     context.duration = self.buttonOpacityDuration
-                    self.spaceButton.animator().alphaValue = 0
+                    self.spaceButton.animator().alphaValue = 0.0
                 }, completionHandler: {
                     self.spaceButton.image = NSImage(named: "SpaceCurrent")
-                    NSAnimationContext.runAnimationGroup( { context in
+                    NSAnimationContext.runAnimationGroup({ context in
                         context.duration = self.buttonOpacityDuration
                         self.spaceButton.animator().alphaValue = self.buttonOpacity
                     })
@@ -77,7 +77,7 @@ class FloatWindow: NSWindow {
         minSize = NSMakeSize(30, 30)
         animationBehavior = NSWindow.AnimationBehavior.alertPanel
         
-        popUpLabel = NSTextField(frame: NSRect(x: 10, y: 10, width: 80, height: 26))
+        popUpLabel = NSTextField(frame: NSRect(x: 10, y: 10, width: 120, height: 26))
         popUpLabel.textColor = .white
         popUpLabel.font = NSFont.boldSystemFont(ofSize: 20)
         popUpLabel.alignment = .center
@@ -132,9 +132,14 @@ class FloatWindow: NSWindow {
         fadeWindow(isIn: true)
     }
     
+    func windowDidMove(_ notification: Notification) {
+        showPopUp(text: "(\(Int(frame.origin.x)),\(Int(frame.origin.y)))")
+    }
+    
     func windowDidResize(_ notification: Notification) {
         windowScale = frame.width > frame.height ? frame.height / originalRect.height : frame.width / originalRect.width
         closeButton.frame = NSRect(x: 4, y: frame.height - 20, width: 16, height: 16)
+        spaceButton.frame = NSRect(x: frame.width - 20, y: frame.height - 20, width: 16, height: 16)
         showPopUp(text: "\(Int(windowScale * 100))%")
     }
     
