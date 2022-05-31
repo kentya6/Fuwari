@@ -205,8 +205,9 @@ class FloatWindow: NSWindow {
     }
     
     @objc private func zoomInWindow() {
-        if windowScale < maxWindowScale {
-            windowScale = floor((windowScale + windowScaleInterval) * 100) / 100
+        let scale = floor((windowScale + windowScaleInterval) * 100) / 100
+        if scale <= maxWindowScale {
+            windowScale = scale
             setFrame(NSRect(x: frame.origin.x - (originalRect.width / 2 * windowScaleInterval), y: frame.origin.y - (originalRect.height / 2 * windowScaleInterval), width: originalRect.width * windowScale, height: originalRect.height * windowScale), display: true, animate: true)
         }
         
@@ -214,8 +215,9 @@ class FloatWindow: NSWindow {
     }
     
     @objc private func zoomOutWindow() {
-        if windowScale > minWindowScale {
-            windowScale = floor((windowScale - windowScaleInterval) * 100) / 100
+        let scale = floor((windowScale - windowScaleInterval) * 100) / 100
+        if scale >= minWindowScale {
+            windowScale = scale
             setFrame(NSRect(x: frame.origin.x + (originalRect.width / 2 * windowScaleInterval), y: frame.origin.y + (originalRect.height / 2 * windowScaleInterval), width: originalRect.width * windowScale, height: originalRect.height * windowScale), display: true, animate: true)
         }
         
