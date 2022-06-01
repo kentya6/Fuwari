@@ -21,7 +21,6 @@ final class HotKeyManager: NSObject {
         } else {
             let defaultKeyCombo = KeyCombo(key: .seven, cocoaModifiers: [.command, .shift])!
             self.defaults.setArchiveData(defaultKeyCombo, forKey: Constants.UserDefaults.captureKeyCombo)
-            self.defaults.synchronize()
             return defaultKeyCombo
         }
     }()
@@ -53,6 +52,5 @@ extension HotKeyManager {
         } else {
             defaults.removeObject(forKey: Constants.UserDefaults.captureKeyCombo)
         }
-        defaults.synchronize()
     }
 }

@@ -9,7 +9,7 @@
 import Cocoa
 import Carbon
 import Magnet
-import LoginServiceKit
+import LaunchAtLogin
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -21,11 +21,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Initialize UserDefaults value
         defaults.register(defaults: [Constants.UserDefaults.movingOpacity: 0.7])
         defaults.register(defaults: [Constants.UserDefaults.uploadConfirmationItem: true])
+        defaults.register(defaults: [Constants.UserDefaults.suppressAlertForLoginItem: false])
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Show Login Item
-        if !defaults.bool(forKey: Constants.UserDefaults.loginItem) && !defaults.bool(forKey: Constants.UserDefaults.suppressAlertForLoginItem) {
+        if !LaunchAtLogin.isEnabled && !defaults.bool(forKey: Constants.UserDefaults.suppressAlertForLoginItem) {
             promptToAddLoginItems()
         }
         
@@ -84,26 +85,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //  Launch on system startup
         if alert.runModal() == NSApplication.ModalResponse.alertFirstButtonReturn {
-            defaults.set(true, forKey: Constants.UserDefaults.loginItem)
-            toggleLoginItemState()
+            LaunchAtLogin.isEnabled = true
         }
         // Do not show this message again
         if alert.suppressionButton?.state == .on {
             defaults.set(true, forKey: Constants.UserDefaults.suppressAlertForLoginItem)
         }
-        defaults.synchronize()
-    }
-    
-    private func toggleAddingToLoginItems(_ enable: Bool) {
-        let appPath = Bundle.main.bundlePath
-        LoginServiceKit.removeLoginItems(at: appPath)
-        if enable {
-            LoginServiceKit.addLoginItems(at: appPath)
-        }
-    }
-    
-    private func toggleLoginItemState() {
-        let isInLoginItems = defaults.bool(forKey: Constants.UserDefaults.loginItem)
-        toggleAddingToLoginItems(isInLoginItems)
     }
 }

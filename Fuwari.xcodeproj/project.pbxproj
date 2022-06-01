@@ -9,11 +9,10 @@
 /* Begin PBXBuildFile section */
 		30C4E09427CEC8B900EBDCBB /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C4E09327CEC8B900EBDCBB /* Regex.swift */; };
 		BE103A372845E59E005CA1A0 /* SpaceMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE103A362845E59E005CA1A0 /* SpaceMode.swift */; };
+		BE103A5428467356005CA1A0 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = BE103A5328467356005CA1A0 /* LaunchAtLogin */; };
 		BE23E42F1DFA1623004DA6B7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE23E42E1DFA1623004DA6B7 /* Constants.swift */; };
 		BE38949F263C20EA00131366 /* KeyHolder.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1F25FE3B6B008D6CF8 /* KeyHolder.xcframework */; };
 		BE3894A0263C20EA00131366 /* KeyHolder.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1F25FE3B6B008D6CF8 /* KeyHolder.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BE3894A1263C20EA00131366 /* LoginServiceKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1D25FE3B6B008D6CF8 /* LoginServiceKit.xcframework */; };
-		BE3894A2263C20EA00131366 /* LoginServiceKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1D25FE3B6B008D6CF8 /* LoginServiceKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE3894A3263C20EA00131366 /* Magnet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1C25FE3B6B008D6CF8 /* Magnet.xcframework */; };
 		BE3894A4263C20EA00131366 /* Magnet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F1C25FE3B6B008D6CF8 /* Magnet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE3894A5263C20EA00131366 /* Sauce.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD92F2025FE3B6B008D6CF8 /* Sauce.xcframework */; };
@@ -50,7 +49,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BE3894A2263C20EA00131366 /* LoginServiceKit.xcframework in Embed Frameworks */,
 				BE3894A6263C20EA00131366 /* Sauce.xcframework in Embed Frameworks */,
 				BE3894A4263C20EA00131366 /* Magnet.xcframework in Embed Frameworks */,
 				BE3894A0263C20EA00131366 /* KeyHolder.xcframework in Embed Frameworks */,
@@ -63,6 +61,7 @@
 /* Begin PBXFileReference section */
 		30C4E09327CEC8B900EBDCBB /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		BE103A362845E59E005CA1A0 /* SpaceMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceMode.swift; sourceTree = "<group>"; };
+		BE103A50284645E5005CA1A0 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		BE23E42E1DFA1623004DA6B7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BE357092263FE10900F8C5E0 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/GeneralPreferenceViewController.strings; sourceTree = "<group>"; };
 		BE3570932640406F00F8C5E0 /* Fuwari.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fuwari.entitlements; sourceTree = "<group>"; };
@@ -107,7 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE3894A1263C20EA00131366 /* LoginServiceKit.xcframework in Frameworks */,
+				BE103A5428467356005CA1A0 /* LaunchAtLogin in Frameworks */,
 				BE3894A5263C20EA00131366 /* Sauce.xcframework in Frameworks */,
 				BE3894A3263C20EA00131366 /* Magnet.xcframework in Frameworks */,
 				BE38949F263C20EA00131366 /* KeyHolder.xcframework in Frameworks */,
@@ -120,6 +119,7 @@
 		BE23E4301DFB8BF4004DA6B7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE103A50284645E5005CA1A0 /* ServiceManagement.framework */,
 				CAD92F1F25FE3B6B008D6CF8 /* KeyHolder.xcframework */,
 				CAD92F1D25FE3B6B008D6CF8 /* LoginServiceKit.xcframework */,
 				CAD92F1C25FE3B6B008D6CF8 /* Magnet.xcframework */,
@@ -223,6 +223,7 @@
 				BEC844EF1DED859300A4A57A /* Sources */,
 				BEC844F01DED859300A4A57A /* Frameworks */,
 				BEC844F11DED859300A4A57A /* Resources */,
+				BE103A5528467396005CA1A0 /* Launch at Login Helper */,
 				CAD92F2F25FE460F008D6CF8 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -230,6 +231,9 @@
 			dependencies = (
 			);
 			name = Fuwari;
+			packageProductDependencies = (
+				BE103A5328467356005CA1A0 /* LaunchAtLogin */,
+			);
 			productName = Fuwari;
 			productReference = BEC844F31DED859300A4A57A /* Fuwari.app */;
 			productType = "com.apple.product-type.application";
@@ -240,7 +244,7 @@
 		BEC844EB1DED859300A4A57A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0810;
+				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = AppKnop;
 				TargetAttributes = {
@@ -261,6 +265,9 @@
 				ja,
 			);
 			mainGroup = BEC844EA1DED859300A4A57A;
+			packageReferences = (
+				BE103A5228467356005CA1A0 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
+			);
 			productRefGroup = BEC844F41DED859300A4A57A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -286,6 +293,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BE103A5528467396005CA1A0 /* Launch at Login Helper */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Launch at Login Helper";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILT_PRODUCTS_DIR}/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/copy-helper-swiftpm.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BEC844EF1DED859300A4A57A /* Sources */ = {
@@ -511,7 +539,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Fuwari/Fuwari.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = QZJ74E9669;
@@ -557,6 +585,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BE103A5228467356005CA1A0 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BE103A5328467356005CA1A0 /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE103A5228467356005CA1A0 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
+			productName = LaunchAtLogin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BEC844EB1DED859300A4A57A /* Project object */;
 }

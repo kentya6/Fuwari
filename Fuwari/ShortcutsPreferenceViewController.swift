@@ -45,7 +45,6 @@ class ShortcutsPreferenceViewController: NSViewController {
         if sender == doubleTapCaptureButton {
             defaults.set(sender.indexOfSelectedItem, forKey: Constants.UserDefaults.doubleTapCaptureMode)
         }
-        defaults.synchronize()
     }
 }
 
