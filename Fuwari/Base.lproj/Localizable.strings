@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   Fuwari
 
@@ -53,3 +53,9 @@
 "Zoom In" = "Zoom In";
 
 "Zoom Out" = "Zoom Out";
+
+"Show All Spaces" = "Show All Spaces";
+
+"Show Current Space" = "Show Current Space";
+
+"Reset Window" = "Reset Window";

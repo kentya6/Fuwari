@@ -7,10 +7,12 @@
 //
 
 import Cocoa
+import LaunchAtLogin
 
 class GeneralPreferenceViewController: NSViewController {
     private let defaults = UserDefaults.standard
     
+    @objc dynamic var launchAtLogin = LaunchAtLogin.kvo
     @IBOutlet weak var movingOpacityValue: NSTextField!
     
     @IBAction func sliderValue(_ sender: NSSlider) {

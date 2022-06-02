@@ -12,16 +12,16 @@ class PreferencesWindowController: NSWindowController {
 
     static let shared = PreferencesWindowController(windowNibName: "PreferencesWindowController")
     
-    @IBOutlet fileprivate weak var toolBar: NSView!
-    @IBOutlet fileprivate weak var generalImageView: NSImageView!
-    @IBOutlet fileprivate weak var shortcutImageView: NSImageView!
-    @IBOutlet fileprivate weak var generalTextField: NSTextField!
-    @IBOutlet fileprivate weak var shortcutTextField: NSTextField!
-    @IBOutlet fileprivate weak var generalButton: NSButton!
-    @IBOutlet fileprivate weak var shortcutButton: NSButton!
+    @IBOutlet private weak var toolBar: NSView!
+    @IBOutlet private weak var generalImageView: NSImageView!
+    @IBOutlet private weak var shortcutImageView: NSImageView!
+    @IBOutlet private weak var generalTextField: NSTextField!
+    @IBOutlet private weak var shortcutTextField: NSTextField!
+    @IBOutlet private weak var generalButton: NSButton!
+    @IBOutlet private weak var shortcutButton: NSButton!
     
-    fileprivate let defaults = UserDefaults.standard
-    fileprivate let viewController = [GeneralPreferenceViewController(nibName: "GeneralPreferenceViewController", bundle: nil),
+    private let defaults = UserDefaults.standard
+    private let viewController = [GeneralPreferenceViewController(nibName: "GeneralPreferenceViewController", bundle: nil),
                                       ShortcutsPreferenceViewController(nibName: "ShortcutsPreferenceViewController", bundle: nil)]
     
     override func windowDidLoad() {
@@ -31,7 +31,7 @@ class PreferencesWindowController: NSWindowController {
             window?.titlebarAppearsTransparent = true
         }
         toolBarItemTapped(generalButton)
-        generalButton.sendAction(on: .leftMouseDown)        
+        generalButton.sendAction(on: .leftMouseDown)
         shortcutButton.sendAction(on: .leftMouseDown)
     }
     
@@ -56,7 +56,7 @@ extension PreferencesWindowController: NSWindowDelegate {
 }
 
 // MARK: - Layout
-fileprivate extension PreferencesWindowController {
+private extension PreferencesWindowController {
     private func resetImages() {
         generalImageView.image = NSImage(named: Constants.ImageName.generalOff)
         shortcutImageView.image = NSImage(named: Constants.ImageName.shortcutOff)

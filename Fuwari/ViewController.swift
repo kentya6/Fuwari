@@ -24,8 +24,8 @@ class ViewController: NSViewController, NSWindowDelegate {
         oldApp = NSWorkspace.shared.frontmostApplication
         oldApp?.activate(options: .activateIgnoringOtherApps)
         
-        ScreenshotManager.shared.eventHandler {
-            imageUrl in
+        ScreenshotManager.shared.eventHandler { imageUrl, rectMaybeConst, spaceMode in
+            let mainScreen = NSScreen.screens.first
             let currentScreen = NSScreen.screens.first { $0.frame.contains(NSEvent.mouseLocation) }
             guard let currentScaleFactor = currentScreen?.backingScaleFactor else { return }
             let mouseLocation = NSEvent.mouseLocation
@@ -34,8 +34,22 @@ class ViewController: NSViewController, NSWindowDelegate {
             let context = CIContext(options: nil)
             
             guard let cgImage = context.createCGImage(ciImage, from: ciImage.extent) else { return }
-            
-            self.createFloatWindow(rect: NSRect(x: Int(mouseLocation.x) - cgImage.width / Int(2 * currentScaleFactor), y: Int(mouseLocation.y) - cgImage.height / Int(2 * currentScaleFactor), width: Int(CGFloat(cgImage.width) / currentScaleFactor), height: Int(CGFloat(cgImage.height) / currentScaleFactor)), image: cgImage)
+            var rectMaybe = rectMaybeConst
+            if let height = mainScreen?.frame.size.height, let rect = rectMaybe {
+                rectMaybe = NSRect(
+                    x: rect.minX,
+                    y: height - rect.maxY,
+                    width: rect.width,
+                    height: rect.height
+                )
+            }
+            let rect = rectMaybe ?? NSRect(
+                x: Int(mouseLocation.x) - cgImage.width / Int(2 * currentScaleFactor),
+                y: Int(mouseLocation.y) - cgImage.height / Int(2 * currentScaleFactor),
+                width: Int(CGFloat(cgImage.width) / currentScaleFactor),
+                height: Int(CGFloat(cgImage.height) / currentScaleFactor)
+            )
+            self.createFloatWindow(rect: rect, image: cgImage, spaceMode: spaceMode)
             try? FileManager.default.removeItem(at: imageUrl)
         }
     }
@@ -44,15 +58,15 @@ class ViewController: NSViewController, NSWindowDelegate {
         NotificationCenter.default.removeObserver(self, name: Notification.Name(rawValue: Constants.Notification.capture), object: nil)
     }
     
-    private func createFloatWindow(rect: NSRect, image: CGImage) {
-        let floatWindow = FloatWindow(contentRect: rect, image: image)
+    private func createFloatWindow(rect: NSRect, image: CGImage, spaceMode: SpaceMode) {
+        let floatWindow = FloatWindow(contentRect: rect, image: image, spaceMode: spaceMode)
         floatWindow.floatDelegate = self
         windowControllers.append(floatWindow)
         NSApp.activate(ignoringOtherApps: true)
     }
     
     @objc private func startCapture() {
-        ScreenshotManager.shared.startCapture()
+        ScreenshotManager.shared.startCapture(spaceMode: .all)
     }
     
     func windowDidResize(_ notification: Notification) {

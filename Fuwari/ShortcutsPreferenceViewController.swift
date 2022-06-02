@@ -12,21 +12,43 @@ import Magnet
 
 class ShortcutsPreferenceViewController: NSViewController {
     
-    @IBOutlet fileprivate weak var captureShortcutRecordView: RecordView! {
+    private let defaults = UserDefaults.standard
+    
+    @IBOutlet private weak var captureShortcutRecordView: RecordView! {
         didSet {
             captureShortcutRecordView.tintColor = .main
         }
     }
     
+    @IBOutlet private weak var singleTapCaptureButton: NSPopUpButton!
+    @IBOutlet private weak var doubleTapCaptureButton: NSPopUpButton!
+            
     override func loadView() {
         super.loadView()
         captureShortcutRecordView.delegate = self
         prepareHotKeys()
+        
+        defaults.register(defaults: [Constants.UserDefaults.singleTapCaptureMode: SpaceMode.all.rawValue])
+        defaults.register(defaults: [Constants.UserDefaults.doubleTapCaptureMode: SpaceMode.current.rawValue])
+        
+        singleTapCaptureButton.addItems(withTitles: [LocalizedString.ShowAllSpaces.value, LocalizedString.ShowCurrentSpace.value])
+        doubleTapCaptureButton.addItems(withTitles: [LocalizedString.ShowAllSpaces.value, LocalizedString.ShowCurrentSpace.value])
+        
+        singleTapCaptureButton.selectItem(at: defaults.integer(forKey: Constants.UserDefaults.singleTapCaptureMode))
+        doubleTapCaptureButton.selectItem(at: defaults.integer(forKey: Constants.UserDefaults.doubleTapCaptureMode))
     }
     
+    @IBAction private func didSelectCaptureButton(_ sender: NSPopUpButton) {
+        if sender == singleTapCaptureButton {
+            defaults.set(sender.indexOfSelectedItem, forKey: Constants.UserDefaults.singleTapCaptureMode)
+        }
+        if sender == doubleTapCaptureButton {
+            defaults.set(sender.indexOfSelectedItem, forKey: Constants.UserDefaults.doubleTapCaptureMode)
+        }
+    }
 }
 
-fileprivate extension ShortcutsPreferenceViewController {
+private extension ShortcutsPreferenceViewController {
     func prepareHotKeys() {
         
         captureShortcutRecordView.keyCombo = HotKeyManager.shared.captureKeyCombo
