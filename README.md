@@ -25,7 +25,7 @@
 ## 🖥 Demo
 
 <p align="center" >
-<img src="https://fuwari-app.com/images/fuwari_demo_0.6.0.gif" width="720px" />
+<img src="https://fuwari-app.com/images/fuwari_demo_1.0.0.gif" width="720px" />
 </p>
 
 ## ✅ Feature
@@ -33,6 +33,7 @@
 * [x] **Keep a screenshot on your screen**
   * [x] Position and Display size can be freely changeable.
   * [x] Change the transparency freely with the mouse wheel.
+  * [x] Change the display range in the space.
   * [x] Can be copied to clipboard.
   * [x] Of course, can be save.
 * [x] **Send a screenshot to Gyazo**
@@ -40,8 +41,8 @@
 ## 📦 Requirement
 
 * Swift 5+
-* Xcode 12.4+
-* Carthage 0.37.0+
+* Xcode 13.4+
+* Carthage 0.38.0+
 
 ## 🤝 Contributing
 
